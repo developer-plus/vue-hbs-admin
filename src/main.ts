@@ -14,3 +14,6 @@ app.use(globalRegister)
 app.use(router)
 app.use(store)
 app.mount('#app')
+
+console.log(process.env.VUE_APP_BASE_URL)
+console.log(process.env.VUE_APP_BASE_NAME)
