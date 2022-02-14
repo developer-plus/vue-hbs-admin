@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import { registerApp } from './global'
+import { globalRegister } from './global'
 
 import App from './App.vue'
 
@@ -8,7 +8,7 @@ import store from './store'
 
 const app = createApp(App)
 
-registerApp(app)
+app.use(globalRegister)
 app.use(router)
 app.use(store)
 app.mount('#app')
