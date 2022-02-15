@@ -18,20 +18,20 @@ app.mount('#app')
 console.log(process.env.VUE_APP_BASE_URL)
 console.log(process.env.VUE_APP_BASE_NAME)
 
-hRequest.request({
-  url: '/home/multidata',
-  method: 'GET',
-  interceptors: {
-    requestInterceptor: (config) => {
-      console.log('单独请求的 config')
-      return config
-    },
-    responseInterceptor: (res) => {
-      console.log('单独响应的 res')
-      return res
-    }
-  }
-})
+// hRequest.request({
+//   url: '/home/multidata',
+//   method: 'GET',
+//   interceptors: {
+//     requestInterceptor: (config) => {
+//       console.log('单独请求的 config')
+//       return config
+//     },
+//     responseInterceptor: (res) => {
+//       console.log('单独响应的 res')
+//       return res
+//     }
+//   }
+// })
 
 hRequest.request({
   url: '/home/multidata',

@@ -23,22 +23,31 @@ class HRequest {
     // 添加所有的实例都有的拦截器
     this.instance.interceptors.request.use(
       (config) => {
-        console.log('所有的实例都有的拦截器: 请求拦截成功')
+        console.log('所有的实例都有的拦截器: 请求成功拦截')
         return config
       },
       (err) => {
-        console.log('所有的实例都有的拦截器: 请求拦截失败')
+        console.log('所有的实例都有的拦截器: 请求失败拦截')
         return err
       }
     )
 
     this.instance.interceptors.response.use(
       (res) => {
-        console.log('所有的实例都有的拦截器: 响应拦截成功')
-        return res
+        console.log('所有的实例都有的拦截器: 响应成功拦截')
+        const data = res.data
+        if (data.returnCode === '-1001') {
+          console.log('请求失败')
+        } else {
+          return data
+        }
       },
       (err) => {
-        console.log('所有的实例都有的拦截器: 响应拦截失败')
+        console.log('所有的实例都有的拦截器: 响应失败拦截')
+        // 例子：判断不同的 HttpErrorCode 显示不同的错误信息
+        if (err.response.status === 404) {
+          console.log('404 的错误')
+        }
         return err
       }
     )

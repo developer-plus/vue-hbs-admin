@@ -7,19 +7,25 @@ const hRequest = new HRequest({
   timeout: TIME_OUT,
   interceptors: {
     requestInterceptor: (config) => {
-      console.log('成功')
+      const token = ''
+
+      if (token) {
+        config.headers.Authorization = `Beare ${token}`
+      }
+
+      console.log('请求成功的拦截')
       return config
     },
     requestInterceptorsCatch: (err) => {
-      console.log('失败')
+      console.log('请求失败的拦截')
       return err
     },
     responseInterceptor: (res) => {
-      console.log('响应成功')
+      console.log('响应成功的拦截')
       return res
     },
     responseInterceptorCatch: (err) => {
-      console.log('响应失败')
+      console.log('响应失败的拦截')
       return err
     }
   }
