@@ -1,8 +1,6 @@
 import { createApp } from 'vue'
 import { globalRegister } from './global'
 
-import './api/axios-demo'
-
 import App from './App.vue'
 
 import router from './router'
