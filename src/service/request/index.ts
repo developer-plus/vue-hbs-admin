@@ -107,6 +107,22 @@ class HRequest {
         })
     })
   }
+
+  get<T>(config: HRequestConfig): Promise<T> {
+    return this.request<T>({ ...config, method: 'GET' })
+  }
+
+  post<T>(config: HRequestConfig): Promise<T> {
+    return this.request<T>({ ...config, method: 'POST' })
+  }
+
+  delete<T>(config: HRequestConfig): Promise<T> {
+    return this.request<T>({ ...config, method: 'DELETE' })
+  }
+
+  patch<T>(config: HRequestConfig): Promise<T> {
+    return this.request<T>({ ...config, method: 'PATCH' })
+  }
 }
 
 export default HRequest

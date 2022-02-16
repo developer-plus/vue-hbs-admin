@@ -50,3 +50,14 @@ hRequest
     console.log(res.returnCode)
     console.log(res.success)
   })
+
+hRequest
+  .get<DataType>({
+    url: '/home/multidata',
+    showLoading: false
+  })
+  .then((res) => {
+    console.log(res.data)
+    console.log(res.returnCode)
+    console.log(res.success)
+  })
