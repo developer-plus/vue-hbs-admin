@@ -9,4 +9,5 @@ export interface HRequestInterceptors {
 
 export interface HRequestConfig extends AxiosRequestConfig {
   interceptors?: HRequestInterceptors
+  showLoading?: boolean
 }

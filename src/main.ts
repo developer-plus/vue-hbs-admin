@@ -35,5 +35,6 @@ console.log(process.env.VUE_APP_BASE_NAME)
 
 hRequest.request({
   url: '/home/multidata',
-  method: 'GET'
+  method: 'GET',
+  showLoading: false
 })

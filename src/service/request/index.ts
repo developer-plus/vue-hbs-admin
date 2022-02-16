@@ -5,13 +5,17 @@ import type { HRequestInterceptors, HRequestConfig } from './type'
 import { ElLoading } from 'element-plus'
 import type { LoadingInstance } from 'element-plus/lib/components/loading/src/loading'
 
+const DEFAULT_LOADING = true
+
 class HRequest {
   instance: AxiosInstance
   interceptors?: HRequestInterceptors
+  showLoading: boolean
   loading?: LoadingInstance
 
   constructor(config: HRequestConfig) {
     this.instance = axios.create(config)
+    this.showLoading = config.showLoading ?? DEFAULT_LOADING
     this.interceptors = config.interceptors
 
     this.instance.interceptors.request.use(
@@ -28,11 +32,13 @@ class HRequest {
     this.instance.interceptors.request.use(
       (config) => {
         console.log('所有的实例都有的拦截器: 请求成功拦截')
-        this.loading = ElLoading.service({
-          lock: true,
-          text: '正在请求数据...',
-          background: 'rgba(0, 0, 0, 0.5)'
-        })
+        if (this.showLoading) {
+          this.loading = ElLoading.service({
+            lock: true,
+            text: '正在请求数据...',
+            background: 'rgba(0, 0, 0, 0.5)'
+          })
+        }
         return config
       },
       (err) => {
@@ -71,12 +77,26 @@ class HRequest {
     if (config.interceptors?.requestInterceptor) {
       config = config.interceptors.requestInterceptor(config)
     }
-    this.instance.request(config).then((res) => {
-      if (config.interceptors?.responseInterceptor) {
-        res = config.interceptors.responseInterceptor(res)
-      }
-      console.log(res)
-    })
+
+    if (config.showLoading === false) {
+      this.showLoading = config.showLoading
+    }
+    this.instance
+      .request(config)
+      .then((res) => {
+        if (config.interceptors?.responseInterceptor) {
+          res = config.interceptors.responseInterceptor(res)
+        }
+        console.log(res)
+
+        // 将 showLoading 设置为 true, 这样不会影响下一个请求
+        this.showLoading = DEFAULT_LOADING
+      })
+      .catch((err) => {
+        // 将 showLoading 设置为 true, 这样不会影响下一个请求
+        this.showLoading = DEFAULT_LOADING
+        return err
+      })
   }
 }
 
