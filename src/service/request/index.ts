@@ -8,7 +8,7 @@ import type { LoadingInstance } from 'element-plus/lib/components/loading/src/lo
 class HRequest {
   instance: AxiosInstance
   interceptors?: HRequestInterceptors
-  loadingInstance?: LoadingInstance
+  loading?: LoadingInstance
 
   constructor(config: HRequestConfig) {
     this.instance = axios.create(config)
@@ -28,7 +28,7 @@ class HRequest {
     this.instance.interceptors.request.use(
       (config) => {
         console.log('所有的实例都有的拦截器: 请求成功拦截')
-        this.loadingInstance = ElLoading.service({
+        this.loading = ElLoading.service({
           lock: true,
           text: '正在请求数据...',
           background: 'rgba(0, 0, 0, 0.5)'
@@ -46,7 +46,7 @@ class HRequest {
         console.log('所有的实例都有的拦截器: 响应成功拦截')
 
         // 将 loading 移除
-        this.loadingInstance?.close()
+        this.loading?.close()
 
         const data = res.data
         if (data.returnCode === '-1001') {
@@ -57,7 +57,7 @@ class HRequest {
       },
       (err) => {
         console.log('所有的实例都有的拦截器: 响应失败拦截')
-        this.loadingInstance?.close()
+        this.loading?.close()
         // 例子：判断不同的 HttpErrorCode 显示不同的错误信息
         if (err.response.status === 404) {
           console.log('404 的错误')
