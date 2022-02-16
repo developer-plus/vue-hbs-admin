@@ -73,30 +73,39 @@ class HRequest {
     )
   }
 
-  request(config: HRequestConfig): void {
-    if (config.interceptors?.requestInterceptor) {
-      config = config.interceptors.requestInterceptor(config)
-    }
+  request<T>(config: HRequestConfig): Promise<T> {
+    return new Promise((resolve, reject) => {
+      // 1. 单个请求对请求 config 的处理
+      if (config.interceptors?.requestInterceptor) {
+        config = config.interceptors.requestInterceptor(config)
+      }
 
-    if (config.showLoading === false) {
-      this.showLoading = config.showLoading
-    }
-    this.instance
-      .request(config)
-      .then((res) => {
-        if (config.interceptors?.responseInterceptor) {
-          res = config.interceptors.responseInterceptor(res)
-        }
-        console.log(res)
+      // 2. 判断是否需要显示 loading
+      if (config.showLoading === false) {
+        this.showLoading = config.showLoading
+      }
 
-        // 将 showLoading 设置为 true, 这样不会影响下一个请求
-        this.showLoading = DEFAULT_LOADING
-      })
-      .catch((err) => {
-        // 将 showLoading 设置为 true, 这样不会影响下一个请求
-        this.showLoading = DEFAULT_LOADING
-        return err
-      })
+      this.instance
+        .request<any, T>(config)
+        .then((res) => {
+          // 1. 单个请求对数据的处理
+          if (config.interceptors?.responseInterceptor) {
+            res = config.interceptors.responseInterceptor(res)
+          }
+
+          // 2. 将 showLoading 设置为 true, 这样不会影响下一个请求
+          this.showLoading = DEFAULT_LOADING
+
+          // 3. 将结果 resolve 返回出去
+          resolve(res)
+        })
+        .catch((err) => {
+          // 将 showLoading 设置为 true, 这样不会影响下一个请求
+          this.showLoading = DEFAULT_LOADING
+          reject(err)
+          return err
+        })
+    })
   }
 }
 
