@@ -73,7 +73,7 @@ class HRequest {
     )
   }
 
-  request<T>(config: HRequestConfig): Promise<T> {
+  request<T>(config: HRequestConfig<T>): Promise<T> {
     return new Promise((resolve, reject) => {
       // 1. 单个请求对请求 config 的处理
       if (config.interceptors?.requestInterceptor) {
@@ -108,19 +108,19 @@ class HRequest {
     })
   }
 
-  get<T>(config: HRequestConfig): Promise<T> {
+  get<T>(config: HRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'GET' })
   }
 
-  post<T>(config: HRequestConfig): Promise<T> {
+  post<T>(config: HRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'POST' })
   }
 
-  delete<T>(config: HRequestConfig): Promise<T> {
+  delete<T>(config: HRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'DELETE' })
   }
 
-  patch<T>(config: HRequestConfig): Promise<T> {
+  patch<T>(config: HRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'PATCH' })
   }
 }
