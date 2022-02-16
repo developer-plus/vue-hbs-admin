@@ -14,10 +14,15 @@ class HRequest {
   loading?: LoadingInstance
 
   constructor(config: HRequestConfig) {
+    // 创建 axios 实例
     this.instance = axios.create(config)
+
+    // 保存基本信息
     this.showLoading = config.showLoading ?? DEFAULT_LOADING
     this.interceptors = config.interceptors
 
+    // 使用拦截器
+    // 1. 从 config 中取出拦截器是对应的实例的拦截器
     this.instance.interceptors.request.use(
       this.interceptors?.requestInterceptor,
       this.interceptors?.requestInterceptorsCatch
@@ -28,10 +33,11 @@ class HRequest {
       this.interceptors?.responseInterceptorCatch
     )
 
-    // 添加所有的实例都有的拦截器
+    // 2. 添加所有的实例都有的拦截器
     this.instance.interceptors.request.use(
       (config) => {
         console.log('所有的实例都有的拦截器: 请求成功拦截')
+
         if (this.showLoading) {
           this.loading = ElLoading.service({
             lock: true,
@@ -63,6 +69,8 @@ class HRequest {
       },
       (err) => {
         console.log('所有的实例都有的拦截器: 响应失败拦截')
+
+        // 将 loading 移除
         this.loading?.close()
         // 例子：判断不同的 HttpErrorCode 显示不同的错误信息
         if (err.response.status === 404) {
