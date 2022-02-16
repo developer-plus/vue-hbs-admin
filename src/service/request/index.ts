@@ -46,7 +46,7 @@ class HRequest {
         console.log('所有的实例都有的拦截器: 响应成功拦截')
 
         // 将 loading 移除
-        // this.loadingInstance?.close()
+        this.loadingInstance?.close()
 
         const data = res.data
         if (data.returnCode === '-1001') {
@@ -57,7 +57,7 @@ class HRequest {
       },
       (err) => {
         console.log('所有的实例都有的拦截器: 响应失败拦截')
-        // this.loadingInstance?.close()
+        this.loadingInstance?.close()
         // 例子：判断不同的 HttpErrorCode 显示不同的错误信息
         if (err.response.status === 404) {
           console.log('404 的错误')
