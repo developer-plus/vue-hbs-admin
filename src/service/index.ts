@@ -10,7 +10,9 @@ const hRequest = new HRequest({
       // 携带 token 的拦截
       const token = ''
       if (token) {
-        // config.headers.Authorization = `Bearer ${token}`
+        if (config.headers) {
+          config.headers.Authorization = `Bearer ${token}`
+        }
       }
 
       console.log('请求成功的拦截')
