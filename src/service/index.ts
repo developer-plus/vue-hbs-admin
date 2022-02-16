@@ -7,10 +7,10 @@ const hRequest = new HRequest({
   timeout: TIME_OUT,
   interceptors: {
     requestInterceptor: (config) => {
+      // 携带 token 的拦截
       const token = ''
-
       if (token) {
-        config.headers.Authorization = `Beare ${token}`
+        // config.headers.Authorization = `Bearer ${token}`
       }
 
       console.log('请求成功的拦截')
