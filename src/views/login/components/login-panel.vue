@@ -1,14 +1,11 @@
 <template>
   <div class="login-panel">
     <h1 class="title">后台管理系统</h1>
-    <el-tabs type="border-card">
+    <el-tabs type="border-card" stretch>
       <el-tab-pane>
         <template #label>
           <span>
-            <el-icon style="vertical-align: middle;">
-              <avatar />
-            </el-icon>
-            账号登录
+            <el-icon class="icon"><user /></el-icon> 账号登录
           </span>
         </template>
         账号登录
@@ -16,10 +13,7 @@
       <el-tab-pane>
         <template #label>
           <span>
-            <el-icon style="vertical-align: middle;">
-              <iphone />
-            </el-icon>
-            手机登录
+            <el-icon class="icon"><iphone /></el-icon> 手机登录
           </span>
         </template>
         手机登录
@@ -29,12 +23,21 @@
 </template>
 
 <script setup lang="ts">
-import { Avatar, Iphone } from '@element-plus/icons-vue'
+import { User, Iphone } from '@element-plus/icons-vue'
 </script>
 
 <style scoped lang="less">
 .login-panel {
+  margin-bottom: 200px;
   width: 320px;
-  text-align: center;
+
+  h1 {
+    text-align: center;
+  }
+
+  .icon {
+    position: relative;
+    top: 1px;
+  }
 }
 </style>
