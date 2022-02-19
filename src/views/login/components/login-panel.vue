@@ -1,6 +1,6 @@
 <template>
   <div class="login-panel">
-    <h1 class="title">后台管理系统</h1>
+    <h1 class="title" ref="titleRef">后台管理系统</h1>
     <el-tabs type="border-card" stretch>
       <el-tab-pane>
         <template #label>
@@ -8,7 +8,7 @@
             <el-icon class="icon"><user /></el-icon> 账号登录
           </span>
         </template>
-        <login-account />
+        <login-account ref="accountRef" />
       </el-tab-pane>
       <el-tab-pane>
         <template #label>
@@ -36,9 +36,13 @@ import LoginAccount from './login-account.vue'
 import LoginPhone from './login-phone.vue'
 
 const isKeepPassword = ref(true)
+const titleRef = ref(null)
+const accountRef = ref(null)
 
 const handleLoginClick = () => {
   console.log('立即登录')
+  console.log(titleRef.value)
+  console.log(accountRef.value)
 }
 </script>
 
