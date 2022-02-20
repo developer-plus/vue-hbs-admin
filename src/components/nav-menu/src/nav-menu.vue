@@ -2,12 +2,13 @@
   <div class="nav-menu">
     <div class="logo">
       <img class="img" src="~@/assets/logo.png" alt="logo" />
-      <span class="title">Vue3 + TS</span>
+      <span v-if="!isCollapse" class="title">Vue3 + TS</span>
     </div>
 
     <el-menu
       default-active="2"
       class="el-menu-vertical"
+      :collapse="isCollapse"
       background-color="#0c2135"
       text-color="#b7bdc3"
       active-text-color="#0a60bd"
@@ -44,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, defineProps } from 'vue'
 import { useStore } from '@/store'
 
 import { Monitor, ChatLineRound, Goods, Setting } from '@element-plus/icons-vue'
@@ -58,6 +59,10 @@ const icons = {
 
 const store = useStore()
 const userMenus = computed(() => store.state.login.userMenus)
+
+defineProps({
+  isCollapse: Boolean
+})
 </script>
 
 <style scoped lang="less">
