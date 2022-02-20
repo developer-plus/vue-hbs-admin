@@ -1,6 +1,6 @@
 <template>
   <div class="login-panel">
-    <h1 class="title" ref="titleRef">后台管理系统</h1>
+    <h1 class="title">后台管理系统</h1>
     <el-tabs v-model="currentTab" type="border-card" stretch>
       <el-tab-pane name="account">
         <template #label>
@@ -16,7 +16,7 @@
             <el-icon class="icon"><iphone /></el-icon> 手机登录
           </span>
         </template>
-        <login-phone />
+        <login-phone ref="phoneRef" />
       </el-tab-pane>
     </el-tabs>
 
@@ -32,26 +32,21 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import 'element-plus/es/components/message/style/css'
-import { ElMessage } from 'element-plus'
 import { User, Iphone } from '@element-plus/icons-vue'
 import LoginAccount from './login-account.vue'
 import LoginPhone from './login-phone.vue'
 
 const currentTab = ref<string>('account')
 const isKeepPassword = ref(true)
-const titleRef = ref(null)
+
 const accountRef = ref<InstanceType<typeof LoginAccount>>()
+const phoneRef = ref<InstanceType<typeof LoginPhone>>()
 
 const handleLoginClick = () => {
   if (currentTab.value === 'account') {
     accountRef.value?.loginAction(isKeepPassword.value)
   } else {
-    ElMessage('this is a message.')
-    ElMessage({
-      type: 'warning',
-      message: '暂不支持手机登录哦～'
-    })
+    phoneRef.value?.loginAction()
   }
 }
 </script>

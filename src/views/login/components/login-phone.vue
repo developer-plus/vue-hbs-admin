@@ -13,12 +13,24 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, defineExpose } from 'vue'
+
+import 'element-plus/es/components/message/style/css'
+import { ElMessage } from 'element-plus'
 
 const phone = reactive({
   num: '',
   code: ''
 })
+
+const loginAction = () => {
+  ElMessage({
+    type: 'warning',
+    message: '暂不支持手机登录哦～'
+  })
+}
+
+defineExpose({ loginAction })
 </script>
 
 <style scoped lang="less">
