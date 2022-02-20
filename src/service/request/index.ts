@@ -36,8 +36,6 @@ class HRequest {
     // 2. 添加所有的实例都有的拦截器
     this.instance.interceptors.request.use(
       (config) => {
-        console.log('所有的实例都有的拦截器: 请求成功拦截')
-
         if (this.showLoading) {
           this.loading = ElLoading.service({
             lock: true,
@@ -48,15 +46,12 @@ class HRequest {
         return config
       },
       (err) => {
-        console.log('所有的实例都有的拦截器: 请求失败拦截')
         return err
       }
     )
 
     this.instance.interceptors.response.use(
       (res) => {
-        console.log('所有的实例都有的拦截器: 响应成功拦截')
-
         // 将 loading 移除
         this.loading?.close()
 
@@ -68,8 +63,6 @@ class HRequest {
         }
       },
       (err) => {
-        console.log('所有的实例都有的拦截器: 响应失败拦截')
-
         // 将 loading 移除
         this.loading?.close()
         // 例子：判断不同的 HttpErrorCode 显示不同的错误信息
