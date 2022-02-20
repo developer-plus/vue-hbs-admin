@@ -17,11 +17,9 @@ import localCache from '@/utils/cache'
 
 import { rules } from '../config/account-config'
 
-type FormInstance = InstanceType<typeof ElForm>
-
 const store = useStore()
 
-const formRef = ref<FormInstance>()
+const formRef = ref<InstanceType<typeof ElForm>>()
 const account = reactive({
   name: localCache.getCache('name') ?? '',
   password: localCache.getCache('password') ?? ''
