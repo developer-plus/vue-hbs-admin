@@ -11,6 +11,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from 'vue'
+import { useStore } from 'vuex'
 import type { ElForm } from 'element-plus'
 import localCache from '@/utils/cache'
 
@@ -20,6 +21,8 @@ type FormInstance = InstanceType<typeof ElForm>
 
 export default defineComponent({
   setup() {
+    const store = useStore()
+
     const formRef = ref<FormInstance>()
     const account = reactive({
       name: localCache.getCache('name') ?? '',
@@ -39,7 +42,7 @@ export default defineComponent({
           }
 
           // 2. 登录操作
-          console.log('login')
+          store.dispatch('login/accountLoginAction', { ...account })
         }
       })
     }

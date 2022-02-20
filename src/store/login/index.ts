@@ -13,7 +13,12 @@ const loginModule: Module<ILoginState, IRootState> = {
   },
   mutations: {},
   getters: {},
-  actions: {}
+  actions: {
+    accountLoginAction({ commit }, payload: any) {
+      console.log('accountLoginAction')
+      console.log(payload)
+    }
+  }
 }
 
 export default loginModule
