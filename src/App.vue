@@ -4,10 +4,6 @@
   </div>
 </template>
 
-<script setup lang="ts">
-console.log('setup')
-</script>
-
 <style scoped lang="less">
 .app {
   width: 100%;
