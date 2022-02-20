@@ -1,7 +1,9 @@
 <template>
   <div class="main">
     <el-container class="main-content">
-      <el-aside width="210px">Aside</el-aside>
+      <el-aside width="210px">
+        <nav-menu />
+      </el-aside>
       <el-container class="page">
         <el-header class="page-header">Header</el-header>
         <el-main class="page-content">Main</el-main>
@@ -11,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-console.log('fasd')
+import NavMenu from '@/components/nav-menu'
 </script>
 
 <style scoped lang="less">
