@@ -1,5 +1,5 @@
 <template>
-  <el-form ref="accountRef" :model="account" :rules="rules">
+  <el-form ref="formRef" :model="account" :rules="rules">
     <el-form-item label="账号" prop="name">
       <el-input v-model="account.name"></el-input>
     </el-form-item>
@@ -9,33 +9,35 @@
   </el-form>
 </template>
 
-<script setup lang="ts">
-import { reactive, ref } from 'vue'
+<script lang="ts">
+import { defineComponent, reactive, ref } from 'vue'
 import type { ElForm } from 'element-plus'
 import { rules } from '../config/account-config'
 
 type FormInstance = InstanceType<typeof ElForm>
 
-const accountRef = ref<FormInstance>()
-const account = reactive({
-  name: '',
-  password: ''
-})
+export default defineComponent({
+  setup() {
+    const formRef = ref<FormInstance>()
+    const account = reactive({
+      name: '',
+      password: ''
+    })
 
-const submitForm = (formEl: FormInstance | undefined) => {
-  if (!formEl) return
-  formEl.validate((valid) => {
-    if (valid) {
-      console.log('submit!')
-    } else {
-      console.log('error submit!')
-      return false
+    const loginAction = () => {
+      formRef.value?.validate((valid) => {
+        if (valid) {
+          console.log('login')
+        }
+      })
     }
-  })
-}
 
-const resetForm = (formEl: FormInstance | undefined) => {
-  if (!formEl) return
-  formEl.resetFields()
-}
+    return {
+      formRef,
+      account,
+      rules,
+      loginAction
+    }
+  }
+})
 </script>

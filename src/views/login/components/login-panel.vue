@@ -37,12 +37,10 @@ import LoginPhone from './login-phone.vue'
 
 const isKeepPassword = ref(true)
 const titleRef = ref(null)
-const accountRef = ref(null)
+const accountRef = ref<InstanceType<typeof LoginAccount>>()
 
 const handleLoginClick = () => {
-  console.log('立即登录')
-  console.log(titleRef.value)
-  console.log(accountRef.value)
+  accountRef.value?.loginAction()
 }
 </script>
 
