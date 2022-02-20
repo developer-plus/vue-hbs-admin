@@ -40,7 +40,7 @@ const titleRef = ref(null)
 const accountRef = ref<InstanceType<typeof LoginAccount>>()
 
 const handleLoginClick = () => {
-  accountRef.value?.loginAction()
+  accountRef.value?.loginAction(isKeepPassword.value)
 }
 </script>
 
