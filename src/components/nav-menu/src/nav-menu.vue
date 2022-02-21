@@ -25,7 +25,7 @@
 
             <!-- 遍历 children -->
             <template v-for="subitem in item.children" :key="subitem.id">
-              <el-menu-item :index="subitem.id + ''">
+              <el-menu-item :index="subitem.id + ''" @click="handleMenuItemClick(subitem)">
                 <el-icon v-if="subitem.icon"><component :is="icons[subitem.icon]" /></el-icon>
                 <span>{{ subitem.name }}</span>
               </el-menu-item>
@@ -47,6 +47,7 @@
 <script setup lang="ts">
 import { computed, defineProps } from 'vue'
 import { useStore } from '@/store'
+import { useRouter } from 'vue-router'
 
 import { Monitor, ChatLineRound, Goods, Setting } from '@element-plus/icons-vue'
 
@@ -63,6 +64,13 @@ const userMenus = computed(() => store.state.login.userMenus)
 defineProps({
   isCollapse: Boolean
 })
+
+const router = useRouter()
+const handleMenuItemClick = (item: any) => {
+  router.push({
+    path: item.url ?? '/not-found'
+  })
+}
 </script>
 
 <style scoped lang="less">
