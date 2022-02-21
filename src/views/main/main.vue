@@ -9,7 +9,9 @@
           <nav-header :is-collapse="isCollapse" @fold-change="handleFoldChange" />
         </el-header>
         <el-main class="page-content">
-          <router-view />
+          <div class="page-info">
+            <router-view />
+          </div>
         </el-main>
       </el-container>
     </el-container>
@@ -44,6 +46,10 @@ const handleFoldChange = () => {
 
 .page-content {
   height: calc(100% - 48px);
+
+  .page-info {
+    background-color: #fff;
+  }
 }
 
 .el-header,
