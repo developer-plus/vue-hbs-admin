@@ -1,19 +1,14 @@
 <template>
   <div class="user">
-    <div class="search"></div>
+    <div class="search">
+      <h-form v-bind="searchFormConfig" />
+    </div>
     <div class="content"></div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import HForm from '@/base-ui/form'
 
-export default defineComponent({
-  name: 'user',
-  setup() {
-    return {}
-  }
-})
+import { searchFormConfig } from './config/search-config'
 </script>
-
-<style scoped></style>
