@@ -6,7 +6,7 @@
     </div>
 
     <el-menu
-      default-active="2"
+      :default-active="defaultValue"
       class="el-menu-vertical"
       :collapse="isCollapse"
       unique-opened
@@ -46,11 +46,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps } from 'vue'
+import { ref, computed, defineProps } from 'vue'
 import { useStore } from '@/store'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 import { Monitor, ChatLineRound, Goods, Setting } from '@element-plus/icons-vue'
+
+import { mapPathToMenu } from '@/utils/map-menus'
 
 const icons = {
   'el-icon-monitor': Monitor,
@@ -67,6 +69,12 @@ defineProps({
 })
 
 const router = useRouter()
+const route = useRoute()
+const currentPath = route.path
+
+const menu = mapPathToMenu(userMenus.value, currentPath)
+const defaultValue = ref(menu.id + '')
+
 const handleMenuItemClick = (item: any) => {
   router.push({
     path: item.url ?? '/not-found'
