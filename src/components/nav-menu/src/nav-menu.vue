@@ -9,6 +9,7 @@
       default-active="2"
       class="el-menu-vertical"
       :collapse="isCollapse"
+      unique-opened
       background-color="#0c2135"
       text-color="#b7bdc3"
       active-text-color="#0a60bd"
