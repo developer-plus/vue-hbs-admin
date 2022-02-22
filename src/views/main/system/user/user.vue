@@ -6,6 +6,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useStore } from '@/store'
 
 import PageSearch from '@/components/page-search'
@@ -18,4 +19,7 @@ store.dispatch('system/getPageListAction', {
     offset: 0
   }
 })
+
+const userList = computed(() => store.state.system.userList)
+const userCount = computed(() => store.state.system.userCount)
 </script>
