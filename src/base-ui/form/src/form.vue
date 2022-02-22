@@ -1,5 +1,8 @@
 <template>
   <div class="h-form">
+    <div class="header">
+      <slot name="header" />
+    </div>
     <el-form :label-width="labelWidth">
       <el-row>
         <template v-for="item in formItems" :key="item.label">
@@ -40,6 +43,9 @@
         </template>
       </el-row>
     </el-form>
+    <div class="footer">
+      <slot name="footer" />
+    </div>
   </div>
 </template>
 
