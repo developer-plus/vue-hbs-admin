@@ -26,6 +26,8 @@ declare global {
   const ElRow: typeof import('element-plus/es')['ElRow']
   const ElSelect: typeof import('element-plus/es')['ElSelect']
   const ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+  const ElTable: typeof import('element-plus/es')['ElTable']
+  const ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
   const ElTabPane: typeof import('element-plus/es')['ElTabPane']
   const ElTabs: typeof import('element-plus/es')['ElTabs']
 }

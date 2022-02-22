@@ -1,7 +1,14 @@
 <template>
   <div class="user">
     <page-search :search-form-config="searchFormConfig" />
-    <div class="content"></div>
+
+    <div class="content">
+      <el-table :data="userList" border style="width: 100%">
+        <template v-for="propItem in propList" :key="propItem.prop">
+          <el-table-column v-bind="propItem" align="center" />
+        </template>
+      </el-table>
+    </div>
   </div>
 </template>
 
@@ -22,4 +29,21 @@ store.dispatch('system/getPageListAction', {
 
 const userList = computed(() => store.state.system.userList)
 const userCount = computed(() => store.state.system.userCount)
+
+const propList = [
+  { prop: 'name', label: '用户名', minWidth: '100' },
+  { prop: 'realname', label: '真实姓名', minWidth: '100' },
+  { prop: 'cellphone', label: '电话号码', minWidth: '100' },
+  { prop: 'enable', label: '状态', minWidth: '100' },
+  { prop: 'createAt', label: '创建时间', minWidth: '250' },
+  { prop: 'cellphone', label: '更新事件', minWidth: '250' },
+  { prop: 'cellphone', label: '电话号码', minWidth: '120' }
+]
 </script>
+
+<style scoped lang="less">
+.content {
+  padding: 20px;
+  border-top: 20px solid #f5f5f5;
+}
+</style>
