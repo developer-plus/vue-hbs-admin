@@ -3,7 +3,11 @@
     <page-search :search-form-config="searchFormConfig" />
 
     <div class="content">
-      <h-table :list-data="userList" :propList="propList" />
+      <h-table :list-data="userList" :propList="propList">
+        <template #enable="scoped">
+          <el-button>{{ scoped.row.enable ? '启用' : '禁用' }}</el-button>
+        </template>
+      </h-table>
     </div>
   </div>
 </template>
@@ -29,13 +33,13 @@ const userList = computed(() => store.state.system.userList)
 const userCount = computed(() => store.state.system.userCount)
 
 const propList = [
-  { prop: 'name', label: '用户名', minWidth: '100' },
-  { prop: 'realname', label: '真实姓名', minWidth: '100' },
-  { prop: 'cellphone', label: '电话号码', minWidth: '100' },
-  { prop: 'enable', label: '状态', minWidth: '100' },
-  { prop: 'createAt', label: '创建时间', minWidth: '250' },
-  { prop: 'cellphone', label: '更新事件', minWidth: '250' },
-  { prop: 'cellphone', label: '电话号码', minWidth: '120' }
+  { prop: 'name', label: '用户名', minWidth: '100', slotName: 'name' },
+  { prop: 'realname', label: '真实姓名', minWidth: '100', slotName: 'realname' },
+  { prop: 'cellphone', label: '电话号码', minWidth: '100', slotName: 'cellphone' },
+  { prop: 'enable', label: '状态', minWidth: '100', slotName: 'enable' },
+  { prop: 'createAt', label: '创建时间', minWidth: '250', slotName: 'createAt' },
+  { prop: 'updateAt', label: '更新时间', minWidth: '250', slotName: 'updateAt' },
+  { prop: 'cellphone', label: '电话号码', minWidth: '120', slotName: 'cellphone' }
 ]
 </script>
 
