@@ -5,10 +5,7 @@
     </el-icon>
 
     <div class="content">
-      <el-breadcrumb separator="/">
-        <el-breadcrumb-item>homepage</el-breadcrumb-item>
-        <el-breadcrumb-item>promotion list</el-breadcrumb-item>
-      </el-breadcrumb>
+      <h-breadcrumb :breadcrumbs="breadcrumbs" />
 
       <div class="content-right">
         <el-icon><chat-dot-round /></el-icon>
@@ -22,10 +19,15 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue'
+import { defineProps, defineEmits, computed } from 'vue'
 
 import { Fold, Expand, ChatDotRound, CollectionTag, Bell } from '@element-plus/icons-vue'
 import UserInfo from './user-info.vue'
+import HBreadcrumb, { IBreadcrumb } from '@/base-ui/breadcrumb'
+
+import { useStore } from '@/store'
+import { useRoute } from 'vue-router'
+import { pathMapBreadcrumbs } from '@/utils/map-menus'
 
 defineProps({
   isCollapse: Boolean
@@ -36,6 +38,14 @@ const emit = defineEmits(['foldChange'])
 const handleFoldClick = () => {
   emit('foldChange')
 }
+
+const store = useStore()
+const route = useRoute()
+const breadcrumbs = computed(() => {
+  const userMenus = store.state.login.userMenus
+  const currentPath = route.path
+  return pathMapBreadcrumbs(userMenus, currentPath)
+})
 </script>
 
 <style scoped lang="less">
