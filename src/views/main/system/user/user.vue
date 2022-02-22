@@ -3,11 +3,7 @@
     <page-search :search-form-config="searchFormConfig" />
 
     <div class="content">
-      <el-table :data="userList" border style="width: 100%">
-        <template v-for="propItem in propList" :key="propItem.prop">
-          <el-table-column v-bind="propItem" align="center" />
-        </template>
-      </el-table>
+      <h-table :list-data="userList" :propList="propList" />
     </div>
   </div>
 </template>
@@ -17,6 +13,8 @@ import { computed } from 'vue'
 import { useStore } from '@/store'
 
 import PageSearch from '@/components/page-search'
+import HTable from '@/base-ui/table'
+
 import { searchFormConfig } from './config/search-config'
 
 const store = useStore()
