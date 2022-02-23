@@ -3,7 +3,7 @@
     <page-search :search-form-config="searchFormConfig" />
 
     <div class="content">
-      <h-table :list-data="userList" :propList="propList">
+      <h-table :list-data="userList" :propList="propList" :show-index-column="showIndexColumn">
         <template #enable="scoped">
           <el-button plain size="small" :type="scoped.row.enable ? 'success' : 'danger'">
             {{ scoped.row.enable ? '启用' : '禁用' }}
@@ -51,6 +51,8 @@ const propList = [
   { prop: 'updateAt', label: '更新时间', minWidth: '250', slotName: 'updateAt' },
   { prop: 'cellphone', label: '电话号码', minWidth: '120', slotName: 'cellphone' }
 ]
+
+const showIndexColumn = true
 </script>
 
 <style scoped lang="less">
