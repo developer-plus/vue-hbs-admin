@@ -5,7 +5,9 @@
     <div class="content">
       <h-table :list-data="userList" :propList="propList">
         <template #enable="scoped">
-          <el-button>{{ scoped.row.enable ? '启用' : '禁用' }}</el-button>
+          <el-button plain size="small" :type="scoped.row.enable ? 'success' : 'danger'">
+            {{ scoped.row.enable ? '启用' : '禁用' }}
+          </el-button>
         </template>
       </h-table>
     </div>
