@@ -9,6 +9,14 @@
             {{ scoped.row.enable ? '启用' : '禁用' }}
           </el-button>
         </template>
+
+        <template #createAt="scoped">
+          {{ $filters.formatTime(scoped.row.createAt) }}
+        </template>
+
+        <template #updateAt="scoped">
+          {{ $filters.formatTime(scoped.row.updateAt) }}
+        </template>
       </h-table>
     </div>
   </div>
