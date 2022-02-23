@@ -3,7 +3,13 @@
     <page-search :search-form-config="searchFormConfig" />
 
     <div class="content">
-      <h-table :list-data="userList" :propList="propList" :show-index-column="showIndexColumn">
+      <h-table
+        :list-data="userList"
+        :propList="propList"
+        :show-index-column="showIndexColumn"
+        :show-select-column="showSelectColumn"
+        @selection-change="handleSelectionChange"
+      >
         <template #enable="scoped">
           <el-button plain size="small" :type="scoped.row.enable ? 'success' : 'danger'">
             {{ scoped.row.enable ? '启用' : '禁用' }}
@@ -53,6 +59,11 @@ const propList = [
 ]
 
 const showIndexColumn = true
+const showSelectColumn = true
+
+const handleSelectionChange = (value: any) => {
+  console.log(value)
+}
 </script>
 
 <style scoped lang="less">
