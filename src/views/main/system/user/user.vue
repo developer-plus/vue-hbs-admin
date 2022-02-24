@@ -4,12 +4,17 @@
 
     <div class="content">
       <h-table
+        title="用户列表"
         :list-data="userList"
         :propList="propList"
         :show-index-column="showIndexColumn"
         :show-select-column="showSelectColumn"
         @selection-change="handleSelectionChange"
       >
+        <template #headerHandler>
+          <el-button type="primary">新建用户</el-button>
+        </template>
+
         <template #enable="scoped">
           <el-button plain size="small" :type="scoped.row.enable ? 'success' : 'danger'">
             {{ scoped.row.enable ? '启用' : '禁用' }}

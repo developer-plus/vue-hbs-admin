@@ -1,5 +1,13 @@
 <template>
   <div class="h-table">
+    <div class="header">
+      <slot name="header">
+        <div class="title">{{ title }}</div>
+        <div class="handler">
+          <slot name="headerHandler"></slot>
+        </div>
+      </slot>
+    </div>
     <el-table :data="listData" border style="width: 100%" @selection-change="handleSelectionChange">
       <el-table-column v-if="showSelectColumn" type="selection" width="60" align="center" />
       <el-table-column v-if="showIndexColumn" type="index" label="序号" width="80" align="center" />
@@ -11,6 +19,23 @@
         </el-table-column>
       </template>
     </el-table>
+    <div class="footer">
+      <slot name="footer">
+        <el-pagination
+          v-model:currentPage="currentPage4"
+          v-model:page-size="pageSize4"
+          :page-sizes="[100, 200, 300, 400]"
+          :small="small"
+          :disabled="disabled"
+          :background="background"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="400"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+        >
+        </el-pagination>
+      </slot>
+    </div>
   </div>
 </template>
 
@@ -18,6 +43,10 @@
 import { defineProps, defineEmits } from 'vue'
 
 defineProps({
+  title: {
+    type: String,
+    default: ''
+  },
   listData: {
     type: Array,
     required: true
@@ -42,3 +71,26 @@ const handleSelectionChange = (value: any) => {
   emit('selection-change', value)
 }
 </script>
+
+<style scoped lang="less">
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+  height: 45px;
+
+  .title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .handler {
+    align-items: center;
+  }
+}
+
+.footer {
+  margin-top: 15px;
+}
+</style>
