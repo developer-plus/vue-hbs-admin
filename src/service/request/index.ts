@@ -2,6 +2,7 @@ import axios from 'axios'
 import type { AxiosInstance } from 'axios'
 import type { HRequestInterceptors, HRequestConfig } from './type'
 
+import 'element-plus/es/components/loading/style/css'
 import { ElLoading } from 'element-plus'
 import type { LoadingInstance } from 'element-plus/lib/components/loading/src/loading'
 
