@@ -36,7 +36,9 @@ const formData = ref(formOriginData)
 
 // 2. 优化二：当用户点击重置
 const handleResetClick = () => {
-  formData.value = formOriginData
+  for (const key in formOriginData) {
+    formData.value[key] = formOriginData[key]
+  }
 }
 </script>
 
