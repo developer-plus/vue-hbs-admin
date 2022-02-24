@@ -36,7 +36,11 @@ import { useStore } from '@/store'
 import HTable from '@/base-ui/table'
 import { Edit, Delete } from '@element-plus/icons-vue'
 
-defineProps({
+const props = defineProps({
+  pageName: {
+    type: String,
+    required: true
+  },
   contentTableConfig: {
     type: Object,
     required: true
@@ -45,13 +49,13 @@ defineProps({
 
 const store = useStore()
 store.dispatch('system/getPageListAction', {
-  pageUrl: '/users/list',
+  pageName: props.pageName,
   queryInfo: {
     offset: 0
   }
 })
 
-const userList = computed(() => store.state.system.userList)
+const userList = computed(() => store.getters['system/pageListData'](props.pageName))
 const userCount = computed(() => store.state.system.userCount)
 
 const handleSelectionChange = (value: any) => {
