@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps } from 'vue'
+import { computed, defineProps, defineExpose } from 'vue'
 import { useStore } from '@/store'
 
 import HTable from '@/base-ui/table'
@@ -48,19 +48,28 @@ const props = defineProps({
 })
 
 const store = useStore()
-store.dispatch('system/getPageListAction', {
-  pageName: props.pageName,
-  queryInfo: {
-    offset: 0
-  }
-})
+
+const getPageData = (queryInfo: any = {}) => {
+  store.dispatch('system/getPageListAction', {
+    pageName: props.pageName,
+    queryInfo: {
+      offset: 0,
+      ...queryInfo
+    }
+  })
+}
+getPageData()
 
 const userList = computed(() => store.getters['system/pageListData'](props.pageName))
-const userCount = computed(() => store.state.system.userCount)
+const userCount = computed(() => store.state.system.usersCount)
 
 const handleSelectionChange = (value: any) => {
   console.log(value)
 }
+
+defineExpose({
+  getPageData
+})
 </script>
 
 <style scoped lang="less">
