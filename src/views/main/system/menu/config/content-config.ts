@@ -17,5 +17,6 @@ export const contentTableConfig = {
     treeProps: {
       children: 'children'
     }
-  }
+  },
+  showFooter: false
 }

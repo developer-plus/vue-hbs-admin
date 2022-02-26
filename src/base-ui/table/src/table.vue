@@ -25,7 +25,7 @@
         </el-table-column>
       </template>
     </el-table>
-    <div class="footer">
+    <div class="footer" v-if="showFooter">
       <slot name="footer">
         <el-pagination
           :current-page="page.currentPage"
@@ -77,6 +77,10 @@ const props = defineProps({
   childrenProps: {
     type: Object,
     default: () => ({})
+  },
+  showFooter: {
+    type: Boolean,
+    default: true
   }
 })
 
