@@ -8,7 +8,7 @@
       @selection-change="handleSelectionChange"
     >
       <template #headerHandler>
-        <el-button type="primary">新建用户</el-button>
+        <el-button type="primary" v-if="isCreate">新建用户</el-button>
       </template>
 
       <template #enable="scoped">
@@ -44,6 +44,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, defineProps, defineExpose } from 'vue'
 import { useStore } from '@/store'
+import { usePermission } from '@/hooks/userPermission'
 
 import HTable from '@/base-ui/table'
 import { Edit, Delete } from '@element-plus/icons-vue'
@@ -60,6 +61,8 @@ const props = defineProps({
 })
 
 const store = useStore()
+
+const isCreate = usePermission(props.pageName, 'create')
 
 const pageInfo = ref({ currentPage: 1, pageSize: 10 })
 
