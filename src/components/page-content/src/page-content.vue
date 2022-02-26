@@ -31,6 +31,12 @@
           <el-button size="small" type="text" :icon="Delete">删除</el-button>
         </div>
       </template>
+
+      <template v-for="item in otherPropSlots" :key="item.prop" #[item.slotName]="scope">
+        <template v-if="item.slotName">
+          <slot :name="item.slotName" :row="scope.row" />
+        </template>
+      </template>
     </h-table>
   </div>
 </template>
@@ -77,6 +83,14 @@ const dataCount = computed(() => store.getters['system/pageListCount'](props.pag
 const handleSelectionChange = (value: any) => {
   console.log(value)
 }
+
+const otherPropSlots = props.contentTableConfig.propList.filter((item: any) => {
+  if (item.slotName === 'enable') return false
+  if (item.slotName === 'createAt') return false
+  if (item.slotName === 'updateAt') return false
+  if (item.slotName === 'handle') return false
+  return true
+})
 
 defineExpose({
   getPageData

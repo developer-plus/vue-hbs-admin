@@ -12,7 +12,7 @@
       <el-table-column v-if="showSelectColumn" type="selection" width="60" align="center" />
       <el-table-column v-if="showIndexColumn" type="index" label="序号" width="80" align="center" />
       <template v-for="propItem in propList" :key="propItem.prop">
-        <el-table-column v-bind="propItem" align="center">
+        <el-table-column v-bind="propItem" align="center" show-overflow-tooltip>
           <template #default="scoped">
             <slot :name="propItem.slotName" :row="scoped.row">{{ scoped.row[propItem.prop] }}</slot>
           </template>

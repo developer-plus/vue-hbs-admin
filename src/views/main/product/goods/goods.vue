@@ -5,7 +5,14 @@
       @handle-reset-click="handleResetClick"
       @handle-query-click="handleQueryClick"
     />
-    <page-content :content-table-config="contentTableConfig" page-name="goods" ref="pageContentRef" />
+    <page-content :content-table-config="contentTableConfig" page-name="goods" ref="pageContentRef">
+      <template #image="scoped">
+        <el-image style="width: 60px; height: 60px" :src="scoped.row.imgUrl" :preview-src-list="[scoped.row.imgUrl]" />
+      </template>
+
+      <template #oldPrice="scoped"> ¥{{ scoped.row.oldPrice }} </template>
+      <template #newPrice="scoped"> ¥{{ scoped.row.newPrice }} </template>
+    </page-content>
   </div>
 </template>
 
