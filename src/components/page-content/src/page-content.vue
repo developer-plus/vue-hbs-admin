@@ -1,6 +1,12 @@
 <template>
   <div class="page-content">
-    <h-table :list-data="userList" v-bind="contentTableConfig" @selection-change="handleSelectionChange">
+    <h-table
+      :list-data="userList"
+      :list-count="dataCount"
+      v-bind="contentTableConfig"
+      v-model:page="pageInfo"
+      @selection-change="handleSelectionChange"
+    >
       <template #headerHandler>
         <el-button type="primary">新建用户</el-button>
       </template>
@@ -30,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps, defineExpose } from 'vue'
+import { ref, computed, watch, defineProps, defineExpose } from 'vue'
 import { useStore } from '@/store'
 
 import HTable from '@/base-ui/table'
@@ -49,11 +55,16 @@ const props = defineProps({
 
 const store = useStore()
 
+const pageInfo = ref({ currentPage: 1, pageSize: 10 })
+
+watch(pageInfo, () => getPageData())
+
 const getPageData = (queryInfo: any = {}) => {
   store.dispatch('system/getPageListAction', {
     pageName: props.pageName,
     queryInfo: {
-      offset: 0,
+      offset: (pageInfo.value.currentPage - 1) * pageInfo.value.pageSize,
+      size: pageInfo.value.pageSize,
       ...queryInfo
     }
   })
@@ -61,7 +72,7 @@ const getPageData = (queryInfo: any = {}) => {
 getPageData()
 
 const userList = computed(() => store.getters['system/pageListData'](props.pageName))
-const userCount = computed(() => store.state.system.usersCount)
+const dataCount = computed(() => store.getters['system/pageListCount'](props.pageName))
 
 const handleSelectionChange = (value: any) => {
   console.log(value)

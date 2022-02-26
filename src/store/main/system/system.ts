@@ -38,6 +38,12 @@ const systemModule: Module<ISystemState, IRootState> = {
       return (pageName: string) => {
         return (state as any)[`${pageName}List`]
       }
+    },
+
+    pageListCount(state) {
+      return (pageName: string) => {
+        return (state as any)[`${pageName}Count`]
+      }
     }
   },
 
