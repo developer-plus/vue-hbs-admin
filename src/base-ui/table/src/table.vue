@@ -8,7 +8,13 @@
         </div>
       </slot>
     </div>
-    <el-table :data="listData" border style="width: 100%" @selection-change="handleSelectionChange">
+    <el-table
+      :data="listData"
+      border
+      style="width: 100%"
+      v-bind="childrenProps"
+      @selection-change="handleSelectionChange"
+    >
       <el-table-column v-if="showSelectColumn" type="selection" width="60" align="center" />
       <el-table-column v-if="showIndexColumn" type="index" label="序号" width="80" align="center" />
       <template v-for="propItem in propList" :key="propItem.prop">
@@ -67,6 +73,10 @@ const props = defineProps({
   page: {
     type: Object,
     default: () => ({ currentPage: 0, pageSize: 10 })
+  },
+  childrenProps: {
+    type: Object,
+    default: () => ({})
   }
 })
 
