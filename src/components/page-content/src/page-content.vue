@@ -25,10 +25,10 @@
         {{ $filters.formatTime(scoped.row.updateAt) }}
       </template>
 
-      <template #handle>
+      <template #handle="scope">
         <div class="handle-btns">
           <el-button size="small" type="text" :icon="Edit">编辑</el-button>
-          <el-button size="small" type="text" :icon="Delete">删除</el-button>
+          <el-button size="small" type="text" :icon="Delete" @click="handleDeleteClick(scope.row)">删除</el-button>
         </div>
       </template>
 
@@ -94,6 +94,13 @@ const otherPropSlots = props.contentTableConfig.propList.filter((item: any) => {
   if (item.slotName === 'handle') return false
   return true
 })
+
+const handleDeleteClick = (item: any) => {
+  store.dispatch('system/deletePageDataAction', {
+    pageName: props.pageName,
+    id: item.id
+  })
+}
 
 defineExpose({
   getPageData
