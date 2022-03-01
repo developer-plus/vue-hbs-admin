@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps, defineExpose } from 'vue'
+import { ref, watch, defineProps, defineExpose } from 'vue'
 
 import HForm from '@/base-ui/form'
 
@@ -21,11 +21,25 @@ const props = defineProps({
   modalConfig: {
     type: Object,
     required: true
+  },
+
+  defaultInfo: {
+    type: Object,
+    default: () => ({})
   }
 })
 
 const dialogVisible = ref(false)
-const formData = ref({})
+const formData = ref<any>({})
+
+watch(
+  () => props.defaultInfo,
+  (newValue) => {
+    for (const item of props.modalConfig.formItems) {
+      formData.value[`${item.field}`] = newValue[`${item.field}`]
+    }
+  }
+)
 
 defineExpose({
   dialogVisible

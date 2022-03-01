@@ -12,12 +12,11 @@
       @new-btn-click="handleNewData"
       @edit-btn-click="handleEditData"
     />
-    <page-modal ref="pageModalRef" :modal-config="modalConfig" />
+    <page-modal ref="pageModalRef" :modal-config="modalConfig" :default-info="defaultInfo" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import PageSearch from '@/components/page-search'
 import PageContent from '@/components/page-content'
 import PageModal from '@/components/page-modal'
@@ -27,20 +26,8 @@ import { contentTableConfig } from './config/content-config'
 import { modalConfig } from './config/modal-config'
 
 import { usePageSearch } from '@/hooks/usePageSearch'
+import { usePageModal } from '@/hooks/usePageModal'
 
 const [pageContentRef, handleResetClick, handleQueryClick] = usePageSearch()
-
-const pageModalRef = ref<InstanceType<typeof PageModal>>()
-
-const handleNewData = () => {
-  if (pageModalRef.value) {
-    pageModalRef.value.dialogVisible = true
-  }
-}
-
-const handleEditData = (item: any) => {
-  if (pageModalRef.value) {
-    pageModalRef.value.dialogVisible = true
-  }
-}
+const [pageModalRef, defaultInfo, handleNewData, handleEditData] = usePageModal()
 </script>
