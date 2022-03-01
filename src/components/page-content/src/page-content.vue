@@ -8,7 +8,7 @@
       @selection-change="handleSelectionChange"
     >
       <template #headerHandler>
-        <el-button type="primary" v-if="isCreate">新建用户</el-button>
+        <el-button type="primary" v-if="isCreate" @click="handleNewClick">新建用户</el-button>
       </template>
 
       <template #enable="scoped">
@@ -27,7 +27,7 @@
 
       <template #handle="scope">
         <div class="handle-btns">
-          <el-button size="small" type="text" :icon="Edit">编辑</el-button>
+          <el-button size="small" type="text" :icon="Edit" @click="handleEditClick(scope.row)">编辑</el-button>
           <el-button size="small" type="text" :icon="Delete" @click="handleDeleteClick(scope.row)">删除</el-button>
         </div>
       </template>
@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, defineProps, defineExpose } from 'vue'
+import { ref, computed, watch, defineProps, defineEmits, defineExpose } from 'vue'
 import { useStore } from '@/store'
 import { usePermission } from '@/hooks/userPermission'
 
@@ -100,6 +100,16 @@ const handleDeleteClick = (item: any) => {
     pageName: props.pageName,
     id: item.id
   })
+}
+
+const emit = defineEmits(['new-btn-click', 'edit-btn-click'])
+
+const handleNewClick = () => {
+  emit('new-btn-click')
+}
+
+const handleEditClick = (item: any) => {
+  emit('edit-btn-click', item)
 }
 
 defineExpose({

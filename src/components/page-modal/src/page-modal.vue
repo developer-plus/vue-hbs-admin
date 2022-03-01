@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps } from 'vue'
+import { ref, defineProps, defineExpose } from 'vue'
 
 import HForm from '@/base-ui/form'
 
@@ -24,6 +24,10 @@ const props = defineProps({
   }
 })
 
-const dialogVisible = ref(true)
+const dialogVisible = ref(false)
 const formData = ref({})
+
+defineExpose({
+  dialogVisible
+})
 </script>
