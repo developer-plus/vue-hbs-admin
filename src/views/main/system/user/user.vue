@@ -29,5 +29,15 @@ import { usePageSearch } from '@/hooks/usePageSearch'
 import { usePageModal } from '@/hooks/usePageModal'
 
 const [pageContentRef, handleResetClick, handleQueryClick] = usePageSearch()
-const [pageModalRef, defaultInfo, handleNewData, handleEditData] = usePageModal()
+
+const newCallBack = () => {
+  const passwordItem = modalConfig.formItems.find((item) => item.field === 'password')
+  passwordItem!.isHidden = false
+}
+const eidtCallBack = () => {
+  const passwordItem = modalConfig.formItems.find((item) => item.field === 'password')
+  passwordItem!.isHidden = true
+}
+
+const [pageModalRef, defaultInfo, handleNewData, handleEditData] = usePageModal(newCallBack, eidtCallBack)
 </script>
