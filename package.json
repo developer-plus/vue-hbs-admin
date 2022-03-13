@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": "@hongbusi"
@@ -22,6 +23,7 @@
     "typescript": "^4.6.2",
     "unplugin-auto-import": "^0.6.4",
     "vite": "^2.8.6",
-    "vue-tsc": "^0.32.1"
+    "vue-tsc": "^0.32.1",
+    "husky": "^7.0.0"
   }
 }
