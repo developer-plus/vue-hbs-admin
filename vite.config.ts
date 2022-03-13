@@ -19,6 +19,6 @@ export default defineConfig({
         'vue'
       ],
       dts: 'src/auto-imports.d.ts'
-    }),
+    })
   ]
 })
