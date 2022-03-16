@@ -1,17 +1,7 @@
 <template>
   <div class="login">
-    <h2 class="login-title">
-      Vue Element Admin
-    </h2>
-    <p class="login-desc">
-      一个基于 Vue3 的内容管理系统。
-    </p>
-
     <login-panel />
-
-    <Footer />
   </div>
-
   <Plum />
 </template>
 
@@ -23,9 +13,8 @@ import LoginPanel from './components/login-panel.vue'
 .login {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 100px;
+  padding: 180px;
 }
 
 .login-title {
