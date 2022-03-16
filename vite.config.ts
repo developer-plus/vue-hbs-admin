@@ -16,7 +16,8 @@ export default defineConfig({
 
     AutoImport({
       imports: [
-        'vue'
+        'vue',
+        'vue-router'
       ],
       dts: 'src/auto-imports.d.ts'
     }),
