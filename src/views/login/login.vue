@@ -1,3 +1,5 @@
 <template>
-  <el-button>fdsf</el-button>
+  <div class="login">
+    <Plum />
+  </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none" style="z-index: -1">
+  <div class="plum" style="z-index: -1">
     <canvas ref="el" width="400" height="400" />
   </div>
 </template>
@@ -10,7 +10,7 @@ import type { Fn } from '@vueuse/core'
 const r180 = Math.PI
 const r90 = Math.PI / 2
 const r15 = Math.PI / 12
-const color = '#88888825'
+const color = '#409eff25'
 
 const el = ref<HTMLCanvasElement | null>(null)
 
@@ -119,3 +119,14 @@ onMounted(async() => {
   start.value()
 })
 </script>
+
+<style scoped>
+.plum {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+}
+</style>
