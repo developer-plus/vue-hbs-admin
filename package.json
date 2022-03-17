@@ -1,5 +1,5 @@
 {
-  "name": "vue-element-admin",
+  "name": "vue-hbs-admin",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^8.0.1",
+    "axios": "^0.26.1",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"
   },
