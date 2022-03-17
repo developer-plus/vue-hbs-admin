@@ -4,6 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AButton: typeof import('ant-design-vue/es')['Button']
     Footer: typeof import('./components/Footer.vue')['default']
     Plum: typeof import('./components/Plum.vue')['default']
   }
