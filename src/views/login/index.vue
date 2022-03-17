@@ -1,0 +1,3 @@
+<template>
+  <Plum />
+</template>
