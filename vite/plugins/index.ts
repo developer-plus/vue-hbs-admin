@@ -8,7 +8,10 @@ export default function createVitePlugins() {
     vue()
   ]
 
+  // unplugin-auto-import
   vitePlugins.push(createAutoImport())
+
+  // unplugin-vue-components
   vitePlugins.push(createVueComponents())
 
   return vitePlugins
