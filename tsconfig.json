@@ -25,6 +25,5 @@
     "mock/**/*.ts",
     "build/**/*.ts",
     "vite.config.ts",
-  ],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  ]
 }
