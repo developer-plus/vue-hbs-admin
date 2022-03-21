@@ -12,7 +12,6 @@ export default defineConfig(() => {
     },
 
     server: {
-      https: true,
       host: true,
       proxy: createProxy()
     },
