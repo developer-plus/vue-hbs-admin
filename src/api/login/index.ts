@@ -3,7 +3,7 @@ import request from '../index'
 import type { Account, LoginInfo } from './types'
 
 enum LoginAPI {
-  AccountLogin = '/login',
+  AccountLogin = '/account/getAccountInfo',
   UserInfo = '/users/',
   UserMenus = '/role/'
 }

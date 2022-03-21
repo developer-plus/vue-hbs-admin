@@ -1,6 +1,7 @@
 import path from 'path'
 import { defineConfig } from 'vite'
-import createVitePlugins from './vite/plugins'
+import setupVitePlugins from './build/plugins'
+import { createProxy } from './build/proxy'
 
 export default defineConfig(() => {
   return {
@@ -10,6 +11,12 @@ export default defineConfig(() => {
       }
     },
 
-    plugins: createVitePlugins()
+    server: {
+      https: true,
+      host: true,
+      proxy: createProxy()
+    },
+
+    plugins: setupVitePlugins()
   }
 })
