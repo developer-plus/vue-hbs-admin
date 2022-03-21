@@ -4,7 +4,7 @@ import setupAutoImport from './auto-import'
 import setupVueComponents from './vue-components'
 import setupMockServer from './mock'
 
-export default function setupVitePlugins() {
+export default function setupVitePlugins(isBuild: boolean) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
     vue()
   ]
@@ -16,7 +16,7 @@ export default function setupVitePlugins() {
   vitePlugins.push(setupVueComponents())
 
   // vite-plugin-mock
-  vitePlugins.push(setupMockServer())
+  vitePlugins.push(setupMockServer(isBuild))
 
   return vitePlugins
 }

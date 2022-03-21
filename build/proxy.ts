@@ -16,7 +16,7 @@ const httpsRE = /^https:\/\//
   * @param list
   */
 export function createProxy(list: ProxyList = []) {
-  list = [['/basic-api', 'http://localhost:3000'], ['/upload', 'http://localhost:3300/upload']]
+  list = [['/api', 'http://localhost:3000'], ['/upload', 'http://localhost:3300/upload']]
   const ret: ProxyTargetList = {}
   for (const [prefix, target] of list) {
     const isHttps = httpsRE.test(target)

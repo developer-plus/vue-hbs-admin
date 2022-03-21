@@ -44,7 +44,7 @@ const userInfo = {
 
 export default [
   {
-    url: '/basic-api/account/getAccountInfo',
+    url: '/api/account/getAccountInfo',
     timeout: 1000,
     method: 'get',
     response: () => {
@@ -52,7 +52,7 @@ export default [
     }
   },
   {
-    url: '/basic-api/user/sessionTimeout',
+    url: '/api/user/sessionTimeout',
     method: 'post',
     statusCode: 401,
     response: () => {

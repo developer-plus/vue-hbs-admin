@@ -1,9 +1,11 @@
 import path from 'path'
-import { defineConfig } from 'vite'
+import type { UserConfig, ConfigEnv } from 'vite'
 import setupVitePlugins from './build/plugins'
 import { createProxy } from './build/proxy'
 
-export default defineConfig(() => {
+export default ({ command }: ConfigEnv): UserConfig => {
+  const isBuild = command === 'build'
+
   return {
     resolve: {
       alias: {
@@ -16,6 +18,6 @@ export default defineConfig(() => {
       proxy: createProxy()
     },
 
-    plugins: setupVitePlugins()
+    plugins: setupVitePlugins(isBuild)
   }
-})
+}
