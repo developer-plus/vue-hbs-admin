@@ -1,62 +1,68 @@
 import type { MockMethod } from 'vite-plugin-mock'
 import { resultSuccess, resultError } from '../_util'
 
-const userInfo = {
-  name: 'Vben',
-  userid: '00000001',
-  email: 'test@gmail.com',
-  signature: '海纳百川，有容乃大',
-  introduction: '微笑着，努力着，欣赏着',
-  title: '交互专家',
-  group: '某某某事业群－某某平台部－某某技术部－UED',
-  tags: [
+export function createFakeUserList() {
+  return [
     {
-      key: '0',
-      label: '很有想法的'
+      userId: '1',
+      username: 'Hongbusi',
+      realName: 'Hongbusi',
+      avatar: 'https://q1.qlogo.cn/g?b=qq&nk=190848757&s=640',
+      desc: 'zhe',
+      password: '123456',
+      token: 'fakeToken1',
+      homePath: '/dashboard/analysis',
+      roles: [
+        {
+          roleName: 'Super Admin',
+          value: 'super'
+        }
+      ]
     },
     {
-      key: '1',
-      label: '专注设计'
-    },
-    {
-      key: '2',
-      label: '辣~'
-    },
-    {
-      key: '3',
-      label: '大长腿'
-    },
-    {
-      key: '4',
-      label: '川妹子'
-    },
-    {
-      key: '5',
-      label: '海纳百川'
+      userId: '2',
+      username: 'test',
+      password: '123456',
+      realName: 'test user',
+      avatar: 'https://q1.qlogo.cn/g?b=qq&nk=339449197&s=640',
+      desc: 'tester',
+      token: 'fakeToken2',
+      homePath: '/dashboard/workbench',
+      roles: [
+        {
+          roleName: 'Tester',
+          value: 'test'
+        }
+      ]
     }
-  ],
-  notifyCount: 12,
-  unreadCount: 11,
-  country: 'China',
-  address: 'Xiamen City 77',
-  phone: '0592-268888888'
+  ]
 }
 
 export default [
   {
-    url: '/api/account/getAccountInfo',
-    timeout: 1000,
-    method: 'get',
-    response: () => {
-      return resultSuccess(userInfo)
-    }
-  },
-  {
-    url: '/api/user/sessionTimeout',
+    url: '/api/login',
+    timeout: 200,
     method: 'post',
-    statusCode: 401,
-    response: () => {
-      return resultError()
+    response: ({ body }) => {
+      const { username, password } = body
+      const checkUser = createFakeUserList().find(
+        item => item.username === username && password === item.password
+      )
+
+      if (!checkUser) {
+        return resultError('Incorrect account or password！')
+      }
+
+      const { userId, username: _username, token, realName, desc, roles } = checkUser
+
+      return resultSuccess({
+        roles,
+        userId,
+        username: _username,
+        token,
+        realName,
+        desc
+      })
     }
   }
 ] as MockMethod[]
