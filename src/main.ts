@@ -5,6 +5,4 @@ import router from './router'
 
 const app = createApp(App)
 
-setTimeout(() => {
-  app.use(router).mount('#app')
-}, 10000)
+app.use(router).mount('#app')
