@@ -14,5 +14,8 @@ export default defineConfig({
   transformers: [
     transformerDirectives(),
     transformerVariantGroup()
+  ],
+  rules: [
+    ['min-w-1280', { 'min-width': '1280px' }]
   ]
 })
