@@ -1,13 +1,6 @@
 <template>
   <div class="hbs-login h-full">
-    <div class="min-w-1280 mx-auto h-full py-2 px-10 flex">
-      <div class="flex-1 border">
-        left
-      </div>
-      <div class="flex-1 border">
-        right
-      </div>
-    </div>
+    <Plum />
   </div>
 </template>
 
