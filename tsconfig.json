@@ -15,7 +15,8 @@
     "composite": true,
     "types": ["vite/client"],
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["src/*"],
+      "#/*": ["types/*"]
     }
   },
   "include": [

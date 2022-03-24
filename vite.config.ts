@@ -1,4 +1,4 @@
-import path from 'path'
+import { resolve } from 'path'
 import type { UserConfig, ConfigEnv } from 'vite'
 import { loadEnv } from 'vite'
 import dayjs from 'dayjs'
@@ -6,6 +6,10 @@ import pkg from './package.json'
 import { wrapperEnv } from './build/utils'
 import setupVitePlugins from './build/plugins'
 import { createProxy } from './build/proxy'
+
+function pathResolve(dir: string) {
+  return resolve(process.cwd(), '.', dir)
+}
 
 const { dependencies, devDependencies, name, version } = pkg
 const __APP_INFO__ = {
@@ -30,7 +34,8 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     root,
     resolve: {
       alias: {
-        '~/': `${path.resolve(__dirname, 'src')}/`
+        '~/': `${pathResolve('src')}/`,
+        '#/': `${pathResolve('types')}/`
       }
     },
 
