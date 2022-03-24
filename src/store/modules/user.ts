@@ -18,11 +18,12 @@ export const useUserStore = defineStore({
   }),
 
   getters: {
-    getUserInfo(): UserInfo {
-      return this.userInfo || localCache.getCache(USER_INFO_KEY) || {}
-    },
     getToken(): string {
       return this.token || localCache.getCache(TOKEN_KEY)
+    },
+
+    getUserInfo(): UserInfo {
+      return this.userInfo || localCache.getCache(USER_INFO_KEY) || {}
     }
   }
 })
