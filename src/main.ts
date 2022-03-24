@@ -5,7 +5,7 @@ import '@unocss/reset/tailwind.css'
 import '~/styles/index.less'
 import 'uno.css'
 
-import { setupStore } from '~/store'
+import { setupStore } from '~/stores'
 import { router, setupRouter } from '~/router'
 import { setupRouterGuard } from '~/router/guard'
 

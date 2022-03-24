@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import { store } from '~/store'
 import { TOKEN_KEY, USER_INFO_KEY } from '~/enums/cacheEnum'
 import localCache from '~/utils/cache'
 import type { UserInfo } from '#/store'
@@ -9,9 +8,7 @@ interface UserState {
   userInfo: Nullable<UserInfo>
 }
 
-export const useUserStore = defineStore({
-  id: 'app-user',
-
+export const useUserStore = defineStore('user', {
   state: (): UserState => ({
     token: '',
     userInfo: null
@@ -27,7 +24,3 @@ export const useUserStore = defineStore({
     }
   }
 })
-
-export function useUserStoreWithOut() {
-  return useUserStore(store)
-}
