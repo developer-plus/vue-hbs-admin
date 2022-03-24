@@ -1,18 +1,22 @@
 import { defineStore } from 'pinia'
-import { TOKEN_KEY, USER_INFO_KEY } from '~/enums/cacheEnum'
+import { TOKEN_KEY, USER_INFO_KEY, ROLES_KEY } from '~/enums/cacheEnum'
+import type { RoleEnum } from '~/enums/roleEnum'
 import localCache from '~/utils/cache'
 import { loginRequest, getUserInfo } from '~/api/user'
 import type { UserInfo } from '#/store'
+import { isArray } from '~/utils/is'
 
 interface UserState {
   token?: string
   userInfo: Nullable<UserInfo>
+  roleList: RoleEnum[]
 }
 
 export const useUserStore = defineStore('user', {
   state: (): UserState => ({
     token: '',
-    userInfo: null
+    userInfo: null,
+    roleList: []
   }),
 
   getters: {
@@ -22,6 +26,10 @@ export const useUserStore = defineStore('user', {
 
     getUserInfo(): UserInfo {
       return this.userInfo || localCache.getCache(USER_INFO_KEY) || {}
+    },
+
+    getRoleList(): RoleEnum[] {
+      return this.roleList.length > 0 ? this.roleList : localCache.getCache(ROLES_KEY)
     }
   },
 
@@ -34,6 +42,11 @@ export const useUserStore = defineStore('user', {
     setUserInfo(userInfo: UserInfo | null) {
       this.userInfo = userInfo
       localCache.setCache(USER_INFO_KEY, userInfo)
+    },
+
+    setRoleList(roleList: RoleEnum[]) {
+      this.roleList = roleList
+      localCache.setCache(ROLES_KEY, roleList)
     },
 
     async loginAction(account: { username: string; password: string }) {
@@ -61,7 +74,17 @@ export const useUserStore = defineStore('user', {
       if (!this.getToken) return null
 
       const userInfo = await getUserInfo()
-      console.log(userInfo)
+      const { roles = [] } = userInfo
+      if (isArray(roles)) {
+        const roleList = roles.map(item => item.value) as RoleEnum[]
+        this.setRoleList(roleList)
+      }
+      else {
+        userInfo.roles = []
+        this.setRoleList([])
+      }
+      this.setUserInfo(userInfo)
+      return userInfo
     }
   }
 })
