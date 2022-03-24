@@ -1,10 +1,10 @@
 export interface Account {
-  name: string
+  username: string
   password: string
 }
 
 export interface LoginInfo {
   id: number
   token: string
-  name: string
+  username: string
 }

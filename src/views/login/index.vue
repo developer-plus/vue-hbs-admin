@@ -14,7 +14,6 @@
           :wrapper-col="{ span: 16 }"
           autocomplete="off"
           @finish="onFinish"
-          @finish-failed="onFinishFailed"
         >
           <a-form-item
             label="Username"
@@ -50,6 +49,8 @@
 </template>
 
 <script setup lang="ts">
+import { useUserStore } from '~/stores/modules/user'
+
 interface FormState {
   username: string
   password: string
@@ -58,15 +59,13 @@ interface FormState {
 
 const formState = reactive<FormState>({
   username: 'Hongbusi',
-  password: 'Hongbusi',
+  password: 'admin',
   remember: true
 })
-const onFinish = (values: any) => {
-  console.log('Success:', values)
-}
 
-const onFinishFailed = (errorInfo: any) => {
-  console.log('Failed:', errorInfo)
+const user = useUserStore()
+const onFinish = (values: any) => {
+  user.loginAction(values)
 }
 </script>
 
