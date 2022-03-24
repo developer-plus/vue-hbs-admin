@@ -22,5 +22,17 @@ export const useUserStore = defineStore('user', {
     getUserInfo(): UserInfo {
       return this.userInfo || localCache.getCache(USER_INFO_KEY) || {}
     }
+  },
+
+  actions: {
+    setToken(token: string | undefined): void {
+      this.token = token || ''
+      localCache.setCache(TOKEN_KEY, token)
+    },
+
+    setUserInfo(userInfo: UserInfo | null) {
+      this.userInfo = userInfo
+      localCache.setCache(USER_INFO_KEY, userInfo)
+    }
   }
 })
