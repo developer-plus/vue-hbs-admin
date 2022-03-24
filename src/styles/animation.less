@@ -1,0 +1,51 @@
+each(range(6), {
+  * > .enter-x:nth-child(@{value}) {
+    transform: translateX(50px);
+  }
+
+  * > .-enter-x:nth-child(@{value}) {
+    transform: translateX(-50px);
+  }
+
+  * > .enter-y:nth-child(@{value}) {
+    transform: translateY(50px);
+  }
+
+  * > .-enter-y:nth-child(@{value}) {
+    transform: translateY(-50px);
+  }
+
+  * > .enter-x:nth-child(@{value}),
+  * > .-enter-x:nth-child(@{value}) {
+    animation: enter-x-animation 0.4s ease-in-out 0.3s;
+  }
+
+  * > .enter-y:nth-child(@{value}),
+  * > .-enter-y:nth-child(@{value}) {
+    animation: enter-y-animation 0.4s ease-in-out 0.3s;
+  }
+
+  * > .enter-x:nth-child(@{value}),
+  * > .-enter-x:nth-child(@{value}),
+  * > .enter-y:nth-child(@{value}),
+  * > .-enter-y:nth-child(@{value}) {
+    z-index: (10 - @value);
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-delay: (@value * 1 / 10s);
+  }
+})
+
+@keyframes enter-x-animation {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes enter-y-animation {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
