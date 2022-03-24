@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
@@ -12,10 +13,10 @@
     "allowSyntheticDefaultImports": true,
     "lib": ["esnext", "dom"],
     "composite": true,
-    "types": ["vite/client"]
-  },
-  "paths": {
-    "~/*": ["src/*"]
+    "types": ["vite/client"],
+    "paths": {
+      "~/*": ["src/*"]
+    }
   },
   "include": [
     "src/**/*.ts",

@@ -7,6 +7,6 @@ export default function setupAutoImport() {
       'vue-router',
       '@vueuse/core'
     ],
-    dts: 'src/auto-imports.d.ts'
+    dts: 'types/auto-imports.d.ts'
   })
 }

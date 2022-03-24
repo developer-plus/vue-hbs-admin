@@ -7,7 +7,7 @@ export default function setupVueComponents() {
     dirs: ['src/global-components'],
     extensions: ['vue'],
     include: [/\.vue$/, /\.vue\?vue/],
-    dts: 'src/components.d.ts',
+    dts: 'types/components.d.ts',
     resolvers: [
       AntDesignVueResolver(),
       IconsResolver({
