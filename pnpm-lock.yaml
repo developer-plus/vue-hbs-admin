@@ -8,7 +8,7 @@ specifiers:
   '@unocss/reset': ^0.29.5
   '@vitejs/plugin-vue': ^2.2.4
   '@vueuse/core': ^8.0.1
-  ant-design-vue: ^3.1.0-rc.0
+  ant-design-vue: 3.1.0-rc.2
   axios: ^0.26.1
   commitizen: ^4.2.4
   cz-conventional-changelog: ^3.3.0
@@ -31,7 +31,7 @@ specifiers:
 dependencies:
   '@unocss/reset': 0.29.5
   '@vueuse/core': 8.1.1_vue@3.2.31
-  ant-design-vue: 3.1.0-rc.0_vue@3.2.31
+  ant-design-vue: 3.1.0-rc.2_vue@3.2.31
   axios: 0.26.1
   dayjs: 1.11.0
   vue: 3.2.31
@@ -1079,8 +1079,8 @@ packages:
       color-convert: 2.0.1
     dev: true
 
-  /ant-design-vue/3.1.0-rc.0_vue@3.2.31:
-    resolution: {integrity: sha512-HbMMSEBBS5g8yNm/Ol4Kop48zNFEzTY0w/nZRq776NLX+Rg0Kko9ie93NZr6hKuS/d0bJNKll6I/WC5krIWsBg==}
+  /ant-design-vue/3.1.0-rc.2_vue@3.2.31:
+    resolution: {integrity: sha512-WZIvhgWsKyQnUQ+UTxDxsZZxN+DJCgGGOtfjO3sui6xroOM1YTaJzWXDSm9nvcJ7bWsrfjpZOGVBKG6JseFnGw==}
     peerDependencies:
       vue: '>=3.2.0'
     dependencies:
