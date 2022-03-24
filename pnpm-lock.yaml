@@ -12,6 +12,7 @@ specifiers:
   axios: ^0.26.1
   commitizen: ^4.2.4
   cz-conventional-changelog: ^3.3.0
+  dayjs: ^1.11.0
   eslint: ^8.11.0
   husky: ^7.0.0
   less: ^4.1.2
@@ -32,6 +33,7 @@ dependencies:
   '@vueuse/core': 8.1.1_vue@3.2.31
   ant-design-vue: 3.1.0-rc.0_vue@3.2.31
   axios: 0.26.1
+  dayjs: 1.11.0
   vue: 3.2.31
   vue-router: 4.0.14_vue@3.2.31
 

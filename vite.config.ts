@@ -1,9 +1,17 @@
 import path from 'path'
 import type { UserConfig, ConfigEnv } from 'vite'
 import { loadEnv } from 'vite'
+import dayjs from 'dayjs'
+import pkg from './package.json'
 import { wrapperEnv } from './build/utils'
 import setupVitePlugins from './build/plugins'
 import { createProxy } from './build/proxy'
+
+const { dependencies, devDependencies, name, version } = pkg
+const __APP_INFO__ = {
+  pkg: { dependencies, devDependencies, name, version },
+  lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss')
+}
 
 export default ({ command, mode }: ConfigEnv): UserConfig => {
   const root = process.cwd()
@@ -36,6 +44,10 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
 
     esbuild: {
       pure: VITE_DROP_CONSOLE ? ['console.log', 'debugger'] : []
+    },
+
+    define: {
+      __APP_INFO__: JSON.stringify(__APP_INFO__)
     },
 
     // The vite plugin used by the project. The quantity is large, so it is separately extracted and managed

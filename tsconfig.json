@@ -26,5 +26,6 @@
     "mock/**/*.ts",
     "build/**/*.ts",
     "vite.config.ts",
+    "package.json"
   ]
 }
