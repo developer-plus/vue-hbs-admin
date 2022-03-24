@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { TOKEN_KEY, USER_INFO_KEY } from '~/enums/cacheEnum'
 import localCache from '~/utils/cache'
-import { loginRequest } from '~/api/user'
+import { loginRequest, getUserInfo } from '~/api/user'
 import type { UserInfo } from '#/store'
 
 interface UserState {
@@ -39,8 +39,9 @@ export const useUserStore = defineStore('user', {
     async loginAction(account: { username: string; password: string }) {
       try {
         const result = await loginRequest(account)
-
         const { token } = result
+
+        // save token
         this.setToken(token)
         this.afterLoginAction()
       }
@@ -49,8 +50,18 @@ export const useUserStore = defineStore('user', {
       }
     },
 
-    afterLoginAction() {
+    async afterLoginAction() {
+      if (!this.getToken) return null
 
+      // get user info
+      const userInfo = await this.getUserInfoAction()
+    },
+
+    async getUserInfoAction(): Promise<UserInfo | null> {
+      if (!this.getToken) return null
+
+      const userInfo = await getUserInfo()
+      console.log(userInfo)
     }
   }
 })
