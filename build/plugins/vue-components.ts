@@ -4,6 +4,7 @@ import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 
 export default function setupVueComponents() {
   return Components({
+    dirs: ['src/global-components'],
     extensions: ['vue'],
     include: [/\.vue$/, /\.vue\?vue/],
     dts: 'src/components.d.ts',
