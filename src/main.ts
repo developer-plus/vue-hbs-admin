@@ -5,8 +5,15 @@ import '@unocss/reset/tailwind.css'
 import './styles/index.less'
 import 'uno.css'
 
-import router from './router'
+import { setupRouter } from './router'
 
-const app = createApp(App)
+function bootstrap() {
+  const app = createApp(App)
 
-app.use(router).mount('#app')
+  // Configure router
+  setupRouter(app)
+
+  app.mount('#app')
+}
+
+bootstrap()
