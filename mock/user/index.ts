@@ -78,5 +78,18 @@ export default [
       }
       return resultSuccess(checkUser)
     }
+  },
+  {
+    url: '/api/menu/list',
+    method: 'get',
+    response: (request: requestParams) => {
+      const token = getRequestToken(request)
+      if (!token) return resultError('Invalid token')
+      const checkUser = createFakeUserList().find(item => item.token === token)
+      if (!checkUser) {
+        return resultError('The corresponding user information was not obtained!')
+      }
+      return resultSuccess(checkUser)
+    }
   }
 ] as MockMethod[]

@@ -4,7 +4,8 @@ import type { Account, LoginInfo } from './types'
 
 enum API {
   Login = '/login',
-  UserInfo = '/user/info'
+  UserInfo = '/user/info',
+  MenuList = '/menu/list'
 }
 
 export function loginRequest(account: Account) {
@@ -15,7 +16,9 @@ export function loginRequest(account: Account) {
 }
 
 export function getUserInfo() {
-  return request.get({
-    url: API.UserInfo
-  })
+  return request.get({ url: API.UserInfo })
+}
+
+export function getMenuList() {
+  return request.get({ url: API.MenuList })
 }
