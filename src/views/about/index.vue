@@ -1,7 +1,7 @@
 <template>
   <div>
     <template v-for="(item, index) in info" :key="index">
-      <a-descriptions :title="item.title" bordered>
+      <a-descriptions :title="item.title" bordered class="enter-y">
         <template v-for="(value, key) in item.data" :key="key">
           <a-descriptions-item :label="key">
             {{ value }}
