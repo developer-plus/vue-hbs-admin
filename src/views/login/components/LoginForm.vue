@@ -1,37 +1,34 @@
 <template>
   <a-form
-    :model="formState"
-    name="basic"
-
-    autocomplete="off"
-    @finish="onFinish"
+    ref="formRef"
+    :model="formData"
+    :rules="formRules"
+    @keypress.enter="handleLogin"
   >
     <a-form-item
       class="enter-x"
       name="username"
-      :rules="[{ required: true, message: 'Please input your username!' }]"
     >
-      <a-input v-model:value="formState.username" size="large" />
+      <a-input v-model:value="formData.username" size="large" />
     </a-form-item>
 
     <a-form-item
       class="enter-x"
       name="password"
-      :rules="[{ required: true, message: 'Please input your password!' }]"
     >
-      <a-input-password v-model:value="formState.password" size="large" />
+      <a-input-password v-model:value="formData.password" size="large" />
     </a-form-item>
 
     <a-row class="enter-x">
       <a-col :span="12">
-        <a-form-item class="enter-x" name="remember">
-          <a-checkbox v-model:checked="formState.remember" size="small">
+        <a-form-item class="enter-x">
+          <a-checkbox v-model:checked="remember" size="small">
             记住密码
           </a-checkbox>
         </a-form-item>
       </a-col>
       <a-col :span="12">
-        <a-form-item :style="{ 'text-align': 'right' }" class="enter-x" name="remember">
+        <a-form-item :style="{ 'text-align': 'right' }" class="enter-x">
           <a-button type="link" size="small">
             忘记密码?
           </a-button>
@@ -40,7 +37,7 @@
     </a-row>
 
     <a-form-item class="enter-x">
-      <a-button size="large" type="primary" html-type="submit" block>
+      <a-button size="large" type="primary" block :loading="loading" @click="handleLogin">
         登录
       </a-button>
     </a-form-item>
@@ -53,12 +50,12 @@
       </a-col>
       <a-col :span="7">
         <a-button block>
-          手机登录
+          二维码登录
         </a-button>
       </a-col>
       <a-col :span="7">
         <a-button block>
-          手机登录
+          注册
         </a-button>
       </a-col>
     </a-row>
@@ -78,6 +75,7 @@
 </template>
 
 <script setup lang="ts">
+import type { Form } from 'ant-design-vue'
 import {
   GithubFilled,
   WechatFilled,
@@ -91,17 +89,31 @@ import { useUserStore } from '~/stores/modules/user'
 interface FormState {
   username: string
   password: string
-  remember: boolean
 }
 
-const formState = reactive<FormState>({
+const formRules = {
+  username: [
+    { required: true, message: '必须输入用户名', trigger: 'blur' }
+  ],
+  password: [
+    { required: true, message: '必须输入密码', trigger: 'blur' }
+  ]
+}
+
+const formRef = ref<InstanceType<typeof Form>>()
+const loading = ref(false)
+const remember = ref(true)
+
+const formData = reactive<FormState>({
   username: 'Hongbusi',
-  password: 'admin',
-  remember: true
+  password: 'admin'
 })
 
 const user = useUserStore()
-const onFinish = (values: any) => {
-  user.loginAction(values)
+const handleLogin = async() => {
+  const form = unref(formRef)
+  if (!form) return
+  const data = await form.validate()
+  user.loginAction(data)
 }
 </script>
