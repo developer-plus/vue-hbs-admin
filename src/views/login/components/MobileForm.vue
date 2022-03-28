@@ -23,7 +23,7 @@
     </a-form-item>
 
     <a-form-item class="enter-x">
-      <a-button size="large" block :loading="loading" @click="handleBackLogin">
+      <a-button size="large" block @click="handleBackLogin">
         返回
       </a-button>
     </a-form-item>

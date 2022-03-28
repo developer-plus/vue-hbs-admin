@@ -3,7 +3,7 @@
     v-if="getShow"
     ref="formRef"
     :model="formData"
-    @keypress.enter="handleReset"
+    @keypress.enter="handleRegister"
   >
     <a-form-item
       class="enter-x"
@@ -23,9 +23,23 @@
       <CountDownInput v-model:value="formData.sms" size="large" placeholder="短信验证码" />
     </a-form-item>
 
+    <a-form-item
+      class="enter-x"
+      name="password"
+    >
+      <a-input-password v-model:value="formData.password" size="large" placeholder="密码" />
+    </a-form-item>
+
+    <a-form-item
+      class="enter-x"
+      name="confirmPassword"
+    >
+      <a-input-password v-model:value="formData.confirmPassword" size="large" placeholder="确认密码" />
+    </a-form-item>
+
     <a-form-item class="enter-x">
-      <a-button size="large" type="primary" block :loading="loading" @click="handleReset">
-        重置
+      <a-button size="large" type="primary" block :loading="loading" @click="handleRegister">
+        注册
       </a-button>
     </a-form-item>
 
@@ -47,25 +61,29 @@ import { useUserStore } from '~/stores/modules/user'
 
 interface FormState {
   account: string
+  password: string
+  confirmPassword: string
   mobile: string
   sms: string
 }
 
 const { handleBackLogin, getLoginState } = useLoginState()
 
-const getShow = computed(() => unref(getLoginState) === LoginStateEnum.RESET_PASSWORD)
+const getShow = computed(() => unref(getLoginState) === LoginStateEnum.REGISTER)
 
 const formRef = ref<InstanceType<typeof Form>>()
 const loading = ref(false)
 
 const formData = reactive<FormState>({
   account: '',
+  password: '',
+  confirmPassword: '',
   mobile: '',
   sms: ''
 })
 
 const user = useUserStore()
-const handleReset = async() => {
+const handleRegister = async() => {
   const form = unref(formRef)
   if (!form) return
   const data = await form.validate()
