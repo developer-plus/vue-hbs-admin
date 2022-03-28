@@ -1,6 +1,6 @@
 <template>
   <a-form
-    v-show="getShow"
+    v-if="getShow"
     ref="formRef"
     :model="formData"
     @keypress.enter="handleReset"
@@ -30,7 +30,7 @@
     </a-form-item>
 
     <a-form-item class="enter-x">
-      <a-button size="large" block :loading="loading" @click="setLoginState(LoginStateEnum.LOGIN)">
+      <a-button size="large" block :loading="loading" @click="handleBackLogin">
         返回
       </a-button>
     </a-form-item>
@@ -51,7 +51,7 @@ interface FormState {
   sms: string
 }
 
-const { setLoginState, getLoginState } = useLoginState()
+const { handleBackLogin, getLoginState } = useLoginState()
 
 const getShow = computed(() => unref(getLoginState) === LoginStateEnum.RESET_PASSWORD)
 
