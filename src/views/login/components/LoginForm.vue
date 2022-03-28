@@ -1,6 +1,8 @@
 <template>
   <a-form
+    v-show="getShow"
     ref="formRef"
+    class="enter-x"
     :model="formData"
     :rules="formRules"
     @keypress.enter="handleLogin"
@@ -29,7 +31,7 @@
       </a-col>
       <a-col :span="12">
         <a-form-item :style="{ 'text-align': 'right' }" class="enter-x">
-          <a-button type="link" size="small">
+          <a-button type="link" size="small" @click="setLoginState(LoginStateEnum.RESET_PASSWORD)">
             忘记密码?
           </a-button>
         </a-form-item>
@@ -44,17 +46,17 @@
 
     <a-row class="enter-x" justify="space-between">
       <a-col :span="7">
-        <a-button block>
+        <a-button block @click="setLoginState(LoginStateEnum.MOBILE)">
           手机登录
         </a-button>
       </a-col>
       <a-col :span="7">
-        <a-button block>
+        <a-button block @click="setLoginState(LoginStateEnum.QR_CODE)">
           二维码登录
         </a-button>
       </a-col>
       <a-col :span="7">
-        <a-button block>
+        <a-button block @click="setLoginState(LoginStateEnum.REGISTER)">
           注册
         </a-button>
       </a-col>
@@ -76,6 +78,7 @@
 
 <script setup lang="ts">
 import type { Form } from 'ant-design-vue'
+
 import {
   GithubFilled,
   WechatFilled,
@@ -84,12 +87,17 @@ import {
   TwitterCircleFilled
 } from '@ant-design/icons-vue'
 
+import { LoginStateEnum, useLoginState } from '../useLogin'
 import { useUserStore } from '~/stores/modules/user'
 
 interface FormState {
   username: string
   password: string
 }
+
+const { setLoginState, getLoginState } = useLoginState()
+
+const getShow = computed(() => unref(getLoginState) === LoginStateEnum.LOGIN)
 
 const formRules = {
   username: [
