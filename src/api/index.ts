@@ -1,7 +1,7 @@
 import Request from '../utils/request'
 import { BASE_URL, TIME_OUT } from './config'
 import localCache from '~/utils/cache'
-import { TOKEN_KEY } from '~/enums/cache-enum'
+import { TOKEN_KEY } from '~/enums/cacheEnum'
 
 const request = new Request({
   baseURL: BASE_URL,

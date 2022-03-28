@@ -7,7 +7,7 @@ export default function setupMockServer(isBuild: boolean) {
     localEnabled: !isBuild,
     prodEnabled: isBuild,
     injectCode: `
-      import { setupProdMockServer } from '../mock/_create-production-server'
+      import { setupProdMockServer } from '../mock/_createProductionServer'
       setupProdMockServer()
     `
   })

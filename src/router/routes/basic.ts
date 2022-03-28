@@ -1,6 +1,6 @@
 
 import type { RouteRecordRaw } from 'vue-router'
-import { PageEnum } from '~/enums/page-enum'
+import { PageEnum } from '~/enums/pageEnum'
 
 export const RootRoute: RouteRecordRaw = {
   path: '/',

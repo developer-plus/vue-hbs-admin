@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia'
-import { TOKEN_KEY, USER_INFO_KEY, ROLES_KEY } from '~/enums/cache-enum'
+import { TOKEN_KEY, USER_INFO_KEY, ROLES_KEY } from '~/enums/cacheEnum'
 import localCache from '~/utils/cache'
 import { loginRequest, getUserInfo } from '~/api/user'
 import { isArray } from '~/utils/is'
 
-import type { RoleEnum } from '~/enums/role-enum'
+import type { RoleEnum } from '~/enums/roleEnum'
 import type { UserInfo } from '#/store'
 
 interface UserState {
