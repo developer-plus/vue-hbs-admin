@@ -86,6 +86,8 @@ export const useUserStore = defineStore('user', {
 
       // get menu list
       await this.getMenuListAction()
+
+      router.push('/main')
     },
 
     async getUserInfoAction(): Promise<UserInfo | null> {
