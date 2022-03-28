@@ -5,13 +5,19 @@
     </a-layout-sider>
 
     <a-layout>
-      <a-layout-header style="background: #fff; padding: 0;">
-        <menu-unfold-outlined
-          v-if="collapsed"
-          class="trigger"
-          @click="() => (collapsed = !collapsed)"
-        />
-        <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
+      <a-layout-header class="hbs-header">
+        <div class="hbs-header-left">
+          <menu-unfold-outlined
+            v-if="collapsed"
+            class="trigger"
+            @click="() => (collapsed = !collapsed)"
+          />
+          <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
+        </div>
+
+        <div class="hbs-header-right">
+          Hongbusi
+        </div>
       </a-layout-header>
       <a-layout-content
         :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
@@ -39,15 +45,31 @@ const collapsed = ref<boolean>(false)
     margin: 16px;
   }
 
-  .trigger {
-    font-size: 18px;
-    line-height: 64px;
+  .hbs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0 24px;
-    cursor: pointer;
-    transition: color 0.3s;
+    background: #fff;
 
-    &:hover {
-      color: #1890ff;
+    .hbs-header-left {
+      display: flex;
+      align-items: center;
+
+      .trigger {
+        font-size: 18px;
+        cursor: pointer;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #1890ff;
+        }
+      }
+    }
+
+    .hbs-header-right {
+      display: flex;
+      align-items: center;
     }
   }
 }

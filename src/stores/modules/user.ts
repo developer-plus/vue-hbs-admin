@@ -35,6 +35,10 @@ export const useUserStore = defineStore('user', {
 
     getRoleList(): RoleEnum[] {
       return this.roleList.length > 0 ? this.roleList : localCache.getCache(ROLES_KEY)
+    },
+
+    getMenuList(): any[] {
+      return this.menuList
     }
   },
 
