@@ -1,3 +1,5 @@
+import { createFakeUserList } from './_fake-data'
+
 // Interface data format used to return a unified format
 
 export function resultSuccess<T = Recordable>(data: T, { message = 'ok' } = {}) {
@@ -6,6 +8,15 @@ export function resultSuccess<T = Recordable>(data: T, { message = 'ok' } = {}) 
     data,
     message,
     type: 'success'
+  }
+}
+
+export function resultError(message = 'Request failed', { code = -1, result = null } = {}) {
+  return {
+    code,
+    result,
+    message,
+    type: 'error'
   }
 }
 
@@ -26,15 +37,6 @@ export function resultPageSuccess<T = any>(
   }
 }
 
-export function resultError(message = 'Request failed', { code = -1, result = null } = {}) {
-  return {
-    code,
-    result,
-    message,
-    type: 'error'
-  }
-}
-
 export function pagination<T = any>(pageNo: number, pageSize: number, array: T[]): T[] {
   const offset = (pageNo - 1) * Number(pageSize)
   const ret
@@ -52,9 +54,33 @@ export interface requestParams {
 }
 
 /**
- * @description 本函数用于从request数据中获取token，请根据项目的实际情况修改
- *
+ * @description 本函数用于从 request 数据中获取 token，请根据项目的实际情况修改
  */
 export function getRequestToken({ headers }: requestParams): string | undefined {
   return headers?.authorization
+}
+
+export function checkRequestToken(request: requestParams) {
+  const result = {
+    state: true,
+    error: {},
+    user: {}
+  }
+
+  const token = getRequestToken(request)
+  if (!token) {
+    result.state = false
+    result.error = resultError('Invalid token')
+    return result
+  }
+
+  const checkUser = createFakeUserList().find(item => item.token === token)
+  if (!checkUser) {
+    result.state = false
+    result.error = resultError('Invalid user token!')
+    return result
+  }
+
+  result.user = checkUser
+  return result
 }
