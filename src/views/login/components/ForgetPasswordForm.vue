@@ -21,6 +21,10 @@
     </a-form-item>
 
     <a-form-item class="enter-x">
+      <CountDownInput />
+    </a-form-item>
+
+    <a-form-item class="enter-x">
       <a-button size="large" type="primary" block :loading="loading" @click="handleReset">
         重置
       </a-button>
@@ -38,6 +42,8 @@
 import type { Form } from 'ant-design-vue'
 
 import { LoginStateEnum, useLoginState } from '../useLogin'
+import { CountDownInput } from '~/components/Countdown'
+
 import { useUserStore } from '~/stores/modules/user'
 
 interface FormState {
