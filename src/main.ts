@@ -21,7 +21,9 @@ function bootstrap() {
   // Router guard
   setupRouterGuard(router)
 
-  app.mount('#app')
+  setTimeout(() => {
+    app.mount('#app')
+  }, 100000)
 }
 
 bootstrap()
