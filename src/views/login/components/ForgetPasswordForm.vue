@@ -4,7 +4,7 @@
     ref="formRef"
     :model="formData"
     :rules="formRules"
-    @keypress.enter="handleLogin"
+    @keypress.enter="handleReset"
   >
     <a-form-item
       class="enter-x"
@@ -38,40 +38,16 @@
     </a-row>
 
     <a-form-item class="enter-x">
-      <a-button size="large" type="primary" block :loading="loading" @click="handleLogin">
-        登录
+      <a-button size="large" type="primary" block :loading="loading" @click="handleReset">
+        重置
       </a-button>
     </a-form-item>
 
-    <a-row class="enter-x" justify="space-between">
-      <a-col :span="7">
-        <a-button block @click="setLoginState(LoginStateEnum.MOBILE)">
-          手机登录
-        </a-button>
-      </a-col>
-      <a-col :span="7">
-        <a-button block @click="setLoginState(LoginStateEnum.QR_CODE)">
-          二维码登录
-        </a-button>
-      </a-col>
-      <a-col :span="7">
-        <a-button block @click="setLoginState(LoginStateEnum.REGISTER)">
-          注册
-        </a-button>
-      </a-col>
-    </a-row>
-
-    <a-divider class="enter-x">
-      其他登录方式
-    </a-divider>
-
-    <div class="flex justify-evenly enter-x sign-in-way">
-      <GithubFilled />
-      <WechatFilled />
-      <AlipayCircleFilled />
-      <GoogleCircleFilled />
-      <TwitterCircleFilled />
-    </div>
+    <a-form-item class="enter-x">
+      <a-button size="large" block :loading="loading" @click="setLoginState(LoginStateEnum.LOGIN)">
+        返回
+      </a-button>
+    </a-form-item>
   </a-form>
 </template>
 
@@ -96,7 +72,7 @@ interface FormState {
 
 const { setLoginState, getLoginState } = useLoginState()
 
-const getShow = computed(() => unref(getLoginState) === LoginStateEnum.LOGIN)
+const getShow = computed(() => unref(getLoginState) === LoginStateEnum.RESET_PASSWORD)
 
 const formRules = {
   username: [
@@ -117,7 +93,7 @@ const formData = reactive<FormState>({
 })
 
 const user = useUserStore()
-const handleLogin = async() => {
+const handleReset = async() => {
   const form = unref(formRef)
   if (!form) return
   const data = await form.validate()
