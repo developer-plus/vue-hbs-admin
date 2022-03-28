@@ -11,7 +11,6 @@ import { useCountdown } from './useCountdown'
 import { isFunction } from '~/utils/is'
 
 const props = defineProps({
-  value: { type: [Object, Number, String, Array] },
   count: { type: Number, default: 60 },
   beforeStartFunc: {
     type: Function as PropType<() => Promise<boolean>>,
@@ -21,7 +20,7 @@ const props = defineProps({
 
 const loading = ref(false)
 
-const { currentCount, isStart, start, reset } = useCountdown(props.count)
+const { currentCount, isStart, start } = useCountdown(props.count)
 
 const getButtonText = computed(() => !unref(isStart) ? '获取验证码' : `${unref(currentCount)}秒后重新获取`)
 
