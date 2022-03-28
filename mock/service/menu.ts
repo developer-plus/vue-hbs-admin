@@ -21,14 +21,14 @@ export default [
         {
           id: '1',
           name: '系统总览',
-          type: '1',
+          type: 1,
           url: '/main/analysis',
           icon: 'dashboard',
           children: [
             {
               id: '2',
               name: '核心技术',
-              type: '2',
+              type: 2,
               url: '/main/analysis/overvie',
               children: null
             }
@@ -37,7 +37,7 @@ export default [
         {
           id: '2',
           name: '关于',
-          type: '2',
+          type: 2,
           url: '/about/index',
           icon: 'dashboard',
           children: null

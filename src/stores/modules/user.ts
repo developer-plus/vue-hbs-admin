@@ -1,8 +1,10 @@
 import { defineStore } from 'pinia'
+import { router } from '~/router'
 import { TOKEN_KEY, USER_INFO_KEY, ROLES_KEY } from '~/enums/cacheEnum'
 import localCache from '~/utils/cache'
-import { loginRequest, getUserInfo } from '~/api/user'
+import { loginRequest, getUserInfo, getMenuList } from '~/api/user'
 import { isArray } from '~/utils/is'
+import { mapMenuToRoutes } from '~/utils/map-menu'
 
 import type { RoleEnum } from '~/enums/roleEnum'
 import type { UserInfo } from '#/store'
@@ -11,13 +13,15 @@ interface UserState {
   token?: string
   userInfo: Nullable<UserInfo>
   roleList: RoleEnum[]
+  menuList: any[]
 }
 
 export const useUserStore = defineStore('user', {
   state: (): UserState => ({
     token: '',
     userInfo: null,
-    roleList: []
+    roleList: [],
+    menuList: []
   }),
 
   getters: {
@@ -50,6 +54,16 @@ export const useUserStore = defineStore('user', {
       localCache.setCache(ROLES_KEY, roleList)
     },
 
+    setMenuList(menuList: any[]) {
+      this.menuList = menuList
+
+      // map menu to routes
+      const routes = mapMenuToRoutes(menuList)
+      routes.forEach((route) => {
+        router.addRoute(route)
+      })
+    },
+
     async loginAction(account: { username: string; password: string }) {
       try {
         const result = await loginRequest(account)
@@ -68,7 +82,10 @@ export const useUserStore = defineStore('user', {
       if (!this.getToken) return null
 
       // get user info
-      const userInfo = await this.getUserInfoAction()
+      await this.getUserInfoAction()
+
+      // get menu list
+      await this.getMenuListAction()
     },
 
     async getUserInfoAction(): Promise<UserInfo | null> {
@@ -86,6 +103,14 @@ export const useUserStore = defineStore('user', {
       }
       this.setUserInfo(userInfo)
       return userInfo
+    },
+
+    async getMenuListAction(): Promise<any> {
+      if (!this.getToken) return null
+
+      const menuList = await getMenuList()
+
+      this.setMenuList(menuList)
     }
   }
 })
