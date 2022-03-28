@@ -18,7 +18,22 @@ export default [
       }
 
       const menu: Object[] = [
-
+        {
+          id: '1',
+          name: '系统总览',
+          type: '1',
+          url: '/main/analysis',
+          icon: 'dashboard',
+          children: [
+            {
+              id: '2',
+              name: '核心技术',
+              type: '2',
+              url: '/main/analysis/overvie',
+              children: null
+            }
+          ]
+        }
       ]
 
       return resultSuccess(menu)
