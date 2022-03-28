@@ -5,6 +5,7 @@
     <div class="w-400px">
       <LoginForm />
       <ForgetPasswordForm />
+      <MobileForm />
       <QrCodeForm />
     </div>
   </div>
@@ -13,6 +14,7 @@
 <script setup lang="ts">
 import LoginForm from './components/LoginForm.vue'
 import ForgetPasswordForm from './components/ForgetPasswordForm.vue'
+import MobileForm from './components/MobileForm.vue'
 import QrCodeForm from './components/QrCodeForm.vue'
 
 </script>

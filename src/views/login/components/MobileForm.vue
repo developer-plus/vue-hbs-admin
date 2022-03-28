@@ -7,13 +7,6 @@
   >
     <a-form-item
       class="enter-x"
-      name="account"
-    >
-      <a-input v-model:value="formData.account" placeholder="账号" size="large" />
-    </a-form-item>
-
-    <a-form-item
-      class="enter-x"
       name="mobile"
     >
       <a-input v-model:value="formData.mobile" placeholder="手机号" size="large" />
@@ -25,7 +18,7 @@
 
     <a-form-item class="enter-x">
       <a-button size="large" type="primary" block :loading="loading" @click="handleReset">
-        重置
+        登录
       </a-button>
     </a-form-item>
 
@@ -46,20 +39,18 @@ import { CountDownInput } from '~/components/Countdown'
 import { useUserStore } from '~/stores/modules/user'
 
 interface FormState {
-  account: string
   mobile: string
   sms: string
 }
 
 const { handleBackLogin, getLoginState } = useLoginState()
 
-const getShow = computed(() => unref(getLoginState) === LoginStateEnum.RESET_PASSWORD)
+const getShow = computed(() => unref(getLoginState) === LoginStateEnum.MOBILE)
 
 const formRef = ref<InstanceType<typeof Form>>()
 const loading = ref(false)
 
 const formData = reactive<FormState>({
-  account: '',
   mobile: '',
   sms: ''
 })
