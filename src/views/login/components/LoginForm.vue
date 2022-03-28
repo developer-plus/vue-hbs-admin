@@ -10,14 +10,22 @@
       class="enter-x"
       name="username"
     >
-      <a-input v-model:value="formData.username" size="large" />
+      <a-input
+        v-model:value="formData.username"
+        placeholder="账号"
+        size="large"
+      />
     </a-form-item>
 
     <a-form-item
       class="enter-x"
       name="password"
     >
-      <a-input-password v-model:value="formData.password" size="large" />
+      <a-input-password
+        v-model:value="formData.password"
+        placeholder="密码"
+        size="large"
+      />
     </a-form-item>
 
     <a-row class="enter-x">
@@ -76,7 +84,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Form } from 'ant-design-vue'
+import type { FormInstance } from 'ant-design-vue'
 
 import {
   GithubFilled,
@@ -107,7 +115,7 @@ const formRules = {
   ]
 }
 
-const formRef = ref<InstanceType<typeof Form>>()
+const formRef = ref<FormInstance>()
 const loading = ref(false)
 const remember = ref(true)
 
@@ -120,7 +128,7 @@ const user = useUserStore()
 const handleLogin = async() => {
   const form = unref(formRef)
   if (!form) return
-  const data = await form.validate()
+  const data = await form.validate() as FormState
   user.loginAction(data)
 }
 </script>

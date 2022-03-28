@@ -18,7 +18,6 @@ import ForgetPasswordForm from './components/ForgetPasswordForm.vue'
 import MobileForm from './components/MobileForm.vue'
 import QrCodeForm from './components/QrCodeForm.vue'
 import RegisterForm from './components/RegisterForm.vue'
-
 </script>
 
 <style lang="less">
@@ -33,9 +32,11 @@ import RegisterForm from './components/RegisterForm.vue'
       font-size: 22px;
       color: #888;
       cursor: pointer;
+      transform: color 0.3s ease;
 
       &:hover {
-        color: #0960bd;
+        color: #1890ff;
+        transform: color 0.3s ease;
       }
     }
   }
