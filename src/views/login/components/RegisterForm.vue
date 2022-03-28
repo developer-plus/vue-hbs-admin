@@ -27,7 +27,7 @@
       class="enter-x"
       name="password"
     >
-      <a-input-password v-model:value="formData.password" size="large" placeholder="密码" />
+      <StrengthMeter v-model:value="formData.password" size="large" placeholder="密码" />
     </a-form-item>
 
     <a-form-item
@@ -59,6 +59,7 @@ import { message } from 'ant-design-vue'
 
 import { LoginStateEnum, useLoginState } from '../useLogin'
 import { CountDownInput } from '~/components/Countdown'
+import { StrengthMeter } from '~/components/StrengthMeter'
 
 interface FormState {
   username: string

@@ -19,6 +19,10 @@ declare global {
     VITE_PROXY: [string, string][]
     VITE_DROP_CONSOLE: boolean
   }
+
+  interface ChangeEvent extends Event {
+    target: HTMLInputElement
+  }
 }
 
 export {}
