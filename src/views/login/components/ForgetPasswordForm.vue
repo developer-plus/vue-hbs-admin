@@ -3,25 +3,24 @@
     v-show="getShow"
     ref="formRef"
     :model="formData"
-    :rules="formRules"
     @keypress.enter="handleReset"
   >
     <a-form-item
       class="enter-x"
-      name="username"
+      name="account"
     >
-      <a-input v-model:value="formData.username" size="large" />
+      <a-input v-model:value="formData.account" placeholder="账号" size="large" />
     </a-form-item>
 
     <a-form-item
       class="enter-x"
-      name="password"
+      name="mobile"
     >
-      <a-input-password v-model:value="formData.password" size="large" />
+      <a-input v-model:value="formData.mobile" placeholder="手机号" size="large" />
     </a-form-item>
 
     <a-form-item class="enter-x">
-      <CountDownInput />
+      <CountDownInput v-model:value="formData.sms" size="large" placeholder="短信验证码" />
     </a-form-item>
 
     <a-form-item class="enter-x">
@@ -47,30 +46,23 @@ import { CountDownInput } from '~/components/Countdown'
 import { useUserStore } from '~/stores/modules/user'
 
 interface FormState {
-  username: string
-  password: string
+  account: string
+  mobile: string
+  sms: string
 }
 
 const { setLoginState, getLoginState } = useLoginState()
 
 const getShow = computed(() => unref(getLoginState) === LoginStateEnum.RESET_PASSWORD)
 
-const formRules = {
-  username: [
-    { required: true, message: '必须输入用户名', trigger: 'blur' }
-  ],
-  password: [
-    { required: true, message: '必须输入密码', trigger: 'blur' }
-  ]
-}
-
 const formRef = ref<InstanceType<typeof Form>>()
 const loading = ref(false)
 const remember = ref(true)
 
 const formData = reactive<FormState>({
-  username: 'Hongbusi',
-  password: 'admin'
+  account: '',
+  mobile: '',
+  sms: ''
 })
 
 const user = useUserStore()
