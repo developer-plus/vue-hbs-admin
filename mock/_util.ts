@@ -1,5 +1,3 @@
-import { createFakeUserList } from './_fake-data'
-
 // Interface data format used to return a unified format
 
 export function resultSuccess<T = Recordable>(data: T, { message = 'ok' } = {}) {
@@ -58,29 +56,4 @@ export interface requestParams {
  */
 export function getRequestToken({ headers }: requestParams): string | undefined {
   return headers?.authorization
-}
-
-export function checkRequestToken(request: requestParams) {
-  const result = {
-    state: true,
-    error: {},
-    user: {}
-  }
-
-  const token = getRequestToken(request)
-  if (!token) {
-    result.state = false
-    result.error = resultError('Invalid token')
-    return result
-  }
-
-  const checkUser = createFakeUserList().find(item => item.token === token)
-  if (!checkUser) {
-    result.state = false
-    result.error = resultError('Invalid user token!')
-    return result
-  }
-
-  result.user = checkUser
-  return result
 }

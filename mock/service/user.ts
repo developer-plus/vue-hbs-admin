@@ -1,7 +1,43 @@
 import type { MockMethod } from 'vite-plugin-mock'
 import type { requestParams } from '../_util'
-import { resultSuccess, resultError, checkRequestToken } from '../_util'
-import { createFakeUserList } from '../_fake-data'
+import { resultSuccess, resultError, getRequestToken } from '../_util'
+
+export function createFakeUserList() {
+  return [
+    {
+      id: '1',
+      username: 'Hongbusi',
+      realName: 'Hongbusi',
+      avatar: 'https://q1.qlogo.cn/g?b=qq&nk=190848757&s=640',
+      desc: 'zhe',
+      password: 'admin',
+      token: 'fakeToken1',
+      homePath: '/dashboard/analysis',
+      roles: [
+        {
+          roleName: 'Super Admin',
+          value: 'super'
+        }
+      ]
+    },
+    {
+      id: '2',
+      username: 'test',
+      password: 'admin',
+      realName: 'test user',
+      avatar: 'https://q1.qlogo.cn/g?b=qq&nk=339449197&s=640',
+      desc: 'tester',
+      token: 'fakeToken2',
+      homePath: '/dashboard/workbench',
+      roles: [
+        {
+          roleName: 'Tester',
+          value: 'test'
+        }
+      ]
+    }
+  ]
+}
 
 export default [
   {
@@ -34,8 +70,13 @@ export default [
     url: '/api/user/info',
     method: 'get',
     response: (request: requestParams) => {
-      const { state, error, user } = checkRequestToken(request)
-      return state ? resultSuccess(user) : error
+      const token = getRequestToken(request)
+      if (!token) return resultError('Invalid token')
+      const checkUser = createFakeUserList().find(item => item.token === token)
+      if (!checkUser) {
+        return resultError('The corresponding user information was not obtained!')
+      }
+      return resultSuccess(checkUser)
     }
   }
 ] as MockMethod[]
