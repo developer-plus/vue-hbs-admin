@@ -7,7 +7,7 @@
   >
     <a-form-item
       class="enter-x"
-      name="account"
+      name="username"
     >
       <a-input v-model:value="formData.username" placeholder="账号" size="large" />
     </a-form-item>
@@ -46,8 +46,6 @@ import { message } from 'ant-design-vue'
 import { LoginStateEnum, useLoginState } from '../useLogin'
 import { CountDownInput } from '~/components/Countdown'
 
-import { useUserStore } from '~/stores/modules/user'
-
 interface FormState {
   username: string
   mobile: string
@@ -67,7 +65,6 @@ const formData = reactive<FormState>({
   sms: ''
 })
 
-const user = useUserStore()
 const handleReset = async() => {
   message.warning('暂不支持重置密码～')
 }

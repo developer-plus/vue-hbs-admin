@@ -39,8 +39,6 @@ import { message } from 'ant-design-vue'
 import { LoginStateEnum, useLoginState } from '../useLogin'
 import { CountDownInput } from '~/components/Countdown'
 
-import { useUserStore } from '~/stores/modules/user'
-
 interface FormState {
   mobile: string
   sms: string
@@ -58,7 +56,6 @@ const formData = reactive<FormState>({
   sms: ''
 })
 
-const user = useUserStore()
 const handleReset = async() => {
   message.warning('暂不支持手机登录～')
 }

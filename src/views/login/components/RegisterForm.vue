@@ -7,9 +7,9 @@
   >
     <a-form-item
       class="enter-x"
-      name="account"
+      name="username"
     >
-      <a-input v-model:value="formData.account" placeholder="账号" size="large" />
+      <a-input v-model:value="formData.username" placeholder="账号" size="large" />
     </a-form-item>
 
     <a-form-item
@@ -54,13 +54,14 @@
 <script setup lang="ts">
 import type { Form } from 'ant-design-vue'
 
+import 'ant-design-vue/lib/message/style/index.css'
+import { message } from 'ant-design-vue'
+
 import { LoginStateEnum, useLoginState } from '../useLogin'
 import { CountDownInput } from '~/components/Countdown'
 
-import { useUserStore } from '~/stores/modules/user'
-
 interface FormState {
-  account: string
+  username: string
   password: string
   confirmPassword: string
   mobile: string
@@ -75,18 +76,14 @@ const formRef = ref<InstanceType<typeof Form>>()
 const loading = ref(false)
 
 const formData = reactive<FormState>({
-  account: '',
+  username: '',
   password: '',
   confirmPassword: '',
   mobile: '',
   sms: ''
 })
 
-const user = useUserStore()
 const handleRegister = async() => {
-  const form = unref(formRef)
-  if (!form) return
-  const data = await form.validate()
-  user.loginAction(data)
+  message.warning('暂不支持注册账号～')
 }
 </script>
