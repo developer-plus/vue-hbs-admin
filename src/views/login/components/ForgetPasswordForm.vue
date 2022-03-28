@@ -9,7 +9,7 @@
       class="enter-x"
       name="account"
     >
-      <a-input v-model:value="formData.account" placeholder="账号" size="large" />
+      <a-input v-model:value="formData.username" placeholder="账号" size="large" />
     </a-form-item>
 
     <a-form-item
@@ -38,7 +38,10 @@
 </template>
 
 <script setup lang="ts">
-import type { Form } from 'ant-design-vue'
+import type { FormInstance } from 'ant-design-vue'
+
+import 'ant-design-vue/lib/message/style/index.css'
+import { message } from 'ant-design-vue'
 
 import { LoginStateEnum, useLoginState } from '../useLogin'
 import { CountDownInput } from '~/components/Countdown'
@@ -46,7 +49,7 @@ import { CountDownInput } from '~/components/Countdown'
 import { useUserStore } from '~/stores/modules/user'
 
 interface FormState {
-  account: string
+  username: string
   mobile: string
   sms: string
 }
@@ -55,20 +58,17 @@ const { handleBackLogin, getLoginState } = useLoginState()
 
 const getShow = computed(() => unref(getLoginState) === LoginStateEnum.RESET_PASSWORD)
 
-const formRef = ref<InstanceType<typeof Form>>()
+const formRef = ref<FormInstance>()
 const loading = ref(false)
 
 const formData = reactive<FormState>({
-  account: '',
+  username: '',
   mobile: '',
   sms: ''
 })
 
 const user = useUserStore()
 const handleReset = async() => {
-  const form = unref(formRef)
-  if (!form) return
-  const data = await form.validate()
-  user.loginAction(data)
+  message.warning('暂不支持重置密码～')
 }
 </script>
