@@ -13,7 +13,7 @@
     </a-form-item>
 
     <a-form-item class="enter-x">
-      <CountDownInput v-model:value="formData.sms" size="large" placeholder="短信验证码" />
+      <CountDownInput v-model:value="formData.sms" placeholder="短信验证码" size="large" />
     </a-form-item>
 
     <a-form-item class="enter-x">
@@ -31,7 +31,10 @@
 </template>
 
 <script setup lang="ts">
-import type { Form } from 'ant-design-vue'
+import type { FormInstance } from 'ant-design-vue'
+
+import 'ant-design-vue/lib/message/style/index.css'
+import { message } from 'ant-design-vue'
 
 import { LoginStateEnum, useLoginState } from '../useLogin'
 import { CountDownInput } from '~/components/Countdown'
@@ -47,7 +50,7 @@ const { handleBackLogin, getLoginState } = useLoginState()
 
 const getShow = computed(() => unref(getLoginState) === LoginStateEnum.MOBILE)
 
-const formRef = ref<InstanceType<typeof Form>>()
+const formRef = ref<FormInstance>()
 const loading = ref(false)
 
 const formData = reactive<FormState>({
@@ -57,9 +60,6 @@ const formData = reactive<FormState>({
 
 const user = useUserStore()
 const handleReset = async() => {
-  const form = unref(formRef)
-  if (!form) return
-  const data = await form.validate()
-  user.loginAction(data)
+  message.warning('暂不支持手机登录～')
 }
 </script>
