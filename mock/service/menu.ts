@@ -33,6 +33,14 @@ export default [
               children: null
             }
           ]
+        },
+        {
+          id: '2',
+          name: '关于',
+          type: '2',
+          url: '/about/index',
+          icon: 'dashboard',
+          children: null
         }
       ]
 
