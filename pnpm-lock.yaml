@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@ant-design/icons-vue': ^6.1.0
   '@commitlint/cli': ^16.2.1
   '@commitlint/config-conventional': ^16.2.1
   '@hongbusi/eslint-config': ^0.2.1
@@ -32,6 +33,7 @@ specifiers:
   vue-tsc: ^0.32.1
 
 dependencies:
+  '@ant-design/icons-vue': 6.1.0_vue@3.2.31
   '@unocss/reset': 0.29.5
   '@vueuse/core': 8.1.1_vue@3.2.31
   ant-design-vue: 3.1.0-rc.2_vue@3.2.31
