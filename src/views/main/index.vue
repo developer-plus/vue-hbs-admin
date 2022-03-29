@@ -32,7 +32,7 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined
 } from '@ant-design/icons-vue'
-import { NavMenu } from '~/components/NavMenu/index'
+import { NavMenu } from '~/components/NavMenu'
 
 const collapsed = ref<boolean>(false)
 </script>
