@@ -7,6 +7,8 @@
         :width="400"
       /> -->
 
+      <img class="enter-x" :src="qrCodeUrl" alt="">
+
       <a-divider class="enter-x">
         扫码后点击"确认"，即可完成登录
       </a-divider>
@@ -20,9 +22,9 @@
 <script lang="ts" setup>
 import { useLoginState, LoginStateEnum } from '../useLogin'
 
-// import { Qrcode } from '~/components/Qrcode'
+import qrCodeUrl from '~/assets/images/qrcode.png'
 
-const qrCodeUrl = 'https://github.com/Hongbusi/vue-hbs-admin'
+// import { Qrcode } from '~/components/Qrcode'
 
 const { handleBackLogin, getLoginState } = useLoginState()
 
