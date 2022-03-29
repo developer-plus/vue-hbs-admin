@@ -37,7 +37,7 @@ import 'ant-design-vue/lib/message/style/index.css'
 import { message } from 'ant-design-vue'
 
 import { LoginStateEnum, useLoginState } from '../useLogin'
-import { CountDownInput } from '~/components/Countdown/index'
+import { CountDownInput } from '~/components/Countdown'
 
 interface FormState {
   mobile: string

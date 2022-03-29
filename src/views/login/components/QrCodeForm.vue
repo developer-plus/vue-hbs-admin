@@ -20,7 +20,7 @@
 <script lang="ts" setup>
 import { useLoginState, LoginStateEnum } from '../useLogin'
 
-import { Qrcode } from '~/components/Qrcode/index'
+import { Qrcode } from '~/components/Qrcode'
 
 const qrCodeUrl = 'https://github.com/Hongbusi/vue-hbs-admin'
 
