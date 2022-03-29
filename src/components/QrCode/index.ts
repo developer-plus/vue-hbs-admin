@@ -1,5 +1,7 @@
 import Qrcode from './src/Qrcode.vue'
 
-export default Qrcode
+export {
+  Qrcode
+}
 
 export * from './src/typing'
