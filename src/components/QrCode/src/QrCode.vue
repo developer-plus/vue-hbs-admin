@@ -3,6 +3,7 @@
     <component :is="tag" ref="wrapRef" />
   </div>
 </template>
+
 <script lang="ts">
 import type { PropType } from 'vue'
 import { toDataURL } from 'qrcode'
