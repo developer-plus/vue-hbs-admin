@@ -13,7 +13,7 @@
     </a-form-item>
 
     <a-form-item class="enter-x">
-      <CountDownInput v-model:value="formData.sms" placeholder="短信验证码" size="large" />
+      <CountdownInput v-model:value="formData.sms" placeholder="短信验证码" size="large" />
     </a-form-item>
 
     <a-form-item class="enter-x">
@@ -37,7 +37,7 @@ import 'ant-design-vue/lib/message/style/index.css'
 import { message } from 'ant-design-vue'
 
 import { LoginStateEnum, useLoginState } from '../useLogin'
-import { CountDownInput } from '~/components/Countdown'
+import { CountdownInput } from '~/components/Countdown'
 
 interface FormState {
   mobile: string

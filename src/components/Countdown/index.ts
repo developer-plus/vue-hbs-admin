@@ -1,7 +1,7 @@
-import CountDownButton from './src/CountDownButton.vue'
-import CountDownInput from './src/CountDownInput.vue'
+import CountdownButton from './src/CountdownButton.vue'
+import CountdownInput from './src/CountdownInput.vue'
 
 export {
-  CountDownButton,
-  CountDownInput
+  CountdownButton,
+  CountdownInput
 }

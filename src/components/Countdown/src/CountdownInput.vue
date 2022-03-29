@@ -1,7 +1,7 @@
 <template>
   <a-input class="count-down" v-bind="$attrs" :size="size">
     <template #addonAfter>
-      <CountDownButton :size="size" :count="count" :before-start-func="sendCodeApi" />
+      <CountdownButton :size="size" :count="count" :before-start-func="sendCodeApi" />
     </template>
   </a-input>
 </template>
@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
 
-import CountDownButton from './CountDownButton.vue'
+import CountdownButton from './CountdownButton.vue'
 
 defineProps({
   size: {
