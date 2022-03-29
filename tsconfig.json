@@ -12,7 +12,8 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "lib": ["esnext", "dom"],
-    "composite": true,
+    "incremental": false,
+    "skipLibCheck": true,
     "types": ["vite/client"],
     "paths": {
       "~/*": ["src/*"],
@@ -29,5 +30,6 @@
     "build/**/*.ts",
     "vite.config.ts",
     "package.json"
-  ]
+  ],
+  "exclude": ["dist", "node_modules"]
 }
