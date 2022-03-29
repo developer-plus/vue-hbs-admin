@@ -1,11 +1,11 @@
 <template>
   <template v-if="getShow">
     <div>
-      <Qrcode
+      <!-- <Qrcode
         :value="qrCodeUrl"
         class="enter-x flex justify-center"
         :width="400"
-      />
+      /> -->
 
       <a-divider class="enter-x">
         扫码后点击"确认"，即可完成登录
@@ -20,7 +20,7 @@
 <script lang="ts" setup>
 import { useLoginState, LoginStateEnum } from '../useLogin'
 
-import { Qrcode } from '~/components/Qrcode'
+// import { Qrcode } from '~/components/Qrcode'
 
 const qrCodeUrl = 'https://github.com/Hongbusi/vue-hbs-admin'
 
