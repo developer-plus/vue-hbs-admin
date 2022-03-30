@@ -13,7 +13,7 @@ specifiers:
   '@vitejs/plugin-vue': ^2.2.4
   '@vueuse/core': ^8.0.1
   '@zxcvbn-ts/core': ^2.0.1
-  ant-design-vue: 3.1.0-rc.2
+  ant-design-vue: 3.1.0-rc.5
   axios: ^0.26.1
   commitizen: ^4.2.4
   cz-conventional-changelog: ^3.3.0
@@ -42,7 +42,7 @@ dependencies:
   '@unocss/reset': 0.29.5
   '@vueuse/core': 8.1.1_vue@3.2.31
   '@zxcvbn-ts/core': 2.0.1
-  ant-design-vue: 3.1.0-rc.2_vue@3.2.31
+  ant-design-vue: 3.1.0-rc.5_vue@3.2.31
   axios: 0.26.1
   dayjs: 1.11.0
   lodash-es: 4.17.21
@@ -1121,14 +1121,15 @@ packages:
     dependencies:
       color-convert: 2.0.1
 
-  /ant-design-vue/3.1.0-rc.2_vue@3.2.31:
-    resolution: {integrity: sha512-WZIvhgWsKyQnUQ+UTxDxsZZxN+DJCgGGOtfjO3sui6xroOM1YTaJzWXDSm9nvcJ7bWsrfjpZOGVBKG6JseFnGw==}
+  /ant-design-vue/3.1.0-rc.5_vue@3.2.31:
+    resolution: {integrity: sha512-ntHI5KqHLd4L2oT+Ab+K3vehnDoo26QVWeq1ml7d13uoYS6fLXlnCnrYcHyPGh5fstoaAqFcYm3eh6khcetF/w==}
     peerDependencies:
       vue: '>=3.2.0'
     dependencies:
       '@ant-design/colors': 6.0.0
       '@ant-design/icons-vue': 6.1.0_vue@3.2.31
       '@babel/runtime': 7.17.7
+      '@ctrl/tinycolor': 3.4.0
       '@simonwep/pickr': 1.8.2
       array-tree-filter: 2.1.0
       async-validator: 4.0.7
