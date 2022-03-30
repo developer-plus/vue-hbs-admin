@@ -1,5 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router'
-import { RootRoute, LoginRoute, MainRoute, NotFoundRoute } from './basic'
+
+export * from './basic'
 
 const modules = import.meta.globEager('./modules/**/*.ts')
 
@@ -12,10 +13,3 @@ Object.keys(modules).forEach((key) => {
 })
 
 export const asyncRoutes = routeModuleList
-
-export const basicRoutes: RouteRecordRaw[] = [
-  LoginRoute,
-  MainRoute,
-  RootRoute,
-  NotFoundRoute
-]

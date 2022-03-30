@@ -38,7 +38,7 @@ export default [
           id: '2',
           name: '关于',
           type: 2,
-          url: '/about/index',
+          url: '/about',
           icon: 'dashboard',
           children: null
         }

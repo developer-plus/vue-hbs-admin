@@ -1,18 +1,18 @@
 import { defineStore } from 'pinia'
 import { router } from '~/router'
-import { TOKEN_KEY, USER_INFO_KEY, ROLES_KEY } from '~/enums/cacheEnum'
+import { EnumCache, EnumPath } from '~/enums'
 import localCache from '~/utils/cache'
 import { loginRequest, getUserInfo, getMenuList } from '~/api/user'
 import { isArray } from '~/utils/is'
 import { mapMenuToRoutes } from '~/utils/map-menu'
 
-import type { RoleEnum } from '~/enums/roleEnum'
+import type { EnumRole } from '~/enums'
 import type { UserInfo } from '#/store'
 
 interface UserState {
   token?: string
   userInfo: Nullable<UserInfo>
-  roleList: RoleEnum[]
+  roleList: EnumRole[]
   menuList: any[]
 }
 
@@ -26,15 +26,15 @@ export const useUserStore = defineStore('user', {
 
   getters: {
     getToken(): string {
-      return this.token || localCache.getCache(TOKEN_KEY)
+      return this.token || localCache.getCache(EnumCache.TOKEN_KEY)
     },
 
     getUserInfo(): UserInfo {
-      return this.userInfo || localCache.getCache(USER_INFO_KEY) || {}
+      return this.userInfo || localCache.getCache(EnumCache.USER_INFO_KEY) || {}
     },
 
-    getRoleList(): RoleEnum[] {
-      return this.roleList.length > 0 ? this.roleList : localCache.getCache(ROLES_KEY)
+    getRoleList(): EnumRole[] {
+      return this.roleList.length > 0 ? this.roleList : localCache.getCache(EnumCache.ROLES_KEY)
     },
 
     getMenuList(): any[] {
@@ -45,17 +45,17 @@ export const useUserStore = defineStore('user', {
   actions: {
     setToken(token: string | undefined): void {
       this.token = token || ''
-      localCache.setCache(TOKEN_KEY, token)
+      localCache.setCache(EnumCache.TOKEN_KEY, token)
     },
 
     setUserInfo(userInfo: UserInfo | null) {
       this.userInfo = userInfo
-      localCache.setCache(USER_INFO_KEY, userInfo)
+      localCache.setCache(EnumCache.USER_INFO_KEY, userInfo)
     },
 
-    setRoleList(roleList: RoleEnum[]) {
+    setRoleList(roleList: EnumRole[]) {
       this.roleList = roleList
-      localCache.setCache(ROLES_KEY, roleList)
+      localCache.setCache(EnumCache.ROLES_KEY, roleList)
     },
 
     setMenuList(menuList: any[]) {
@@ -91,7 +91,7 @@ export const useUserStore = defineStore('user', {
       // get menu list
       await this.getMenuListAction()
 
-      router.push('/main')
+      router.push(EnumPath.HOME)
     },
 
     async getUserInfoAction(): Promise<UserInfo | null> {
@@ -100,7 +100,7 @@ export const useUserStore = defineStore('user', {
       const userInfo = await getUserInfo()
       const { roles = [] } = userInfo
       if (isArray(roles)) {
-        const roleList = roles.map(item => item.value) as RoleEnum[]
+        const roleList = roles.map(item => item.value) as EnumRole[]
         this.setRoleList(roleList)
       }
       else {

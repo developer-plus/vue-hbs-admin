@@ -1,7 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 
 const route: RouteRecordRaw = {
-  path: '/about/index',
+  path: '/about',
   name: 'About',
   component: () => import('~/views/about/index.vue')
 }
