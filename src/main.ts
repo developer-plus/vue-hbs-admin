@@ -6,10 +6,9 @@ import '~/styles/index.less'
 import 'uno.css'
 
 import { setupStore } from '~/stores'
-import { router, setupRouter } from '~/router'
-import { setupRouterGuard } from '~/router/guard'
+import { setupRouter } from '~/router'
 
-function bootstrap() {
+function setupApp() {
   const app = createApp(App)
 
   // Configure store
@@ -18,10 +17,7 @@ function bootstrap() {
   // Configure router
   setupRouter(app)
 
-  // Router guard
-  setupRouterGuard(router)
-
   app.mount('#app')
 }
 
-bootstrap()
+setupApp()
