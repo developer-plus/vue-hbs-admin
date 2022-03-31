@@ -5,7 +5,7 @@
     </a-layout-sider>
 
     <a-layout>
-      <a-layout-header class="border-b border-gray-100">
+      <a-layout-header :style="{ paddingLeft: collapsed ? '80px' : '240px' }">
         <div class="flex items-center h-full">
           <div
             class="flex justify-center items-center w-40px h-full text-base cursor-pointer transition-color hover:bg-gray-100"
@@ -16,11 +16,15 @@
           </div>
           <slot name="header-left" />
         </div>
-        <div><slot name="header-right" /></div>
+        <div class="pr-16px">
+          <slot name="header-right" />
+        </div>
       </a-layout-header>
 
-      <a-layout-content class="p-16px">
-        <slot name="content" />
+      <a-layout-content :class="[collapsed ? 'pl-80px' : 'pl-240px', 'pt-56px', 'transition-all']">
+        <div class="p-16px">
+          <slot name="content" />
+        </div>
       </a-layout-content>
 
       <footer class="flex justify-center items-center h-48px text-gray-600">
@@ -43,7 +47,11 @@ const toggleCollapsed = () => {
 </script>
 
 <style scoped lang="less">
+.ant-layout-sider {
+  @apply z-20 fixed top-0 bottom-0 left-0 h-screen;
+}
+
 .ant-layout-header {
-  @apply flex justify-between items-center px-0 h-56px bg-white;
+  @apply z-10 fixed flex justify-between items-center pr-0 w-full h-56px leading-56px transition-all border-b border-gray-100 bg-white;
 }
 </style>

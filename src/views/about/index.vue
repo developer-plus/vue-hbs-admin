@@ -9,6 +9,16 @@
         </template>
       </a-descriptions>
     </template>
+
+    <template v-for="(item, index) in info" :key="index">
+      <a-descriptions :title="item.title" bordered class="enter-y">
+        <template v-for="(value, key) in item.data" :key="key">
+          <a-descriptions-item :label="key">
+            {{ value }}
+          </a-descriptions-item>
+        </template>
+      </a-descriptions>
+    </template>
   </div>
 </template>
 
