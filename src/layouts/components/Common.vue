@@ -16,18 +16,21 @@
           </div>
           <slot name="header-left" />
         </div>
-        <div class="h-full">
-          <slot name="header-right" />
-        </div>
+
+        <slot name="header-right" />
       </a-layout-header>
 
-      <a-layout-content :class="[collapsed ? 'pl-80px' : 'pl-240px', 'pt-56px', 'transition-all']">
-        <div class="p-16px">
-          <slot name="content" />
-        </div>
+      <a-layout-content
+        :class="collapsed ? 'pl-80px' : 'pl-240px'"
+        class="pt-56px transition-all"
+      >
+        <slot name="content" />
       </a-layout-content>
 
-      <footer class="flex justify-center items-center h-48px text-gray-600">
+      <footer
+        :class="collapsed ? 'pl-80px' : 'pl-240px'"
+        class="flex justify-center items-center h-48px text-gray-600 transition-all"
+      >
         <slot name="footer">
           Copyright (c) 2022 Hongbusi
         </slot>
