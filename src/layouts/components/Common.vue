@@ -1,5 +1,5 @@
 <template>
-  <a-layout class="h-full">
+  <a-layout>
     <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible width="240">
       <slot name="sider" />
     </a-layout-sider>
@@ -16,7 +16,7 @@
           </div>
           <slot name="header-left" />
         </div>
-        <div class="pr-16px">
+        <div class="h-full">
           <slot name="header-right" />
         </div>
       </a-layout-header>
@@ -47,11 +47,15 @@ const toggleCollapsed = () => {
 </script>
 
 <style scoped lang="less">
+.ant-layout {
+  @apply min-h-screen;
+}
+
 .ant-layout-sider {
   @apply z-20 fixed top-0 bottom-0 left-0 h-screen;
 }
 
 .ant-layout-header {
-  @apply z-10 fixed flex justify-between items-center pr-0 w-full h-56px leading-56px transition-all border-b border-gray-100 bg-white;
+  @apply z-10 fixed flex justify-between items-center pr-0 w-full h-56px leading-56px transition-all bg-white;
 }
 </style>

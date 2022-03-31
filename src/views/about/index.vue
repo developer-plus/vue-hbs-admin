@@ -1,23 +1,15 @@
 <template>
   <div>
     <template v-for="(item, index) in info" :key="index">
-      <a-descriptions :title="item.title" bordered class="enter-y">
-        <template v-for="(value, key) in item.data" :key="key">
-          <a-descriptions-item :label="key">
-            {{ value }}
-          </a-descriptions-item>
-        </template>
-      </a-descriptions>
-    </template>
-
-    <template v-for="(item, index) in info" :key="index">
-      <a-descriptions :title="item.title" bordered class="enter-y">
-        <template v-for="(value, key) in item.data" :key="key">
-          <a-descriptions-item :label="key">
-            {{ value }}
-          </a-descriptions-item>
-        </template>
-      </a-descriptions>
+      <a-card :title="item.title" :bordered="false" class="enter-y mt-16px">
+        <a-descriptions bordered>
+          <template v-for="(value, key) in item.data" :key="key">
+            <a-descriptions-item :label="key">
+              {{ value }}
+            </a-descriptions-item>
+          </template>
+        </a-descriptions>
+      </a-card>
     </template>
   </div>
 </template>
@@ -32,8 +24,8 @@ const info = [
     data: {
       版本: version,
       最后编译时间: lastBuildTime,
-      预览地址: '预览地址',
-      Github: 'Github'
+      预览地址: 'https://hongbusi.github.io/vue-hbs-admin',
+      Github: 'https://github.com/Hongbusi/vue-hbs-admin'
     }
   },
   {
@@ -46,3 +38,9 @@ const info = [
   }
 ]
 </script>
+
+<style scoped lang="less">
+.ant-card:nth-child(2) {
+  @apply my-16px;
+}
+</style>

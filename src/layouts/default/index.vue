@@ -4,7 +4,7 @@
       <span class="bg-white">sider</span>
     </template>
     <template #header-right>
-      Hongbusi
+      <HeaderRight />
     </template>
 
     <template #content>
@@ -19,4 +19,5 @@
 
 <script setup lang="ts">
 import Common from '../components/Common.vue'
+import HeaderRight from '../components/HeaderRight.vue'
 </script>
