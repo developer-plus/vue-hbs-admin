@@ -1,6 +1,6 @@
 <template>
   <a-card title="项目信息" :bordered="false">
-    <a-descriptions bordered :column="2">
+    <a-descriptions bordered :column="2" size="small">
       <a-descriptions-item label="版本">
         <a-tag color="blue">
           {{ version }}

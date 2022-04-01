@@ -1,6 +1,6 @@
 <template>
   <a-card title="开发环境依赖" :bordered="false">
-    <a-descriptions bordered>
+    <a-descriptions bordered size="small">
       <a-descriptions-item v-for="(value, key) in devDependencies" :key="key" :label="key">
         {{ value }}
       </a-descriptions-item>
