@@ -1,6 +1,7 @@
 
 import type { RouteRecordRaw } from 'vue-router'
 import { EnumPath } from '~/enums'
+import { BlankLayout } from '~/layouts'
 
 export const basicRoutes: RouteRecordRaw[] = [
   {
@@ -11,11 +12,26 @@ export const basicRoutes: RouteRecordRaw[] = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('~/views/login/index.vue')
+    component: BlankLayout,
+    redirect: '/login',
+    children: [
+      {
+        path: '',
+        name: 'login-page',
+        component: () => import('~/views/login/index.vue')
+      }
+    ]
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
-    component: () => import('~/views/not-found.vue')
+    component: BlankLayout,
+    children: [
+      {
+        path: '/:pathMatch(.*)*',
+        name: 'not-found-page',
+        component: () => import('~/views/not-found/index.vue')
+      }
+    ]
   }
 ]

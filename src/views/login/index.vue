@@ -1,5 +1,5 @@
 <template>
-  <div class="hbs-login h-full flex justify-center items-center">
+  <div class="login">
     <Plum />
 
     <div class="w-400px">
@@ -21,7 +21,9 @@ import RegisterForm from './components/RegisterForm.vue'
 </script>
 
 <style lang="less">
-.hbs-login {
+.login {
+  @apply  h-full flex justify-center items-center;
+
   .ant-divider-inner-text {
     font-size: 12px;
     color: #00000073;

@@ -3,13 +3,13 @@ import { DefaultLayout } from '~/layouts'
 
 const route: RouteRecordRaw = {
   path: '/about',
-  name: 'About',
+  name: 'about',
   component: DefaultLayout,
   redirect: '/about',
   children: [
     {
       path: '',
-      name: 'AboutPage',
+      name: 'about-page',
       component: () => import('~/views/about/index.vue')
     }
   ]

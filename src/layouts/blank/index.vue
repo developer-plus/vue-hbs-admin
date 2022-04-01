@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full">
+  <div class="h-screen">
     <router-view v-slot="{ Component, route }">
       <keep-alive>
         <component :is="Component" :key="route.fullPath" />
