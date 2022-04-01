@@ -3,8 +3,10 @@
     <div class="h-full">
       <sider-trigger class="layout-header-action" />
     </div>
-    <div class="h-full">
+    <div class="flex h-full">
       <full-screen class="layout-header-action" />
+      <user-dropdown class="layout-header-action" />
+      <setting-drawer class="layout-header-action" />
     </div>
   </a-layout-header>
 </template>
@@ -13,6 +15,8 @@
 import { useCollapsed } from '../useCollapsed'
 import SiderTrigger from './components/SiderTrigger.vue'
 import FullScreen from './components/FullScreen.vue'
+import UserDropdown from './components/UserDropdown.vue'
+import SettingDrawer from './components/SettingDrawer.vue'
 
 const { getCollapsed } = useCollapsed()
 
@@ -47,7 +51,7 @@ const getHeaderClass = computed(() => {
   }
 
   &-action {
-    @apply flex justify-center items-center w-40px h-full text-base cursor-pointer transition-color hover:bg-gray-100;
+    @apply flex justify-center items-center px-10px h-full text-base cursor-pointer transition-color hover:bg-gray-100;
   }
 }
 </style>
