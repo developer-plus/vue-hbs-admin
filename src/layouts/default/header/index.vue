@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 import { useCollapsed } from '../useCollapsed'
+
 import SiderTrigger from './components/SiderTrigger.vue'
 import FullScreen from './components/FullScreen.vue'
 import UserDropdown from './components/UserDropdown.vue'
