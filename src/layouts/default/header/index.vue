@@ -1,11 +1,18 @@
 <template>
   <a-layout-header :class="getHeaderClass">
-    header
+    <div class="h-full">
+      <sider-trigger class="layout-header-action" />
+    </div>
+    <div class="h-full">
+      <full-screen class="layout-header-action" />
+    </div>
   </a-layout-header>
 </template>
 
 <script setup lang="ts">
 import { useCollapsed } from '../useCollapsed'
+import SiderTrigger from './components/SiderTrigger.vue'
+import FullScreen from './components/FullScreen.vue'
 
 const { getCollapsed } = useCollapsed()
 
@@ -19,15 +26,16 @@ const getHeaderClass = computed(() => {
 })
 </script>
 
-<style scoped lang="less">
+<style lang="less">
 .layout-header {
-  padding-right: 0;
+  @apply flex justify-between items-center pr-0 transition-all duration-200;
+
   padding-left: var(--sidebar-width);
   height: var(--header-height);
   line-height: var(--header-height);
 
   &--light {
-    background-color: #fff;
+    @apply bg-white;
   }
 
   &--fixed {
@@ -36,6 +44,10 @@ const getHeaderClass = computed(() => {
 
   &--collapsed {
     padding-left: var(--sidebar-collapsed-width);
+  }
+
+  &-action {
+    @apply flex justify-center items-center w-40px h-full text-base cursor-pointer transition-color hover:bg-gray-100;
   }
 }
 </style>

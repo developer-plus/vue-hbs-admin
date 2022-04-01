@@ -1,7 +1,7 @@
 <template>
   <a-layout-sider
     v-model:collapsed="getCollapsed"
-    :class="getSidebarClass"
+    :class="getSiderClass"
     :trigger="null"
     collapsible
   >
@@ -14,13 +14,13 @@ import { useCollapsed } from '../useCollapsed'
 
 const { getCollapsed } = useCollapsed()
 
-const getSidebarClass = computed(() => {
-  return ['layout-sidebar', 'layout-sidebar--fixed']
+const getSiderClass = computed(() => {
+  return ['layout-sider', 'layout-sider--fixed']
 })
 </script>
 
 <style scoped lang="less">
-.layout-sidebar {
+.layout-sider {
   &--fixed {
     @apply z-20 fixed top-0 bottom-0 left-0;
   }

@@ -1,6 +1,6 @@
-export function useCollapsed() {
-  const collapsed = ref<boolean>(false)
+const collapsed = ref<boolean>(false)
 
+export function useCollapsed() {
   const getCollapsed = computed(() => collapsed.value)
 
   const toggleCollapsed = () => {
