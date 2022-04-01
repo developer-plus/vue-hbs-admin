@@ -1,1 +1,3 @@
-<template>features</template>
+<template>
+  <a-back-top />
+</template>

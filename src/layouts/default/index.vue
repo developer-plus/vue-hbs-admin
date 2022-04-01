@@ -1,27 +1,8 @@
 <template>
-  <!-- <Common>
-    <template #sider>
-      <span class="bg-white">sider</span>
-    </template>
-    <template #header-right>
-      <HeaderRight />
-    </template>
-
-    <template #content>
-      <div class="p-16px">
-        <router-view v-slot="{ Component, route }">
-          <keep-alive>
-            <component :is="Component" :key="route.fullPath" />
-          </keep-alive>
-        </router-view>
-      </div>
-    </template>
-  </Common> -->
-
   <a-layout>
     <layout-features />
     <layout-header />
-    <a-layout>
+    <a-layout class="mt-56px">
       <layout-sidebar />
       <a-layout>
         <layout-content />
