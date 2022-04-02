@@ -1,13 +1,13 @@
 <template>
   <div class="login">
-    <Plum />
+    <plum />
 
     <div class="w-400px">
-      <LoginForm />
-      <ForgetPasswordForm />
-      <MobileForm />
-      <QrCodeForm />
-      <RegisterForm />
+      <login-form />
+      <forget-password-form />
+      <mobile-form />
+      <qr-code-form />
+      <register-form />
     </div>
   </div>
 </template>
@@ -18,6 +18,7 @@ import ForgetPasswordForm from './components/ForgetPasswordForm.vue'
 import MobileForm from './components/MobileForm.vue'
 import QrCodeForm from './components/QrCodeForm.vue'
 import RegisterForm from './components/RegisterForm.vue'
+import Plum from '~/components/Plum.vue'
 </script>
 
 <style lang="less">
