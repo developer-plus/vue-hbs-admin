@@ -6,5 +6,8 @@
 </template>
 
 <script setup lang="ts">
-import { ProjectIntroduction, ProjectInfo, Dependencies, DevDependencies } from './components'
+import ProjectIntroduction from './components/ProjectIntroduction.vue'
+import ProjectInfo from './components/ProjectInfo.vue'
+import Dependencies from './components/Dependencies.vue'
+import DevDependencies from './components/DevDependencies.vue'
 </script>
