@@ -7,7 +7,7 @@
     collapsed-width="56"
   >
     <logo :show-title="!getCollapsed" />
-    <span bg-white>sidebar</span>
+    <Menu />
   </a-layout-sider>
 </template>
 
@@ -15,6 +15,7 @@
 import { useCollapsed } from '../useCollapsed'
 
 import Logo from './components/Logo.vue'
+import Menu from './components/Menu.vue'
 
 const { getCollapsed } = useCollapsed()
 
