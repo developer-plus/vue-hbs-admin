@@ -5,12 +5,12 @@ const route: RouteRecordRaw = {
   path: '/demo',
   name: 'demo',
   component: DefaultLayout,
-  redirect: '/demo/excel',
+  redirect: '/demo/excel/import',
   children: [
     {
-      path: 'excel',
-      name: 'excel-page',
-      component: () => import('~/views/demo/excel/index.vue')
+      path: 'excel/import',
+      name: 'excel-import',
+      component: () => import('~/views/demo/excel/import-excel.vue')
     }
   ]
 }
