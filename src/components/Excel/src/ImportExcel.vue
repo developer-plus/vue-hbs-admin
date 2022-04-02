@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-block">
+  <div class="inline-block" @click="handleImport">
     <input
       v-show="false"
       ref="inputRef"
@@ -7,11 +7,9 @@
       accept=".xlsx, .xls"
       @change="handleInputChange"
     >
-    <div @click="handleImport">
-      <slot>
-        <a-button>导入 Excel</a-button>
-      </slot>
-    </div>
+    <slot>
+      <a-button>导入 Excel</a-button>
+    </slot>
   </div>
 </template>
 
@@ -20,16 +18,9 @@ import * as XLSX from 'xlsx'
 import type { ExcelData } from './types'
 
 const props = defineProps({
-  // 日期时间格式。如果不提供或者提供空值，将返回原始Date对象
   dateFormat: {
-    type: String
-  },
-
-  // 时区调整。实验性功能，仅为了解决读取日期时间值有偏差的问题。目前仅提供了+08:00时区的偏差修正值
-  // https://github.com/SheetJS/sheetjs/issues/1470#issuecomment-501108554
-  timeZone: {
-    type: Number,
-    default: 8
+    type: String,
+    default: 'YYYY-MM-DD'
   }
 })
 
@@ -55,27 +46,15 @@ const getHeaderRow = (sheet: XLSX.WorkSheet) => {
 
 const getExcelData = (workbook: XLSX.WorkBook) => {
   const excelData: ExcelData[] = []
-  const { dateFormat, timeZone } = props
+  const { dateFormat } = props
   for (const sheetName of workbook.SheetNames) {
     const worksheet = workbook.Sheets[sheetName]
     const header: string[] = getHeaderRow(worksheet)
-    let results = XLSX.utils.sheet_to_json(worksheet, {
+    const results = XLSX.utils.sheet_to_json(worksheet, {
       raw: true,
       dateNF: dateFormat
     }) as object[]
-    results = results.map((row: object) => {
-      for (const field in row) {
-        if (row[field] instanceof Date) {
-          if (timeZone === 8) {
-            row[field].setSeconds(row[field].getSeconds() + 43)
-          }
-          if (dateFormat) {
-            row[field] = dateUtil(row[field]).format(dateFormat)
-          }
-        }
-      }
-      return row
-    })
+
     excelData.push({
       header,
       results,
@@ -84,6 +63,7 @@ const getExcelData = (workbook: XLSX.WorkBook) => {
       }
     })
   }
+  return excelData
 }
 
 const readerData = (rawFile: File) => {
@@ -109,9 +89,8 @@ const handleImport = () => {
 
 const handleInputChange = (e: Event) => {
   const files = e && (e.target as HTMLInputElement).files
-  const rawFile = files && files[0] // only import files[0]
+  const rawFile = files && files[0]
   if (!rawFile) return
-
   readerData(rawFile)
 }
 </script>
