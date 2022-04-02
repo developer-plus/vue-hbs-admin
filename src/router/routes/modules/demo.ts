@@ -9,8 +9,13 @@ const route: RouteRecordRaw = {
   children: [
     {
       path: 'excel/import',
-      name: 'excel-import',
-      component: () => import('~/views/demo/excel/import-excel.vue')
+      name: 'import-excel',
+      component: () => import('~/views/demo/excel/import.vue')
+    },
+    {
+      path: 'excel/export',
+      name: 'export-excel',
+      component: () => import('~/views/demo/excel/export.vue')
     }
   ]
 }
