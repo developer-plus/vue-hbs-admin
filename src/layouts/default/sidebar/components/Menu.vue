@@ -2,9 +2,9 @@
   <a-menu
     v-model:openKeys="openKeys"
     v-model:selectedKeys="selectedKeys"
-    style="width: 200px"
     mode="inline"
-    :theme="theme"
+    theme="dark"
+    :inline-collapsed="getCollapsed"
   >
     <a-menu-item key="1">
       <template #icon>
@@ -62,35 +62,18 @@
     </a-sub-menu>
   </a-menu>
 </template>
-<script lang="ts">
+<script setup lang="ts">
 import {
   MailOutlined,
   CalendarOutlined,
   AppstoreOutlined,
   SettingOutlined
 } from '@ant-design/icons-vue'
-import type { MenuTheme } from 'ant-design-vue'
-export default defineComponent({
-  components: {
-    MailOutlined,
-    CalendarOutlined,
-    AppstoreOutlined,
-    SettingOutlined
-  },
-  setup() {
-    const state = reactive({
-      theme: 'dark' as MenuTheme,
-      selectedKeys: ['1'],
-      openKeys: ['sub1']
-    })
-    const changeTheme = (checked: boolean) => {
-      state.theme = checked ? 'dark' : 'light'
-    }
 
-    return {
-      ...toRefs(state),
-      changeTheme
-    }
-  }
-})
+import { useCollapsed } from '~/layouts/default/useCollapsed'
+
+const { getCollapsed } = useCollapsed()
+
+const selectedKeys = ref(['1'])
+const openKeys = ref(['sub1'])
 </script>
