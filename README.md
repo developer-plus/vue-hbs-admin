@@ -13,8 +13,6 @@ vue-hbs-admin 是一个基于 Vue3.0、Vite、TypeScript、Ant-Design-Vue 的后
 - 熟悉参加开源项目流程。
 - 100 star。
 
-
-
 ## 参与贡献
 
 使用 [Issues](https://github.com/Hongbusi/vue-hbs-admin/issues) 管理项目。
