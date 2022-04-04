@@ -19,9 +19,9 @@ vue-hbs-admin 是一个基于 Vue3.0、Vite、TypeScript、Ant-Design-Vue 的后
 
 使用 [Issues](https://github.com/Hongbusi/vue-hbs-admin/issues) 管理项目。
 
-### 待完成需求列表
+**待完成需求列表**
 
-[new feature](https://github.com/Hongbusi/vue-hbs-admin/labels/feature)
+[New feature](https://github.com/Hongbusi/vue-hbs-admin/labels/feature)
 
 ### 任务是否被领取
 
