@@ -23,7 +23,7 @@ vue-hbs-admin 是一个基于 Vue3.0、Vite、TypeScript、Ant-Design-Vue 的后
 
 ### 任务是否被领取
 
-- 当 issue 存在 `Developer` 或格式为：`Developer:username` 的 `label`，既已被领取。
+- 当 issue 存在 `Developer` 或格式为 `Developer:username` 的 `label`，既已被领取。
 - 否则，视为未被领取。
 
 ### 如何任务领取
