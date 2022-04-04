@@ -19,18 +19,19 @@ vue-hbs-admin 是一个基于 Vue3.0、Vite、TypeScript、Ant-Design-Vue 的后
 
 使用 [Issues](https://github.com/Hongbusi/vue-hbs-admin/issues) 管理项目。
 
-**待完成需求列表**
+### 待完成需求列表
 
 [New feature](https://github.com/Hongbusi/vue-hbs-admin/labels/feature)
 
 ### 任务是否被领取
 
-当 issue 存在格式为：`Developer:username` 的 `label`，既已被领取。
+- 当 issue 存在 `Developer` 或格式为：`Developer:username` 的 `label`，既已被领取。
+- 否则，视为未被领取。
 
 ### 如何任务领取
 
 - 项目成员：对应 issue 添加 `label`，格式为：`Developer:username`。
-- 非项目成员：issue 留言，管理员会为你添加 `label` `Developer`。
+- 非项目成员：issue 留言，管理员会为你添加 `label` -> `Developer`。
 
 ## 加入小组
 
