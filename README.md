@@ -4,7 +4,11 @@ vue-hbs-admin 是一个基于 Vue3.0、Vite、TypeScript、Ant-Design-Vue 的后
 
 ## Demo
 
-[在线预览](https://hongbusi.github.io/vue-hbs-admin)
+[在线预览](https://vue-hbs-admin.netlify.app)
+
+## Docs
+
+[Docs](https://hongbusi.github.io/vue-hbs-admin)
 
 ## 目标
 
