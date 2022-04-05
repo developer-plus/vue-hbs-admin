@@ -23,12 +23,12 @@ jobs:
           run_install: true
 
       - name: Build
-        run: pnpm run build
+        run: pnpm run docs:build
 
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: gh-pages
-          build_dir: dist
+          build_dir: docs/.vitepress/dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
