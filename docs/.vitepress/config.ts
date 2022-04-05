@@ -13,7 +13,7 @@ export default defineConfig({
   lang: 'zh-CN',
   title: 'vue-hbs-admin',
   description: '一个基于 Vue3.0、Vite、TypeScript、Ant-Design-Vue 的后台解决方案，目标是为中小型项目开发，提供现成的开箱解决方案及丰富的示例。',
-  base: '/',
+  base: '/vue-hbs-admin/',
   srcDir: 'src',
 
   head: [],
