@@ -1,14 +1,5 @@
 import { defineConfig } from 'vitepress'
 
-const nav = [
-  {
-    text: '贡献指南',
-    link: '/contribution-guide'
-  },
-]
-
-const sidebar = {}
-
 export default defineConfig({
   lang: 'zh-CN',
   title: 'vue-hbs-admin',
@@ -27,14 +18,25 @@ export default defineConfig({
     editLinkText: 'Edit this page on GitHub',
     lastUpdated: 'Last Updated',
 
-    nav,
+    nav: [
+      { text: '教程', link: '/', activeMatch: '^/$|^/guide/' },
+      { text: '贡献指南', link: '/contribution-guide' }
+    ],
 
-    sidebar,
-  },
-
-  vite: {
-    define: {
-      __VUE_OPTIONS_API__: false
+    sidebar: {
+      '/': getGuideSidebar(),
+      '/guide/': getGuideSidebar()
     }
   }
 })
+
+function getGuideSidebar() {
+  return [
+    {
+      text: '介绍',
+      children: [
+        { text: 'vue-hbs-admin', link: '/' }
+      ]
+    }
+  ]
+}

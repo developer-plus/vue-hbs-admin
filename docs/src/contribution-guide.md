@@ -1,3 +1,7 @@
+---
+sidebar: auto
+---
+
 # 贡献指南
 
 使用 [Issues](https://github.com/Hongbusi/vue-hbs-admin/issues) 管理项目。

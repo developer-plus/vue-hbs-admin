@@ -44,7 +44,7 @@ vue-hbs-admin 是一个基于 Vue3.0、Vite、TypeScript、Ant-Design-Vue 的后
 
 ## 加入小组
 
-添加微信：Hongbusi16530
+添加微信：Hongbusi16530，备注：开源小组。
 
 ## LICENSE
 

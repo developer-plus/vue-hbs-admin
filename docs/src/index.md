@@ -1,5 +1,5 @@
 ---
-home: true
+sidebarDepth: 2
 ---
 
 # vue-hbs-admin
