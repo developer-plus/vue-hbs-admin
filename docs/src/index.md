@@ -4,20 +4,23 @@ sidebarDepth: 2
 
 # vue-hbs-admin
 
-一个基于 Vue3.0、Vite、TypeScript、Ant-Design-Vue 的后台解决方案，目标是为中小型项目开发，提供现成的开箱解决方案及丰富的示例。
+提供现成的开箱解决方案及丰富的示例，提高开发效率。
 
-## Demo
+[在线预览](https://vue-hbs-admin.netlify.app) · [开发文档](https://hongbusi.github.io/vue-hbs-admin)
 
-[在线预览](https://hongbusi.github.io/vue-hbs-admin)
+## 参与贡献
 
-## 目标
+我们非常欢迎你的贡献，你可以通过以下方式和我们一起共建 😄 ：
 
-- 做成一个让自己引以为傲、无可挑剔的项目。
-- 提供丰富的解决方案，便于以后项目中可以开箱即用。
-- 组建一个开源项目小团队，一起学习、敲代码、互相 review，提高水平。
-- 熟悉参加开源项目流程。
-- 200 star。
+- 通过 [Issue](https://github.com/Hongbusi/vue-hbs-admin/issues) 报告 bug、提新需求或进行咨询。
+- 提交 [Pull Request](https://github.com/Hongbusi/vue-hbs-admin/pulls) 改进代码。
 
-## 加入小组
+想一起完善这个项目？你可以添加微信：`Hongbusi16530`。
 
-添加微信：Hongbusi16530，备注：开源小组。
+## Contributors
+
+- [Hongbusi](https://github.com/Hongbusi)
+
+## LICENSE
+
+MIT, Copyright (c) 2021 Hongbusi.
