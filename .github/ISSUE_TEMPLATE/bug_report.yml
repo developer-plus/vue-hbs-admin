@@ -1,16 +1,16 @@
 name: "\U0001F41E Bug report"
-description: 报告问题。
+description: Report an issue
 labels: [pending triage]
 body:
   - type: markdown
     attributes:
       value: |
-        感谢您花时间填写此错误报告！
+        Thanks for taking the time to fill out this bug report!
   - type: textarea
     id: bug-description
     attributes:
-      label:
-      description: 清晰简洁地描述错误是什么。 如果您打算为此问题提交 PR，请在描述中告诉我们。 谢谢！
-      placeholder: 错误描述
+      label: Describe the bug
+      description: A clear and concise description of what the bug is. If you intend to submit a PR for this issue, tell us in the description. Thanks!
+      placeholder: Bug description
     validations:
       required: true
