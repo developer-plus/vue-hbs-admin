@@ -4,11 +4,9 @@ sidebar: auto
 
 # 贡献指南
 
-使用 [issues](https://github.com/Hongbusi/vue-hbs-admin/issues) 管理项目。
-
 - [待完成需求列表](https://github.com/Hongbusi/vue-hbs-admin/labels/feature)
-- [报告问题](https://github.com/Hongbusi/vue-hbs-admin/issues)
-- [提出要添加的新功能](https://github.com/Hongbusi/vue-hbs-admin/issues)
+- [报告问题](https://github.com/Hongbusi/vue-hbs-admin/issues/new?assignees=&labels=pending+triage&template=bug_report.yml)
+- [提出要添加的新功能](https://github.com/Hongbusi/vue-hbs-admin/issues/new?assignees=&labels=enhancement&template=feature_request.yml)
 
 ## 开发要求
 
