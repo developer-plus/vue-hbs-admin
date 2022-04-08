@@ -1,5 +1,5 @@
 name: "\U0001F41E Bug report"
-description: 报告问题
+description: 报告问题。
 labels: [pending triage]
 body:
   - type: markdown

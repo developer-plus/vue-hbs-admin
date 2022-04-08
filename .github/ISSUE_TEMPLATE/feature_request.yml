@@ -1,5 +1,5 @@
 name: "\U0001F680 New feature proposal"
-description: 提出要添加的新功能
+description: 提出要添加的新功能。
 labels: ["enhancement"]
 body:
   - type: markdown
