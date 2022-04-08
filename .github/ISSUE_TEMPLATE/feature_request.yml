@@ -1,20 +1,20 @@
 name: "\U0001F680 New feature proposal"
-description: Propose a new feature to be added
+description: 提出要添加的新功能
 labels: ["enhancement"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for your interest in the project and taking the time to fill out this feature report!
+        感谢您对该项目的兴趣并花时间填写此功能报告！
   - type: textarea
     id: feature-description
     attributes:
-      label: Clear and concise description of the problem
-      description: If you intend to submit a PR for this issue, tell us in the description. Thanks!
+      label: 清晰简洁的问题描述
+      description: 如果您打算为此问题提交 PR，请在描述中告诉我们。 谢谢！
     validations:
       required: true
   - type: textarea
     id: additional-context
     attributes:
-      label: Additional context
-      description: Any other context or screenshots about the feature request here.
+      label: 附加上下文
+      description: 此处有关功能请求的任何其他上下文或屏幕截图。
