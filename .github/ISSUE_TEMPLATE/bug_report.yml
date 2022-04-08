@@ -9,6 +9,7 @@ body:
   - type: textarea
     id: bug-description
     attributes:
+      label:
       description: 清晰简洁地描述错误是什么。 如果您打算为此问题提交 PR，请在描述中告诉我们。 谢谢！
       placeholder: 错误描述
     validations:
