@@ -19,6 +19,9 @@
       <a-menu-item key="4" @click="handleClick('/demo/excel/export')">
         Export Excel
       </a-menu-item>
+      <a-menu-item key="5" @click="handleClick('/demo/watermark')">
+        水印
+      </a-menu-item>
     </a-sub-menu>
     <a-menu-item key="7" @click="handleClick('/about')">
       <template #icon>

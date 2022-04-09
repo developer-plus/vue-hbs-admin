@@ -26,6 +26,7 @@ specifiers:
   nprogress: ^0.2.0
   pinia: ^2.0.13
   qrcode: ^1.5.0
+  resize-observer-polyfill: ^1.5.1
   typescript: ^4.6.3
   unocss: ^0.30.11
   unplugin-auto-import: ^0.6.9
@@ -70,6 +71,7 @@ devDependencies:
   husky: 7.0.4
   less: 4.1.2
   mockjs: 1.1.0
+  resize-observer-polyfill: 1.5.1
   typescript: 4.6.3
   unocss: 0.30.11
   unplugin-auto-import: 0.6.9_@vueuse+core@8.2.3+vite@2.9.1
@@ -3880,7 +3882,6 @@ packages:
 
   /resize-observer-polyfill/1.5.1:
     resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
-    dev: false
 
   /resolve-dir/1.0.1:
     resolution: {integrity: sha1-eaQGRMNivoLybv/nOcm7U4IEb0M=}
