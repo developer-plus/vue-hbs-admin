@@ -15,5 +15,5 @@ export function isString(val: unknown): val is string {
 }
 
 export function isDef<T = unknown>(val?: T): val is T {
-  return typeof val !== "undefined";
+  return typeof val !== 'undefined'
 }

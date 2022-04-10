@@ -20,7 +20,7 @@ const route: RouteRecordRaw = {
     {
       path: 'watermark',
       name: 'watermark',
-      component: () => import('~/views/demo/fun/watermark.vue')
+      component: () => import('~/views/demo/watermark/index.vue')
     }
   ]
 }

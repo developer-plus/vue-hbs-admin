@@ -2,7 +2,9 @@
   <div ref="watermarkRef">
     <a-card title="水印功能">
       <a-space>
-        <a-button type="primary" @click="setWatermark()"> 创建默认 </a-button>
+        <a-button type="primary" @click="setWatermark()">
+          创建默认
+        </a-button>
         <a-button
           type="primary"
           danger
@@ -16,7 +18,9 @@
         >
           创建自定义
         </a-button>
-        <a-button @click="clear"> 清除 </a-button>
+        <a-button @click="clear()">
+          清除
+        </a-button>
       </a-space>
     </a-card>
   </div>
@@ -28,7 +32,7 @@
 // 支持单行或者两行文本
 // 支持定制颜色
 // hook 模式
-import { useWatermark } from "~/components/Watermark";
+import { useWatermark } from '~/components/Watermark'
 
-const { setWatermark, clear } = useWatermark();
+const { setWatermark, clear } = useWatermark()
 </script>
