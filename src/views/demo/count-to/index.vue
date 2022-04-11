@@ -1,0 +1,3 @@
+<template>
+  count-to
+</template>
