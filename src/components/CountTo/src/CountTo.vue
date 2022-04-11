@@ -57,6 +57,11 @@ function start() {
   source.value = props.endVal
 }
 
+function reset() {
+  source.value = props.startVal
+  run()
+}
+
 function run() {
   outputValue = useTransition(source, {
     duration: props.duration,
@@ -86,4 +91,10 @@ function formatNumber(num: number | string) {
   }
   return prefix + x1 + x2 + suffix
 }
+
+defineExpose({
+  value,
+  start,
+  reset
+})
 </script>
