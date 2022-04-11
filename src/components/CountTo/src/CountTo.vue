@@ -1,5 +1,5 @@
 <template>
-  <span>{{ value }}</span>
+  <span :style="{ color }">{{ value }}</span>
 </template>
 
 <script setup lang="ts">
@@ -23,7 +23,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   startVal: 0,
-  endVal: 6666,
+  endVal: 2022,
   duration: 1000,
   autoplay: true,
   decimals: 1,
