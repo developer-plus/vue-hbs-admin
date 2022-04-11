@@ -18,6 +18,11 @@ const route: RouteRecordRaw = {
       component: () => import('~/views/demo/excel/export.vue')
     },
     {
+      path: 'watermark',
+      name: 'watermark',
+      component: () => import('~/views/demo/watermark/index.vue')
+    },
+    {
       path: 'count-to',
       name: 'count-to',
       component: () => import('~/views/demo/count-to/index.vue')
