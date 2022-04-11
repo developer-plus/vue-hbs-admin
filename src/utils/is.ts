@@ -17,3 +17,7 @@ export function isString(val: unknown): val is string {
 export function isNumber(val: unknown): val is number {
   return is(val, 'Number')
 }
+
+export function isDef<T = unknown>(val?: T): val is T {
+  return typeof val !== 'undefined'
+}

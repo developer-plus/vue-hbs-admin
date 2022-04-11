@@ -16,6 +16,7 @@
 ## Contributors
 
 - [Hongbusi](https://github.com/Hongbusi)
+- [BiggerRain](https://github.com/RainyNight9)
 
 ## LICENSE
 
