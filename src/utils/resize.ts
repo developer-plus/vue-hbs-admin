@@ -1,6 +1,5 @@
-import ResizeObserver from 'resize-observer-polyfill'
-
 const isServer = typeof window === 'undefined'
+let disconnect: () => void
 
 function resizeHandler(entries: any) {
   for (const entry of entries) {
@@ -17,8 +16,8 @@ export function addResizeListener(element: any, fn: () => any) {
   if (isServer) return
   if (!element.__resizeListeners__) {
     element.__resizeListeners__ = []
-    element.__ro__ = new ResizeObserver(resizeHandler)
-    element.__ro__.observe(element)
+    const { stop } = useResizeObserver(element, resizeHandler)
+    disconnect = stop
   }
   element.__resizeListeners__.push(fn)
 }
@@ -27,7 +26,7 @@ export function removeResizeListener(element: any, fn: () => any) {
   if (!element || !element.__resizeListeners__) return
   element.__resizeListeners__.splice(element.__resizeListeners__.indexOf(fn), 1)
   if (!element.__resizeListeners__.length) {
-    element.__ro__.disconnect()
+    disconnect()
   }
 }
 

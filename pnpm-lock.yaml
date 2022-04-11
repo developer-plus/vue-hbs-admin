@@ -26,7 +26,6 @@ specifiers:
   nprogress: ^0.2.0
   pinia: ^2.0.13
   qrcode: ^1.5.0
-  resize-observer-polyfill: ^1.5.1
   typescript: ^4.6.3
   unocss: ^0.30.11
   unplugin-auto-import: ^0.6.9
@@ -71,7 +70,6 @@ devDependencies:
   husky: 7.0.4
   less: 4.1.2
   mockjs: 1.1.0
-  resize-observer-polyfill: 1.5.1
   typescript: 4.6.3
   unocss: 0.30.11
   unplugin-auto-import: 0.6.9_@vueuse+core@8.2.3+vite@2.9.1
@@ -1278,7 +1276,6 @@ packages:
       dom-scroll-into-view: 2.0.1
       lodash: 4.17.21
       lodash-es: 4.17.21
-      resize-observer-polyfill: 1.5.1
       scroll-into-view-if-needed: 2.2.29
       shallow-equal: 1.2.1
       vue: 3.2.31
@@ -3879,9 +3876,6 @@ packages:
   /require-main-filename/2.0.0:
     resolution: {integrity: sha512-NKN5kMDylKuldxYLSUfrbo5Tuzh4hd+2E8NPPX02mZtn1VuREQToYe/ZdlJy+J3uCpfaiGF05e7B8W0iXbQHmg==}
     dev: false
-
-  /resize-observer-polyfill/1.5.1:
-    resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
 
   /resolve-dir/1.0.1:
     resolution: {integrity: sha1-eaQGRMNivoLybv/nOcm7U4IEb0M=}

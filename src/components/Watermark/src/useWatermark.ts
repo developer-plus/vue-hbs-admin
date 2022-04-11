@@ -1,8 +1,8 @@
 import type { Ref } from 'vue'
 import { throttle } from 'lodash-es'
 import type { Attr } from './types'
-import { addResizeListener, removeResizeListener } from '~/utils/resize'
 import { isDef } from '~/utils/is'
+import { addResizeListener, removeResizeListener } from '~/utils/resize'
 
 const domSymbol = Symbol('watermark-dom')
 
