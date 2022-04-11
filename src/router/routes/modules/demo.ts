@@ -21,6 +21,11 @@ const route: RouteRecordRaw = {
       path: 'watermark',
       name: 'watermark',
       component: () => import('~/views/demo/watermark/index.vue')
+    },
+    {
+      path: 'count-to',
+      name: 'count-to',
+      component: () => import('~/views/demo/count-to/index.vue')
     }
   ]
 }
