@@ -22,7 +22,7 @@
       <a-menu-item key="5" @click="handleClick('/demo/watermark')">
         水印
       </a-menu-item>
-      <a-menu-item key="5" @click="handleClick('/demo/count-to')">
+      <a-menu-item key="6" @click="handleClick('/demo/count-to')">
         CountTo
       </a-menu-item>
     </a-sub-menu>
