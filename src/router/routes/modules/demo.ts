@@ -16,6 +16,11 @@ const route: RouteRecordRaw = {
       path: 'excel/export',
       name: 'export-excel',
       component: () => import('~/views/demo/excel/export.vue')
+    },
+    {
+      path: 'count-to',
+      name: 'count-to',
+      component: () => import('~/views/demo/count-to/index.vue')
     }
   ]
 }
