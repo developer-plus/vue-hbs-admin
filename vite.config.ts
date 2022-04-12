@@ -52,6 +52,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     server: {
       // Listening on all local IPs
       host: true,
+      open: true,
       port: VITE_PORT,
       // Load proxy configuration from .env
       proxy: createProxy(VITE_PROXY)
