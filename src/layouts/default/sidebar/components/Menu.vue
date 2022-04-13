@@ -25,8 +25,11 @@
       <a-menu-item key="6" @click="handleClick('/demo/count-to')">
         CountTo
       </a-menu-item>
+      <a-menu-item key="7" @click="handleClick('/demo/rich-text')">
+        富文本编辑器
+      </a-menu-item>
     </a-sub-menu>
-    <a-menu-item key="7" @click="handleClick('/about')">
+    <a-menu-item key="8" @click="handleClick('/about')">
       <template #icon>
         <SettingOutlined />
       </template>

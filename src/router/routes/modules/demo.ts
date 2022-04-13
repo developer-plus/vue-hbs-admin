@@ -26,6 +26,11 @@ const route: RouteRecordRaw = {
       path: 'count-to',
       name: 'count-to',
       component: () => import('~/views/demo/count-to/index.vue')
+    },
+    {
+      path: 'rich-text',
+      name: 'rich-text',
+      component: () => import('~/views/demo/rich-text/index.vue')
     }
   ]
 }
