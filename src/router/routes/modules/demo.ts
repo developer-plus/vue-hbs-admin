@@ -31,6 +31,11 @@ const route: RouteRecordRaw = {
       path: 'rich-text',
       name: 'rich-text',
       component: () => import('~/views/demo/rich-text/index.vue')
+    },
+    {
+      path: 'cropper',
+      name: 'cropper',
+      component: () => import('~/views/demo/cropper/index.vue')
     }
   ]
 }
