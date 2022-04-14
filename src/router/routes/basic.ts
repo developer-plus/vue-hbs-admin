@@ -30,7 +30,7 @@ export const basicRoutes: RouteRecordRaw[] = [
       {
         path: '/:pathMatch(.*)*',
         name: 'not-found-page',
-        component: () => import('~/views/not-found/index.vue')
+        component: () => import('~/views/page/not-found/index.vue')
       }
     ]
   }
