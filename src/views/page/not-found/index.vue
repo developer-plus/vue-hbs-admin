@@ -1,5 +1,5 @@
 <template>
-  <div class="n404">
+  <div class="not-found">
     <svg
       width="380px"
       height="500px"
@@ -58,22 +58,27 @@
       <h1>404</h1>
       <p>抱歉，您访问的页面不存在</p>
       <div class="buttons-con">
-        <div class="action-link-wrap">
+        <!-- <div class="action-link-wrap">
           <a onclick="history.back(-1)" class="link-button link-back-button">
             返回
           </a>
           <a href="/" class="link-button"> 回到首页 </a>
-        </div>
+        </div> -->
+        <a-space class="space-wrap">
+          <a-button type="primary" onclick="history.back(-1)">
+            返回
+          </a-button>
+          <a-button type="primary" href="/">
+            回到首页
+          </a-button>
+        </a-space>
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-</script>
-
 <style lang="less" scoped>
-.n404 {
+.not-found {
   height: 100%;
   width: 100%;
   position: relative;
@@ -103,22 +108,25 @@
     .buttons-con {
       .action-link-wrap {
         margin-top: 40px;
+        .link-button {
+          background: #68c950;
+          padding: 8px 25px;
+          border-radius: 4px;
+          color: #fff;
+          font-weight: bold;
+          font-size: 14px;
+          transition: all 0.3s linear;
+          cursor: pointer;
+          text-decoration: none;
+          margin-right: 10px;
+        }
+        .link-button:hover {
+          background: #5a5c6c;
+          color: #fff;
+        }
       }
-      .action-link-wrap a {
-        background: #68c950;
-        padding: 8px 25px;
-        border-radius: 4px;
-        color: #fff;
-        font-weight: bold;
-        font-size: 14px;
-        transition: all 0.3s linear;
-        cursor: pointer;
-        text-decoration: none;
-        margin-right: 10px;
-      }
-      .action-link-wrap a:hover {
-        background: #5a5c6c;
-        color: #fff;
+      .space-wrap {
+        margin-top: 10px;
       }
     }
   }
