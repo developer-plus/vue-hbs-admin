@@ -29,7 +29,18 @@
         富文本编辑器
       </a-menu-item>
     </a-sub-menu>
-    <a-menu-item key="8" @click="handleClick('/about')">
+    <a-sub-menu key="sub2">
+      <template #icon>
+        <ChromeOutlined />
+      </template>
+      <template #title>
+        页面
+      </template>
+      <a-menu-item key="21" @click="handleClick('/page/404')">
+        404页面
+      </a-menu-item>
+    </a-sub-menu>
+    <a-menu-item key="sub3" @click="handleClick('/about')">
       <template #icon>
         <SettingOutlined />
       </template>
@@ -40,6 +51,7 @@
 <script setup lang="ts">
 import {
   AppstoreOutlined,
+  ChromeOutlined,
   SettingOutlined
 } from '@ant-design/icons-vue'
 
