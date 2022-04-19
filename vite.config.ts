@@ -33,10 +33,6 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     base: VITE_PUBLIC_PATH,
     root,
     resolve: {
-      // alias: {
-      //   '~/': `${pathResolve('src')}/`,
-      //   '#/': `${pathResolve('types')}/`
-      // }
       alias: [
         {
           find: /~\//,
