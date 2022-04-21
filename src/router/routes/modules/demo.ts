@@ -36,6 +36,11 @@ const route: RouteRecordRaw = {
       path: 'cropper',
       name: 'cropper',
       component: () => import('~/views/demo/cropper/index.vue')
+    },
+    {
+      path: 'md-editor',
+      name: 'md-editor',
+      component: () => import('~/views/demo/md-editor/index.vue')
     }
   ]
 }
