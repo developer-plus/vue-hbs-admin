@@ -35,6 +35,7 @@ specifiers:
   unplugin-auto-import: ^0.6.9
   unplugin-icons: ^0.14.1
   unplugin-vue-components: 0.18.5
+  vditor: ^3.8.13
   vite: 2.9.1
   vite-plugin-mock: ^2.9.6
   vue: ^3.2.31
@@ -57,6 +58,7 @@ dependencies:
   nprogress: 0.2.0
   pinia: 2.0.13_typescript@4.6.3+vue@3.2.31
   qrcode: 1.5.0
+  vditor: 3.8.13
   vue: 3.2.31
   vue-router: 4.0.14_vue@3.2.31
   xlsx: 0.18.5
@@ -2053,6 +2055,10 @@ packages:
     resolution: {integrity: sha512-oSyFlqaTHCItVRGK5RmrmjB+CmaMOW7IaNA/kdxqhoa6d17j/5ce9O9eWXmV/KEdRwqpQA+Vqe8a8Bsybu4YnA==}
     engines: {node: '>=8'}
     dev: true
+
+  /diff-match-patch/1.0.5:
+    resolution: {integrity: sha512-IayShXAgj/QMXgB0IWmKx+rOPuGMhqm5w6jvFxmVenXKIzRqTAAsbBPT3kWQeGANj3jGgvcvv4yK6SxqYmikgw==}
+    dev: false
 
   /diff/4.0.2:
     resolution: {integrity: sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==}
@@ -5161,6 +5167,12 @@ packages:
       spdx-correct: 3.1.1
       spdx-expression-parse: 3.0.1
     dev: true
+
+  /vditor/3.8.13:
+    resolution: {integrity: sha512-vp6OF1n9wIduKtLvvTYtn+7Gr1Az6MqDIEBpLzik+PTQ208YjrcQ+Ba4AHXMMvJgDtbYP3PdY8OixWKecFzo2A==}
+    dependencies:
+      diff-match-patch: 1.0.5
+    dev: false
 
   /vite-plugin-mock/2.9.6_mockjs@1.1.0+vite@2.9.1:
     resolution: {integrity: sha512-/Rm59oPppe/ncbkSrUuAxIQihlI2YcBmnbR4ST1RA2VzM1C0tEQc1KlbQvnUGhXECAGTaQN2JyasiwXP6EtKgg==}

@@ -31,6 +31,9 @@
       <a-menu-item key="9" @click="handleClick('/demo/cropper')">
         图片裁剪
       </a-menu-item>
+      <a-menu-item key="10" @click="handleClick('/demo/md-editor')">
+        Markdown 编辑器
+      </a-menu-item>
     </a-sub-menu>
     <a-sub-menu key="sub2">
       <template #icon>
