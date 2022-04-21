@@ -5,6 +5,7 @@ specifiers:
   '@commitlint/cli': ^16.2.3
   '@commitlint/config-conventional': ^16.2.1
   '@hongbusi/eslint-config': ^0.2.1
+  '@hongbusi/release': ^0.0.1
   '@types/lodash-es': ^4.17.6
   '@types/node': ^17.0.23
   '@types/nprogress': ^0.2.0
@@ -67,6 +68,7 @@ devDependencies:
   '@commitlint/cli': 16.2.3
   '@commitlint/config-conventional': 16.2.1
   '@hongbusi/eslint-config': 0.2.1_eslint@8.12.0+typescript@4.6.3
+  '@hongbusi/release': 0.0.1
   '@types/lodash-es': 4.17.6
   '@types/node': 17.0.23
   '@types/nprogress': 0.2.0
@@ -411,6 +413,17 @@ packages:
       - typescript
     dev: true
 
+  /@hongbusi/release/0.0.1:
+    resolution: {integrity: sha512-WbPc+baNKV4E0VtcE7gEhfwQK9OEdbUKTkIDkg6w+s0XvP8SEI528/uD9Re6zCxs9sXpsVp/xbyoheMd9T8VBA==}
+    hasBin: true
+    dependencies:
+      chalk: 4.1.2
+      enquirer: 2.3.6
+      execa: 5.1.1
+      minimist: 1.2.6
+      semver: 7.3.7
+    dev: true
+
   /@humanwhocodes/config-array/0.9.5:
     resolution: {integrity: sha512-ObyMyWxZiCu/yTisA7uzx81s40xR2fD5Cg/2Kq7G02ajkNubJf6BopgDTmDyc3U7sXpNKM8cYOw7s7Tyr+DnCw==}
     engines: {node: '>=10.10.0'}
@@ -701,7 +714,7 @@ packages:
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.3.5
+      semver: 7.3.7
       tsutils: 3.21.0_typescript@4.6.3
       typescript: 4.6.3
     transitivePeerDependencies:
@@ -1320,6 +1333,11 @@ packages:
       uri-js: 4.4.1
     dev: true
 
+  /ansi-colors/4.1.1:
+    resolution: {integrity: sha512-JoX0apGbHaUJBNl6yF+p6JAFYZ666/hhCGKN5t9QFjbJQKUU/g8MNbFDbvfrgKXvI1QpZplPOnwIo99lX/AAmA==}
+    engines: {node: '>=6'}
+    dev: true
+
   /ansi-escapes/3.2.0:
     resolution: {integrity: sha512-cBhpre4ma+U0T1oM5fXg7Dy1Jw7zzwv7lt/GoCpr+hDQJoYnKVPLL4dCvSEFMmQurOQvSrwT7SL/DAlhBI97RQ==}
     engines: {node: '>=4'}
@@ -1488,7 +1506,7 @@ packages:
   /builtins/4.1.0:
     resolution: {integrity: sha512-1bPRZQtmKaO6h7qV1YHXNtr6nCK28k0Zo95KM4dXfILcZZwoHJBN1m3lfLv9LPkcOZlrSr+J1bzMaZFO98Yq0w==}
     dependencies:
-      semver: 7.3.5
+      semver: 7.3.7
     dev: true
 
   /cac/6.7.12:
@@ -2129,6 +2147,13 @@ packages:
   /encodeurl/1.0.2:
     resolution: {integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=}
     engines: {node: '>= 0.8'}
+    dev: true
+
+  /enquirer/2.3.6:
+    resolution: {integrity: sha512-yjNnPr315/FjS4zIsUxYguYUPP2e1NK4d7E7ZOLiyYCcbFBiTMyID+2wvm2w6+pZ/odMA7cRkjhsPbltwBOrLg==}
+    engines: {node: '>=8.6'}
+    dependencies:
+      ansi-colors: 4.1.1
     dev: true
 
   /errno/0.1.8:
@@ -3880,7 +3905,7 @@ packages:
     dependencies:
       hosted-git-info: 4.1.0
       is-core-module: 2.8.1
-      semver: 7.3.5
+      semver: 7.3.7
       validate-npm-package-license: 3.0.4
     dev: true
 
@@ -4502,6 +4527,14 @@ packages:
 
   /semver/7.3.5:
     resolution: {integrity: sha512-PoeGJYh8HK4BTO/a9Tf6ZG3veo/A7ZVsYrSA6J8ny9nb3B1VrpkuN+z9OE5wfE5p6H4LchYZsegiQgbJD94ZFQ==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dependencies:
+      lru-cache: 6.0.0
+    dev: true
+
+  /semver/7.3.7:
+    resolution: {integrity: sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
@@ -5267,7 +5300,7 @@ packages:
       espree: 9.3.1
       esquery: 1.4.0
       lodash: 4.17.21
-      semver: 7.3.5
+      semver: 7.3.7
     transitivePeerDependencies:
       - supports-color
     dev: true
