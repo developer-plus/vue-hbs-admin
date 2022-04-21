@@ -1,7 +1,7 @@
 {
   "name": "vue-hbs-admin",
   "private": true,
-  "version": "0.0.6",
+  "version": "0.0.7",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -40,7 +40,7 @@
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
     "@hongbusi/eslint-config": "^0.2.1",
-    "@hongbusi/release": "^0.0.1",
+    "@hongbusi/release": "0.0.6",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^17.0.23",
     "@types/nprogress": "^0.2.0",
