@@ -10,6 +10,7 @@
     "lint": "eslint .",
     "prepare": "husky install",
     "commit": "cz",
+    "release": "release",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "eslintConfig": {
@@ -39,6 +40,7 @@
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
     "@hongbusi/eslint-config": "^0.2.1",
+    "@hongbusi/release": "^0.0.1",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^17.0.23",
     "@types/nprogress": "^0.2.0",
