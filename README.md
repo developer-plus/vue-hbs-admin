@@ -1,6 +1,6 @@
 # vue-hbs-admin
 
-提供现成的开箱解决方案及丰富的示例，提高开发效率。
+为后台管理系统提供现成的开箱解决方案及丰富的示例，提高开发效率。
 
 [在线预览](https://vue-hbs-admin.netlify.app) · [开发文档](https://vue-hbs-admin-docs.netlify.app)
 
