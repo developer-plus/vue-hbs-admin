@@ -1,0 +1,15 @@
+name: "\U0001F41E 错误报告"
+description: 报告问题
+labels: [pending triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您花时间填写此错误报告！
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: 描述错误
+      description: 清晰简洁地描述错误是什么。 如果您打算为此问题提交 PR，请在描述中告诉我们。 谢谢！
+    validations:
+      required: true
