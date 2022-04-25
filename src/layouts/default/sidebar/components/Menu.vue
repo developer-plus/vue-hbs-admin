@@ -34,6 +34,9 @@
       <a-menu-item key="10" @click="handleClick('/demo/md-editor')">
         Markdown 编辑器
       </a-menu-item>
+      <a-menu-item key="11" @click="handleClick('/demo/fullscreen')">
+        全屏
+      </a-menu-item>
     </a-sub-menu>
     <a-sub-menu key="sub2">
       <template #icon>

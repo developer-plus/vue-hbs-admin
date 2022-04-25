@@ -41,6 +41,11 @@ const route: RouteRecordRaw = {
       path: 'md-editor',
       name: 'md-editor',
       component: () => import('~/views/demo/md-editor/index.vue')
+    },
+    {
+      path: 'fullscreen',
+      name: 'fullscreen',
+      component: () => import('~/views/demo/fullscreen/index.vue')
     }
   ]
 }
