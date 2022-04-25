@@ -1,0 +1,20 @@
+name: "\U0001F680 新功能提案"
+description: 提出要添加的新功能
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您对该项目的兴趣并花时间填写此功能报告！
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: 清晰简洁的问题描述
+      description: 如果您打算为此问题提交 PR，请在描述中告诉我们。 谢谢！
+    validations:
+      required: true
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: 附加上下文
+      description: 此处有关功能请求的任何其他上下文或屏幕截图。
