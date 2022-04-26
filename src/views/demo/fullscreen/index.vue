@@ -31,15 +31,13 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useFullscreen } from '@vueuse/core'
-
 const { isFullscreen, enter, exit, toggle } = useFullscreen()
 
 const domEl = ref<HTMLElement | null>()
 
 const { isFullscreen: isDomElFullscreen, enter: enterDomElFullscreen, exit: exitDomElFullscreen } = useFullscreen(domEl)
 
-function toggleFullscreen(isToggle = true, target = true, el = null) {
+function toggleFullscreen(isToggle = true, target = true) {
   if (isToggle) return toggle()
   return target ? enter() : exit()
 }
