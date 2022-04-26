@@ -10,8 +10,6 @@
 
 <style scoped lang="less">
 .layout-content {
-  @apply  p-16px;
-
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 </style>
