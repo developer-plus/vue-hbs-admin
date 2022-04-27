@@ -54,10 +54,7 @@
 [CHANGELOG](./CHANGELOG.md)
 
 ## Contributors
-
-- [Hongbusi](https://github.com/Hongbusi)
-- [BiggerRain](https://github.com/RainyNight9)
-- [alexzhang1030](https://github.com/alexzhang1030)
+![GitHub Contributors Image](https://contrib.rocks/image?repo=developer-plus/vue-hbs-admin)
 
 ## LICENSE
 
