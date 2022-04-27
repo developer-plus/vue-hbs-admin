@@ -1,17 +1,17 @@
 <template>
   <div class="layout-content">
     <router-view v-slot="{ Component, route }">
-      <keep-alive>
-        <component :is="Component" :key="route.fullPath" />
-      </keep-alive>
+      <transition name="fade-slide" mode="out-in" appear>
+        <keep-alive>
+          <component :is="Component" :key="route.fullPath" />
+        </keep-alive>
+      </transition>
     </router-view>
   </div>
 </template>
 
 <style scoped lang="less">
 .layout-content {
-  @apply  p-16px;
-
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 </style>

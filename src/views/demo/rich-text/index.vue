@@ -1,50 +1,52 @@
 <template>
-  <a-card title="富文本编辑器">
-    <template #extra>
-      <a-space>
-        <a-button type="primary" @click="insertText">
-          插入文本
-        </a-button>
-        <a-button type="primary" @click="printHtml">
-          打印 HTML
-        </a-button>
-        <a-button type="primary" @click="disableOrEnable">
-          禁止/启用
-        </a-button>
-      </a-space>
-    </template>
-    <div style="border: 1px solid #ccc">
-      <Toolbar
-        :editor="editorRef"
-        :default-config="toolbarConfig"
-        :mode="mode"
-        style="border-bottom: 1px solid #ccc"
-      />
-      <Editor
+  <page-wrapper title="富文本编辑器">
+    <a-card title="富文本编辑器" class="enter-y">
+      <template #extra>
+        <a-space>
+          <a-button type="primary" @click="insertText">
+            插入文本
+          </a-button>
+          <a-button type="primary" @click="printHtml">
+            打印 HTML
+          </a-button>
+          <a-button type="primary" @click="disableOrEnable">
+            禁止/启用
+          </a-button>
+        </a-space>
+      </template>
+      <div style="border: 1px solid #ccc">
+        <Toolbar
+          :editor="editorRef"
+          :default-config="toolbarConfig"
+          :mode="mode"
+          style="border-bottom: 1px solid #ccc"
+        />
+        <Editor
+          v-model="valueHtml"
+          :default-config="editorConfig"
+          :mode="mode"
+          style="height: 300px; overflow-y: hidden"
+          @on-created="handleCreated"
+          @on-change="handleChange"
+          @on-destroyed="handleDestroyed"
+          @on-focus="handleFocus"
+          @on-blur="handleBlur"
+          @custom-alert="customAlert"
+          @custom-paste="customPaste"
+        />
+      </div>
+    </a-card>
+    <a-card title="富文本显示器" class="enter-y !mt-16px">
+      <div v-html="valueHtml" />
+    </a-card>
+    <a-card title="富文本 valueHtml" class="enter-y !mt-16px">
+      <textarea
         v-model="valueHtml"
-        :default-config="editorConfig"
-        :mode="mode"
-        style="height: 300px; overflow-y: hidden"
-        @on-created="handleCreated"
-        @on-change="handleChange"
-        @on-destroyed="handleDestroyed"
-        @on-focus="handleFocus"
-        @on-blur="handleBlur"
-        @custom-alert="customAlert"
-        @custom-paste="customPaste"
+        readonly
+        style="width: 100%; height: 200px; outline: none"
       />
-    </div>
-  </a-card>
-  <a-card title="富文本显示器" style="margin-top: 16px">
-    <div v-html="valueHtml" />
-  </a-card>
-  <a-card title="富文本 valueHtml" style="margin-top: 16px">
-    <textarea
-      v-model="valueHtml"
-      readonly
-      style="width: 100%; height: 200px; outline: none"
-    />
-  </a-card>
+    </a-card>
+  </page-wrapper>
 </template>
 
 <script setup lang="ts">
@@ -52,6 +54,7 @@
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
 import { onBeforeUnmount, ref, shallowRef, onMounted } from 'vue'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
+import { PageWrapper } from '~/components/Page'
 
 // 编辑器实例，必须用 shallowRef
 const editorRef = shallowRef()
