@@ -1,35 +1,29 @@
 <template>
   <a-menu
-    v-model:openKeys="openKeys"
-    v-model:selectedKeys="selectedKeys"
+    v-model:openKeys="openKeys" 
+    v-model:selectedKeys="selectedKeys" 
     mode="inline" theme="dark"
     :inline-collapsed="getCollapsed"
   >
     <template v-for="menu in menus" :key="menu.path">
-      <a-sub-menu v-if="!menu.meta?.single" :key="menu.path">
-        <template #icon>
-          <component :is="menu.meta?.icon" />
-        </template>
-        <template #title>
-          {{ menu.meta?.title }}
-        </template>
-        <a-menu-item
-          v-for="subMenu in menu.children" :key="menu.path + '/' + subMenu.path"
-          @click="handleClick(menu.path + '/' + subMenu.path)"
-        >
-          {{ subMenu.meta?.title }}
-        </a-menu-item>
-      </a-sub-menu>
-      <a-menu-item v-else @click="handleClick(menu.path)">
-        <template #icon>
-          <component :is="menu.meta?.icon" />
-        </template>
-        {{ menu.meta.title }}
-      </a-menu-item>
+      <menu-item
+        v-if="menu.meta?.single"
+        :menu="menu"
+        @handle-click="handleClick"
+      />
+      <menu-with-children
+        v-else
+        :current-depth="1"
+        :parent-path="menu.path"
+        :menu="menu"
+        @handle-click="handleClick"
+      />
     </template>
   </a-menu>
 </template>
 <script setup lang="ts">
+import MenuWithChildren from './MenuWithChildren.vue'
+import MenuItem from './MenuItem.vue'
 import { useCollapsed } from '~/layouts/default/useCollapsed'
 import type { RouteModuleList } from '~/router/routes/typings'
 import { useRouteStore } from '~/stores'

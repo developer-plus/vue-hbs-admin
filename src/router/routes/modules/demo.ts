@@ -95,6 +95,40 @@ const route: RouteRecordRaw = {
         isMenu: true,
         sort: 8
       }
+    },
+    {
+      path: 'testLevel2',
+      name: 'testLevel2',
+      component: () => import('~/views/about/index.vue'),
+      meta: {
+        title: '测试二级菜单',
+        isMenu: true,
+        sort: 9
+      },
+      children: [
+        {
+          path: 'testLevel3',
+          name: 'testLevel3',
+          component: () => import('~/views/about/index.vue'),
+          meta: {
+            title: '测试三级菜单',
+            isMenu: true,
+            sort: 1
+          },
+          children: [
+            {
+              path: 'testLevel4',
+              name: 'testLevel4',
+              component: () => import('~/views/about/index.vue'),
+              meta: {
+                title: '测试四级菜单',
+                isMenu: true,
+                sort: 1
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
