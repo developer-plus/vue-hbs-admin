@@ -1,10 +1,10 @@
-import type { RouteRecordRaw } from 'vue-router'
+import { RouteModuleList } from './typings'
 
 export * from './basic'
 
 const modules = import.meta.globEager('./modules/**/*.ts')
 
-const routeModuleList: RouteRecordRaw[] = []
+const routeModuleList: RouteModuleList = []
 
 Object.keys(modules).forEach((key) => {
   const mod = modules[key].default || {}
