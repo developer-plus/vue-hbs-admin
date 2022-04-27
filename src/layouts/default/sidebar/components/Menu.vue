@@ -49,7 +49,24 @@
         404页面
       </a-menu-item>
     </a-sub-menu>
-    <a-menu-item key="sub3" @click="handleClick('/about')">
+    <a-sub-menu key="sub3">
+      <template #icon>
+        <CompassOutlined />
+      </template>
+      <template #title>
+        外部页面
+      </template>
+      <a-menu-item key="22" @click="inlineClick('inline', src.projectDocumentation)">
+        项目文档（内嵌）
+      </a-menu-item>
+      <a-menu-item key="23" @click="inlineClick('inline', src.componentDocumentation)">
+        组件库文档（内嵌）
+      </a-menu-item>
+      <a-menu-item key="24" @click="externalLinkClick(src.projectDocumentation)">
+        项目文档（外链）
+      </a-menu-item>
+    </a-sub-menu>
+    <a-menu-item key="sub4" @click="handleClick('/about')">
       <template #icon>
         <SettingOutlined />
       </template>
@@ -61,7 +78,8 @@
 import {
   AppstoreOutlined,
   ChromeOutlined,
-  SettingOutlined
+  SettingOutlined,
+  CompassOutlined
 } from '@ant-design/icons-vue'
 
 import { useCollapsed } from '~/layouts/default/useCollapsed'
@@ -72,8 +90,17 @@ const selectedKeys = ref(['1'])
 const openKeys = ref(['sub1'])
 
 const router = useRouter()
-
+const src = {
+  projectDocumentation: 'https://vue-hbs-admin-docs.netlify.app/',
+  componentDocumentation: 'https://antdv.com/components/overview-cn'
+}
 const handleClick = (path: string) => {
   router.push(path)
+}
+const inlineClick = (path: string, data: string) => {
+  router.push({ name: path, params: { src: data } })
+}
+const externalLinkClick = (path: string) => {
+  window.open(path)
 }
 </script>

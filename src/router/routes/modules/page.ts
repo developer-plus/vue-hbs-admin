@@ -11,6 +11,12 @@ const route: RouteRecordRaw = {
       path: '404',
       name: '404',
       component: () => import('~/views/page/not-found/index.vue')
+    },
+    {
+      path: 'inline',
+      name: 'inline',
+      component: () => import('~/views/page/inline/index.vue'),
+      props: true
     }
   ]
 }
