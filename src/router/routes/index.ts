@@ -1,4 +1,4 @@
-import { RouteModuleList } from './typings'
+import type { RouteModuleList } from './typings'
 
 export * from './basic'
 

@@ -1,70 +1,36 @@
 <template>
   <a-menu
-    v-model:openKeys="openKeys"
-    v-model:selectedKeys="selectedKeys"
-    mode="inline"
-    theme="dark"
+    v-model:openKeys="openKeys" v-model:selectedKeys="selectedKeys" mode="inline" theme="dark"
     :inline-collapsed="getCollapsed"
   >
-    <a-sub-menu key="sub1">
-      <template #icon>
-        <AppstoreOutlined />
-      </template>
-      <template #title>
-        Demo
-      </template>
-      <a-menu-item key="3" @click="handleClick('/demo/excel/import')">
-        Import Excel
+    <template v-for="menu in menus" :key="menu.path">
+      <a-sub-menu v-if="!menu.meta?.single" :key="menu.path">
+        <template #icon>
+          <component :is="menu.meta?.icon" />
+        </template>
+        <template #title>
+          {{ menu.meta?.title }}
+        </template>
+        <a-menu-item
+          v-for="subMenu in menu.children" :key="menu.path + '/' + subMenu.path"
+          @click="handleClick(menu.path + '/' + subMenu.path)"
+        >
+          {{ subMenu.meta?.title }}
+        </a-menu-item>
+      </a-sub-menu>
+      <a-menu-item v-else @click="handleClick(menu.path)">
+        <template #icon>
+          <component :is="menu.meta?.icon" />
+        </template>
+        {{ menu.meta.title }}
       </a-menu-item>
-      <a-menu-item key="4" @click="handleClick('/demo/excel/export')">
-        Export Excel
-      </a-menu-item>
-      <a-menu-item key="5" @click="handleClick('/demo/watermark')">
-        水印
-      </a-menu-item>
-      <a-menu-item key="6" @click="handleClick('/demo/count-to')">
-        CountTo
-      </a-menu-item>
-      <a-menu-item key="7" @click="handleClick('/demo/rich-text')">
-        富文本编辑器
-      </a-menu-item>
-      <a-menu-item key="9" @click="handleClick('/demo/cropper')">
-        图片裁剪
-      </a-menu-item>
-      <a-menu-item key="10" @click="handleClick('/demo/md-editor')">
-        Markdown 编辑器
-      </a-menu-item>
-      <a-menu-item key="11" @click="handleClick('/demo/fullscreen')">
-        全屏
-      </a-menu-item>
-    </a-sub-menu>
-    <a-sub-menu key="sub2">
-      <template #icon>
-        <ChromeOutlined />
-      </template>
-      <template #title>
-        页面
-      </template>
-      <a-menu-item key="21" @click="handleClick('/page/404')">
-        404页面
-      </a-menu-item>
-    </a-sub-menu>
-    <a-menu-item key="sub3" @click="handleClick('/about')">
-      <template #icon>
-        <SettingOutlined />
-      </template>
-      关于
-    </a-menu-item>
+    </template>
   </a-menu>
 </template>
 <script setup lang="ts">
-import {
-  AppstoreOutlined,
-  ChromeOutlined,
-  SettingOutlined
-} from '@ant-design/icons-vue'
-
 import { useCollapsed } from '~/layouts/default/useCollapsed'
+import type { RouteModuleList } from '~/router/routes/typings'
+import { useRouteStore } from '~/stores'
 
 const { getCollapsed } = useCollapsed()
 
@@ -72,8 +38,40 @@ const selectedKeys = ref(['1'])
 const openKeys = ref(['sub1'])
 
 const router = useRouter()
+const routeStore = useRouteStore()
+const menus = ref<RouteModuleList>([])
 
 const handleClick = (path: string) => {
   router.push(path)
+}
+
+watch(() => routeStore.getRoutes, (routes) => {
+  menus.value = routes
+}, { immediate: true })
+
+// 当刷新页面时，设置菜单选中状态
+function setSelectMenuWhenRefreshPage() {
+  const currentRoute = router.currentRoute.value
+  selectedKeys.value = getCurrentMenuRecursive(menus.value, currentRoute.path)
+  openKeys.value = selectedKeys.value
+}
+
+setSelectMenuWhenRefreshPage()
+
+function getCurrentMenuRecursive(menus: RouteModuleList, targetKey: string, parentPath = '', parentMenus: GetArrayItemType<RouteModuleList>[] = []) {
+  let keys: GetArrayItemType<RouteModuleList> = []
+  for (let i = 0; i < menus.length; i++) {
+    const menu = menus[i]
+    const path = parentPath ? `${parentPath}/${menu.path}` : menu.path
+    if (path === targetKey) {
+      keys = [...parentMenus.map(item => item.path), path]
+      break
+    }
+    if (menu.children) {
+      keys = getCurrentMenuRecursive(menu.children, targetKey, path, [...parentMenus, menu])
+      if (keys && keys.length) return keys
+    }
+  }
+  return keys
 }
 </script>
