@@ -30,8 +30,8 @@ import { useRouteStore } from '~/stores'
 
 const { getCollapsed } = useCollapsed()
 
-const selectedKeys = ref(['1'])
-const openKeys = ref(['sub1'])
+const selectedKeys = ref<string[]>([])
+const openKeys = ref<string[]>([])
 
 const router = useRouter()
 const routeStore = useRouteStore()
@@ -44,6 +44,12 @@ const handleClick = (path: string) => {
 watch(() => routeStore.getRoutes, (routes) => {
   menus.value = routes
 }, { immediate: true })
+
+// 当路由发生改变时，这里的 selectedKeys 也要发生改变
+// 用于修复进入到不是菜单的路由时，这里的 selectedKeys 仍然是旧的问题
+watch(() => router.currentRoute.value, (currentRoute) => {
+  selectedKeys.value = [currentRoute.path]
+})
 
 // 当刷新页面时，设置菜单选中状态
 function setupCurrentMenu() {

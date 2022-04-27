@@ -11,7 +11,6 @@ const route: RouteRecordRaw = {
   redirect: '/page/404',
   meta: {
     title: '页面',
-    isMenu: true,
     icon: ChromeOutlined,
     sort: 2
   },
@@ -22,8 +21,17 @@ const route: RouteRecordRaw = {
       component: () => import('~/views/page/not-found/index.vue'),
       meta: {
         title: '404 页面',
-        isMenu: true,
         sort: 1
+      }
+    },
+    {
+      path: 'testHide',
+      name: 'testHide',
+      component: () => import('~/views/about/index.vue'),
+      meta: {
+        title: '测试隐藏菜单',
+        sort: 2,
+        isHide: true
       }
     }
   ]

@@ -9,7 +9,6 @@ const route: RouteRecordRaw = {
   redirect: '/about',
   meta: {
     title: '关于',
-    isMenu: true,
     icon: SettingOutlined,
     single: true,
     sort: 3

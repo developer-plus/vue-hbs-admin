@@ -11,7 +11,6 @@ const route: RouteRecordRaw = {
   redirect: '/demo/excel/import',
   meta: {
     title: 'Demo',
-    isMenu: true,
     icon: AppstoreOutlined,
     sort: 1
   },
@@ -22,7 +21,6 @@ const route: RouteRecordRaw = {
       component: () => import('~/views/demo/excel/import.vue'),
       meta: {
         title: 'Import Excel',
-        isMenu: true,
         sort: 1
       }
     },
@@ -32,7 +30,6 @@ const route: RouteRecordRaw = {
       component: () => import('~/views/demo/excel/export.vue'),
       meta: {
         title: 'Export Excel',
-        isMenu: true,
         sort: 2
       }
     },
@@ -42,7 +39,6 @@ const route: RouteRecordRaw = {
       component: () => import('~/views/demo/watermark/index.vue'),
       meta: {
         title: '水印',
-        isMenu: true,
         sort: 3
       }
     },
@@ -52,7 +48,6 @@ const route: RouteRecordRaw = {
       component: () => import('~/views/demo/count-to/index.vue'),
       meta: {
         title: 'CountTo',
-        isMenu: true,
         sort: 4
       }
     },
@@ -62,7 +57,6 @@ const route: RouteRecordRaw = {
       component: () => import('~/views/demo/rich-text/index.vue'),
       meta: {
         title: '富文本编辑器',
-        isMenu: true,
         sort: 5
       }
     },
@@ -72,7 +66,6 @@ const route: RouteRecordRaw = {
       component: () => import('~/views/demo/cropper/index.vue'),
       meta: {
         title: '图片裁剪',
-        isMenu: true,
         sort: 6
       }
     },
@@ -82,7 +75,6 @@ const route: RouteRecordRaw = {
       component: () => import('~/views/demo/md-editor/index.vue'),
       meta: {
         title: 'Markdown 编辑器',
-        isMenu: true,
         sort: 7
       }
     },
@@ -92,7 +84,6 @@ const route: RouteRecordRaw = {
       component: () => import('~/views/demo/fullscreen/index.vue'),
       meta: {
         title: '全屏',
-        isMenu: true,
         sort: 8
       }
     },
@@ -102,7 +93,6 @@ const route: RouteRecordRaw = {
       component: () => import('~/views/about/index.vue'),
       meta: {
         title: '测试二级菜单',
-        isMenu: true,
         sort: 9
       },
       children: [
@@ -112,7 +102,6 @@ const route: RouteRecordRaw = {
           component: () => import('~/views/about/index.vue'),
           meta: {
             title: '测试三级菜单',
-            isMenu: true,
             sort: 1
           },
           children: [
@@ -122,7 +111,6 @@ const route: RouteRecordRaw = {
               component: () => import('~/views/about/index.vue'),
               meta: {
                 title: '测试四级菜单',
-                isMenu: true,
                 sort: 1
               }
             }
