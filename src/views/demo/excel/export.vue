@@ -1,26 +1,29 @@
 <template>
-  <a-space>
-    <a-button @click="handleClickJsonExport">
-      Json 数据导出
-    </a-button>
-    <a-button @click="handleClickJsonExportCustom">
-      Json 数据导出（自定义头部）
-    </a-button>
-    <a-button @click="handleClickArrayExport">
-      Array 数据导出
-    </a-button>
-  </a-space>
+  <page-wrapper title="导出 Excel">
+    <a-space>
+      <a-button @click="handleClickJsonExport">
+        Json 数据导出
+      </a-button>
+      <a-button @click="handleClickJsonExportCustom">
+        Json 数据导出（自定义头部）
+      </a-button>
+      <a-button @click="handleClickArrayExport">
+        Array 数据导出
+      </a-button>
+    </a-space>
 
-  <a-table
-    class="mt-16px"
-    :columns="columns"
-    :data-source="data"
-  />
+    <a-table
+      class="mt-16px"
+      :columns="columns"
+      :data-source="data"
+    />
+  </page-wrapper>
 </template>
 
 <script setup lang="ts">
 import { columns, data, arrData, arrHeader } from './data'
 import { jsonToSheetXlsx, aoaToSheetXlsx } from '~/components/Excel'
+import { PageWrapper } from '~/components/Page'
 
 const handleClickJsonExport = () => {
   jsonToSheetXlsx({
