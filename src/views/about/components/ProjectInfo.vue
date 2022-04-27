@@ -12,10 +12,10 @@
         </a-tag>
       </a-descriptions-item>
       <a-descriptions-item label="Github">
-        <a href="https://github.com/Hongbusi/vue-hbs-admin" target="_blank">Github</a>
+        <a href="https://github.com/developer-plus/vue-hbs-admin" target="_blank">Github</a>
       </a-descriptions-item>
       <a-descriptions-item label="预览地址">
-        <a href="https://hongbusi.github.io/vue-hbs-admin" target="_blank">预览地址</a>
+        <a href="https://vue-hbs-admin.netlify.app" target="_blank">预览地址</a>
       </a-descriptions-item>
     </a-descriptions>
   </a-card>
