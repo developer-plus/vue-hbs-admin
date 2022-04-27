@@ -7,11 +7,11 @@ declare module 'vue-router' {
     title: string
     // 是否是菜单
     isMenu: boolean
+    // 排序索引
+    sort: number
     // icon
     icon?: FunctionalComponent
     // 是否是单独的菜单
     single?: boolean
-    // 排序索引
-    sort: number
   }
 }
