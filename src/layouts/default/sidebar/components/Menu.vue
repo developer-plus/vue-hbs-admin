@@ -1,6 +1,8 @@
 <template>
   <a-menu
-    v-model:openKeys="openKeys" v-model:selectedKeys="selectedKeys" mode="inline" theme="dark"
+    v-model:openKeys="openKeys"
+    v-model:selectedKeys="selectedKeys"
+    mode="inline" theme="dark"
     :inline-collapsed="getCollapsed"
   >
     <template v-for="menu in menus" :key="menu.path">
