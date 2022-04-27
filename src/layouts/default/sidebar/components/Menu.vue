@@ -52,13 +52,13 @@ watch(() => routeStore.getRoutes, (routes) => {
 }, { immediate: true })
 
 // 当刷新页面时，设置菜单选中状态
-function setSelectMenuWhenRefreshPage() {
+function setupCurrentMenu() {
   const currentRoute = router.currentRoute.value
   selectedKeys.value = getCurrentMenuRecursive(menus.value, currentRoute.path)
   openKeys.value = selectedKeys.value
 }
 
-setSelectMenuWhenRefreshPage()
+setupCurrentMenu()
 
 function getCurrentMenuRecursive(menus: RouteModuleList, targetKey: string, parentPath = '', parentMenus: GetArrayItemType<RouteModuleList>[] = []) {
   let keys: GetArrayItemType<RouteModuleList> = []
