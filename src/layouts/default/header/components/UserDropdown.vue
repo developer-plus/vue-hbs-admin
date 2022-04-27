@@ -7,6 +7,15 @@
 
     <template #overlay>
       <a-menu>
+        <a-menu-item key="doc">
+          <span class="flex items-center">
+            <file-text-outlined class="mr-1" />
+            <a class="text-black" href="https://vue-hbs-admin-docs.netlify.app/" target="_blank">
+              <span>文档</span>
+            </a>
+          </span>
+        </a-menu-item>
+        <a-divider class="my-1" />
         <a-menu-item key="lock">
           <span class="flex items-center">
             <lock-outlined class="mr-1" />
@@ -25,6 +34,6 @@
 </template>
 
 <script setup lang="ts">
-import { LockOutlined, PoweroffOutlined } from '@ant-design/icons-vue'
+import { LockOutlined, PoweroffOutlined, FileTextOutlined } from '@ant-design/icons-vue'
 import logoUrl from '~/assets/logo.png'
 </script>
