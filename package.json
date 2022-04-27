@@ -7,7 +7,7 @@
     "build": "vite build",
     "typecheck": "vue-tsc --noEmit",
     "preview": "vite preview",
-    "lint": "eslint .",
+    "lint": "lint-staged",
     "prepare": "husky install",
     "commit": "cz",
     "release": "release",
@@ -52,6 +52,7 @@
     "eslint": "^8.12.0",
     "husky": "^7.0.4",
     "less": "^4.1.2",
+    "lint-staged": "^12.4.1",
     "mockjs": "^1.1.0",
     "typescript": "^4.6.3",
     "unocss": "^0.30.11",
@@ -66,5 +67,8 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
+  },
+  "lint-staged": {
+    "*.{vue,js,jsx,ts,tsx}": "eslint --fix"
   }
 }
