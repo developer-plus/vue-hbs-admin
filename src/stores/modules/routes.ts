@@ -5,7 +5,7 @@ interface RouteState {
   routes: RouteModuleList
 }
 
-export const useRouteStore = defineStore('user', {
+export const useRouteStore = defineStore('routes', {
   state: (): RouteState => ({
     routes: []
   }),
