@@ -2,16 +2,11 @@ import type { RouteRecordRaw } from 'vue-router'
 import { DefaultLayout } from '~/layouts'
 
 const route: RouteRecordRaw = {
-  path: '/page',
-  name: 'page',
+  path: '/docs',
+  name: 'docs',
   component: DefaultLayout,
-  redirect: '/page/404',
+  redirect: '/docs/inline',
   children: [
-    {
-      path: '404',
-      name: '404',
-      component: () => import('~/views/page/not-found/index.vue')
-    },
     {
       path: 'inline',
       name: 'inline',

@@ -15,7 +15,7 @@ const route: RouteRecordRaw = {
     {
       path: 'inline',
       name: 'inline',
-      component: () => import('~/views/page/inline/index.vue'),
+      component: () => import('~/views/docs/inline/index.vue'),
       props: true
     }
   ]

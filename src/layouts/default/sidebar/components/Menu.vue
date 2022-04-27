@@ -56,13 +56,13 @@
       <template #title>
         外部页面
       </template>
-      <a-menu-item key="22" @click="inlineClick('inline', src.projectDocumentation)">
+      <a-menu-item key="22" @click="inlineClick('inline', docSrc.projectDocumentation)">
         项目文档（内嵌）
       </a-menu-item>
-      <a-menu-item key="23" @click="inlineClick('inline', src.componentDocumentation)">
+      <a-menu-item key="23" @click="inlineClick('inline', docSrc.componentDocumentation)">
         组件库文档（内嵌）
       </a-menu-item>
-      <a-menu-item key="24" @click="externalLinkClick(src.projectDocumentation)">
+      <a-menu-item key="24" @click="externalLinkClick(docSrc.projectDocumentation)">
         项目文档（外链）
       </a-menu-item>
     </a-sub-menu>
@@ -90,7 +90,7 @@ const selectedKeys = ref(['1'])
 const openKeys = ref(['sub1'])
 
 const router = useRouter()
-const src = {
+const docSrc = {
   projectDocumentation: 'https://vue-hbs-admin-docs.netlify.app/',
   componentDocumentation: 'https://antdv.com/components/overview-cn'
 }
