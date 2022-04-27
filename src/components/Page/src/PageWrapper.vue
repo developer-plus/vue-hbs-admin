@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <a-page-header class="!bg-white border-t border-gray-500/20" :title="title">
-      <template v-if="content">
-        {{ content }}
-      </template>
-    </a-page-header>
+  <a-page-header class="!bg-white border-t border-gray-500/20" :title="title">
+    <template v-if="content">
+      {{ content }}
+    </template>
+  </a-page-header>
 
-    <div class="p-16px">
-      <slot />
-    </div>
+  <div class="p-16px">
+    <slot />
   </div>
 </template>
 
