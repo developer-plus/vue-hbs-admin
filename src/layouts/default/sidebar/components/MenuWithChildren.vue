@@ -6,8 +6,8 @@
     <template #title>
       {{ menu.meta?.title }}
     </template>
-    <template 
-      v-for="subMenu in menu.children" 
+    <template
+      v-for="subMenu in menu.children"
       :key="menu.path + '/' + subMenu.path"
     >
       <menu-with-children
