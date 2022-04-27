@@ -1,16 +1,19 @@
 <template>
-  <import-excel @success="importSuccess" />
+  <page-wrapper title="导入 Excel">
+    <import-excel @success="importSuccess" />
 
-  <a-table
-    v-for="(table, index) in tableList"
-    :key="index"
-    class="mt-16px"
-    :data-source="table.dataSource"
-    :columns="table.columns"
-  />
+    <a-table
+      v-for="(table, index) in tableList"
+      :key="index"
+      class="mt-16px"
+      :data-source="table.dataSource"
+      :columns="table.columns"
+    />
+  </page-wrapper>
 </template>
 
 <script setup lang="ts">
+import { PageWrapper } from '~/components/Page'
 import type { ExcelData } from '~/components/Excel'
 import { ImportExcel } from '~/components/Excel'
 
