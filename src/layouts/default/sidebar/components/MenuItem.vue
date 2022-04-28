@@ -26,8 +26,8 @@ const router = useRouter()
 function handleClick(path: string) {
   if (isUrl(path)) return window.open(path)
   const routeMeta = props.menu.meta
-  const params = routeMeta?.routeParams || {}
-  const query = routeMeta?.routeQuery || {}
+  const params = routeMeta?.routeParams ?? {}
+  const query = routeMeta?.routeQuery ?? {}
   props.currentDepth && (path = `${props.parentPath}/${path}`)
   router.push({
     path,
