@@ -22,7 +22,7 @@ const route: RouteRecordRaw = {
       props: true,
       meta: {
         title: '项目文档 (内嵌)',
-        frameSrc: 'https://vue-hbs-admin-docs.netlify.app/',
+        frameSrc: 'https://vue-hbs-admin-docs.netlify.app',
         sort: 1
       }
     },

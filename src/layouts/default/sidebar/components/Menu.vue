@@ -40,7 +40,7 @@ const routeStore = useRouteStore()
 const menus = ref<RouteModuleList>([])
 const handleClick = (path: string, src: string, name: string) => {
   if (src) {
-    router.push({ name: path, params: { src } })
+    router.push({ name, params: { src } })
   }
   else {
     router.push(path)

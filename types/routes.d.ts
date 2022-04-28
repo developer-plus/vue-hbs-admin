@@ -13,5 +13,7 @@ declare module 'vue-router' {
     icon?: FunctionalComponent
     // 是否是单独的菜单
     single?: boolean
+    // 内链地址
+    frameSrc?: string
   }
 }
