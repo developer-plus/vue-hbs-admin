@@ -1,6 +1,6 @@
 # vue-hbs-admin
 
-[English](README.md)
+[English](./README.md) / 简体中文
 
 [在线预览](https://vue-hbs-admin.netlify.app) · [开发文档](https://vue-hbs-admin-docs.netlify.app)
 
