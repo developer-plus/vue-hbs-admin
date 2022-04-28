@@ -22,6 +22,8 @@
   </a-menu>
 </template>
 <script setup lang="ts">
+import { ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import MenuWithChildren from './MenuWithChildren.vue'
 import MenuItem from './MenuItem.vue'
 import { useCollapsed } from '~/layouts/default/useCollapsed'
@@ -36,9 +38,13 @@ const openKeys = ref<string[]>([])
 const router = useRouter()
 const routeStore = useRouteStore()
 const menus = ref<RouteModuleList>([])
-
-const handleClick = (path: string) => {
-  router.push(path)
+const handleClick = (path: string, src: string, name: string) => {
+  if (src) {
+    router.push({ name: path, params: { src } })
+  }
+  else {
+    router.push(path)
+  }
 }
 
 watch(() => routeStore.getRoutes, (routes) => {

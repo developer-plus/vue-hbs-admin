@@ -29,21 +29,23 @@
 <script setup lang="ts">
 import MenuItem from './MenuItem.vue'
 import type { RouteModuleList } from '~/router/routes/typings'
-
 interface EmitEvents {
-  (e: 'handleClick', path: string): void
+  (e: 'handleClick', path: string, src?: string, name?: string): void
 }
 interface Props {
   menu: GetArrayItemType<RouteModuleList>
   parentPath: string
   // 当前的深度，用于计算 key
   currentDepth: number
+  // 内链 src
+  src?: string
+  name?: string
 }
 
 const props = defineProps<Props>()
 const emit = defineEmits<EmitEvents>()
 
-function handleClick(path: string, depth = 1) {
-  emit('handleClick', depth > 1 ? `${props.parentPath}/${path}` : path)
+function handleClick(path: string, depth = 1, src: string, name: string) {
+  emit('handleClick', depth > 1 ? `${props.parentPath}/${path}` : path, src, name)
 }
 </script>
