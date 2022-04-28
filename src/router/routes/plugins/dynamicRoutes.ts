@@ -4,7 +4,7 @@ import { useRouteStore } from '~/stores'
 type RouteModule = GetArrayItemType<RouteModuleList>
 
 function sortBySortKey(routerModuleList: RouteModuleList | RouteModule['children']) {
-  return routerModuleList.sort((a: RouteModule, b: RouteModule) => a.meta!.sort - b.meta!.sort)
+  return routerModuleList!.sort((a: RouteModule, b: RouteModule) => a.meta!.sort - b.meta!.sort)
 }
 
 function sortRoutesBySortKey(routerModuleList: RouteModuleList) {

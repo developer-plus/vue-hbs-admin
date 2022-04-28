@@ -14,7 +14,7 @@ declare module 'vue-router' {
     // 是否是单独的菜单
     single?: boolean
     // 路由携带参数
-    routeParams?: RouteLocationNormalized["params"]
-    routeQuery?: RouteLocationNormalized["query"]
+    routeParams?: RouteLocationNormalized['params']
+    routeQuery?: RouteLocationNormalized['query']
   }
 }
