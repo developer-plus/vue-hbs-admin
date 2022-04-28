@@ -46,6 +46,11 @@ const route: RouteRecordRaw = {
       path: 'fullscreen',
       name: 'fullscreen',
       component: () => import('~/views/demo/fullscreen/index.vue')
+    },
+    {
+      path: 'file-download',
+      name: 'file-download',
+      component: () => import('~/views/demo/file-download/index.vue')
     }
   ]
 }

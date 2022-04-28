@@ -28,6 +28,7 @@
     "types/**/*.d.ts",
     "mock/**/*.ts",
     "build/**/*.ts",
+    "utils/**/*.ts",
     "vite.config.ts",
     "package.json"
   ],
