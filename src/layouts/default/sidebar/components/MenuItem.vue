@@ -11,6 +11,7 @@
 </template>
 <script setup lang="ts">
 import type { RouteModuleList } from '~/router/routes/typings'
+import { isUrl } from '~/utils/is';
 
 interface Props {
   menu: GetArrayItemType<RouteModuleList>
@@ -23,7 +24,7 @@ const router = useRouter()
 
 
 function handleClick(path: string) {
-  if (path.startsWith('http://') || path.startsWith('https://')) return window.open(path)
+  if (isUrl(path)) return window.open(path)
   const routeMeta = props.menu.meta
   const params = routeMeta?.routeParams || {}
   const query = routeMeta?.routeQuery || {}
