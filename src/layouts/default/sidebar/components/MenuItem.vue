@@ -11,10 +11,8 @@
 </template>
 <script setup lang="ts">
 import type { RouteModuleList } from '~/router/routes/typings'
+import { isUrl } from '~/utils/is'
 
-interface EmitEvents {
-  (e: 'handleClick', path: string, currentDepth: number | undefined): void
-}
 interface Props {
   menu: GetArrayItemType<RouteModuleList>
   parentPath?: string
@@ -22,9 +20,18 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-const emit = defineEmits<EmitEvents>()
+const router = useRouter()
 
 function handleClick(path: string) {
-  emit('handleClick', path, props.currentDepth)
+  if (isUrl(path)) return window.open(path)
+  const routeMeta = props.menu.meta
+  const params = routeMeta?.routeParams ?? {}
+  const query = routeMeta?.routeQuery ?? {}
+  props.currentDepth && (path = `${props.parentPath}/${path}`)
+  router.push({
+    path,
+    params,
+    query
+  })
 }
 </script>

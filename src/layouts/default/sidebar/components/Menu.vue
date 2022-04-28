@@ -9,14 +9,12 @@
       <menu-item
         v-if="menu.meta?.single"
         :menu="menu"
-        @handle-click="handleClick"
       />
       <menu-with-children
         v-else
         :current-depth="1"
         :parent-path="menu.path"
         :menu="menu"
-        @handle-click="handleClick"
       />
     </template>
   </a-menu>
@@ -36,10 +34,6 @@ const openKeys = ref<string[]>([])
 const router = useRouter()
 const routeStore = useRouteStore()
 const menus = ref<RouteModuleList>([])
-
-const handleClick = (path: string) => {
-  router.push(path)
-}
 
 watch(() => routeStore.getRoutes, (routes) => {
   menus.value = routes
@@ -61,7 +55,7 @@ function setupCurrentMenu() {
 setupCurrentMenu()
 
 function getCurrentMenuRecursive(menus: RouteModuleList, targetKey: string, parentPath = '', parentMenus: GetArrayItemType<RouteModuleList>[] = []) {
-  let keys: GetArrayItemType<RouteModuleList> = []
+  let keys: string[] = []
   for (let i = 0; i < menus.length; i++) {
     const menu = menus[i]
     const path = parentPath ? `${parentPath}/${menu.path}` : menu.path

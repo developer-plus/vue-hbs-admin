@@ -15,13 +15,11 @@
         :parent-path="parentPath + '/' + subMenu.path"
         :menu="subMenu"
         :current-depth="currentDepth + 1"
-        @handle-click="handleClick"
       />
       <menu-item
         v-else :menu="subMenu"
         :parent-path="currentDepth > 1 ? parentPath : menu.path"
         :current-depth="currentDepth + 1"
-        @handle-click="handleClick"
       />
     </template>
   </a-sub-menu>
@@ -30,9 +28,6 @@
 import MenuItem from './MenuItem.vue'
 import type { RouteModuleList } from '~/router/routes/typings'
 
-interface EmitEvents {
-  (e: 'handleClick', path: string): void
-}
 interface Props {
   menu: GetArrayItemType<RouteModuleList>
   parentPath: string
@@ -41,9 +36,4 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-const emit = defineEmits<EmitEvents>()
-
-function handleClick(path: string, depth = 1) {
-  emit('handleClick', depth > 1 ? `${props.parentPath}/${path}` : path)
-}
 </script>
