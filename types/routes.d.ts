@@ -13,5 +13,8 @@ declare module 'vue-router' {
     icon?: FunctionalComponent
     // 是否是单独的菜单
     single?: boolean
+    // 路由携带参数
+    routeParams?: RouteLocationNormalized["params"]
+    routeQuery?: RouteLocationNormalized["query"]
   }
 }
