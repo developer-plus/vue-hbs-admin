@@ -4,6 +4,8 @@ English / [简体中文](./README.zh-CN.md)
 
 [Live Demo](https://vue-hbs-admin.netlify.app) · [Develop Guide](https://vue-hbs-admin-docs.netlify.app)
 
+<a href="https://github.com/vitejs/awesome-vite"><img src="https://img.shields.io/badge/awesome-vite-blueviolet?style=for-the-badge&logo=vite" /></a> <a href="https://github.com/developer-plus"><img src="https://img.shields.io/badge/developer-plus-9cf?style=for-the-badge" /></a>
+
 ## Introduction
 
 Provide ready-made out-of-the-box solutions and rich examples for backend management systems to improve development efficiency.
@@ -12,7 +14,7 @@ Provide ready-made out-of-the-box solutions and rich examples for backend manage
 
 - Vue3，Vite2 - Latest Frontend Technologies;
 - Pinia - State Mangement;
-- TypeScript - Type-safe JavaScript superset;
+- TypeScript - Type-sae JavaScript superset;
 - UnoCSS - Atomic CSS Engine;
 - Mock - Built-in Mock data solution;
 - unplugin - API, components auto import.

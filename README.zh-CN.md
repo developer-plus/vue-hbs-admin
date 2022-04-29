@@ -4,6 +4,8 @@
 
 [在线预览](https://vue-hbs-admin.netlify.app) · [开发文档](https://vue-hbs-admin-docs.netlify.app)
 
+<a href="https://github.com/vitejs/awesome-vite"><img src="https://img.shields.io/badge/awesome-vite-blueviolet?style=for-the-badge&logo=vite" /></a> <a href="https://github.com/developer-plus"><img src="https://img.shields.io/badge/developer-plus-9cf?style=for-the-badge" /></a>
+
 ## 简介
 
 为后台管理系统提供现成的开箱解决方案及丰富的示例，提高开发效率。
