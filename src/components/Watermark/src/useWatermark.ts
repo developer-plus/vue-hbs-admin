@@ -9,11 +9,13 @@ const domSymbol = Symbol('watermark-dom')
 export function useWatermark(
   appendEl: Ref<HTMLElement | null> = ref(document.body) as Ref<HTMLElement>
 ) {
+  let curAttr: Attr
   const func = throttle(() => {
     const el = unref(appendEl)
+
     if (!el) return
     const { clientHeight: height, clientWidth: width } = el
-    updateWatermark({ height, width })
+    updateWatermark({ ...curAttr, height, width })
   })
   const id = domSymbol.toString()
   const watermarkEl = shallowRef<HTMLElement>()
@@ -48,6 +50,7 @@ export function useWatermark(
 
   function updateWatermark(attr: Attr) {
     const el = unref(watermarkEl)
+    curAttr = attr
     if (!el) return
     if (isDef(attr.width)) {
       el.style.width = `${attr.width}px`
