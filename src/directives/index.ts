@@ -1,5 +1,9 @@
+/**
+ *  Coonfigure and register global directives
+ */
+
 import type { App } from 'vue'
-import directives from './fearture_dir'
-export function setupDirectives(app: App<Element>) {
-  app.use(directives)
+import { setupLazyImgDirectives } from './lazyImg'
+export function setupGlobDirectives(app: App) {
+  setupLazyImgDirectives( app )
 }

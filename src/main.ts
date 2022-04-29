@@ -7,7 +7,7 @@ import 'uno.css'
 
 import { setupStore } from '~/stores'
 import { setupRouter } from '~/router'
-import { setupDirectives } from '~/directives'
+import { setupGlobDirectives } from '~/directives'
 
 function setupApp() {
   const app = createApp(App)
@@ -19,7 +19,7 @@ function setupApp() {
   setupRouter(app)
 
   // Configure directives
-  setupDirectives(app)
+  setupGlobDirectives(app)
   app.mount('#app')
 }
 
