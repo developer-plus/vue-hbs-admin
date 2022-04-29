@@ -14,7 +14,7 @@ Provide ready-made out-of-the-box solutions and rich examples for backend manage
 
 - Vue3，Vite2 - Latest Frontend Technologies;
 - Pinia - State Mangement;
-- TypeScript - Type-sae JavaScript superset;
+- TypeScript - Type-safe JavaScript superset;
 - UnoCSS - Atomic CSS Engine;
 - Mock - Built-in Mock data solution;
 - unplugin - API, components auto import.
