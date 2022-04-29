@@ -11,7 +11,7 @@ const route: RouteRecordRaw = {
     title: '关于',
     icon: SettingOutlined,
     single: true,
-    sort: 3
+    sort: 4
   },
   children: [
     {
