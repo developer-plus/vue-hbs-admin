@@ -4,7 +4,7 @@
  *  @Example v-lazyImg = "UserInfo.pictures"
  */
 
-import { App, Directive, DirectiveBinding } from 'vue'
+import type { App, Directive, DirectiveBinding } from 'vue'
 
 import { useIntersectionObserver } from '@vueuse/core'
 
@@ -30,12 +30,12 @@ const mounted = (el: HTMLImageElement, binding: DirectiveBinding<any>) => {
   lazyImg(el, binding)
 }
 
-const authDirective: Directive = {
+const LazyImgDirective: Directive = {
   mounted
 }
 
 export function setupLazyImgDirectives (app: App) {
-  app.directive('lazyImg', authDirective)
+  app.directive('lazyImg', LazyImgDirective)
 }
 
-export default authDirective
+export default LazyImgDirective
