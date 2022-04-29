@@ -1,7 +1,5 @@
 import type { RouteRecordRaw } from 'vue-router'
-import {
-  CompassOutlined
-} from '@ant-design/icons-vue'
+import { CompassOutlined } from '@ant-design/icons-vue'
 import { DefaultLayout } from '~/layouts'
 
 const route: RouteRecordRaw = {

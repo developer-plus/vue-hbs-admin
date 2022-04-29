@@ -10,11 +10,7 @@ interface DownloadInfo {
  * Download file according to file address
  * @param {*} sUrl
  */
-export function downloadByUrl({
-  url,
-  target = '_blank',
-  fileName
-}: DownloadInfo): boolean {
+export function downloadByUrl({ url, target = '_blank', fileName }: DownloadInfo): boolean {
   const isChrome = window.navigator.userAgent.toLowerCase().indexOf('chrome') > -1
   const isSafari = window.navigator.userAgent.toLowerCase().indexOf('safari') > -1
 

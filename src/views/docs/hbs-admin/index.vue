@@ -7,6 +7,3 @@
 <script setup lang="ts">
 import { Iframe } from '~/components/Iframe'
 </script>
-
-<style scoped>
-</style>

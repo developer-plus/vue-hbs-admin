@@ -1,10 +1,9 @@
 <template>
   <iframe :src="src" scrolling="auto" frameborder="0" />
 </template>
+
 <script setup lang="ts">
-defineProps({
-  src: { type: String }
-})
+defineProps<{
+  src: string
+}>()
 </script>
-<style lang="less">
-</style>
