@@ -42,7 +42,7 @@ const route: RouteRecordRaw = {
     },
     {
       path: 'https://vue-hbs-admin-docs.netlify.app/',
-      name: 'antVueExternalLink',
+      name: 'projectExternalLink',
       component: () => import('~/views/about/index.vue'),
       meta: {
         title: '项目文档 (外链)',
