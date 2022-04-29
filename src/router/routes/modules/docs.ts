@@ -15,9 +15,10 @@ const route: RouteRecordRaw = {
   },
   children: [
     {
-      path: 'inline/project',
+      path: 'inline/project/:src',
       name: 'InlineProject',
-      component: () => import('~/views/docs/inline/index.vue'),
+      component: () => import('~/views/docs/hbs-admin/index.vue'),
+      props: true,
       meta: {
         title: '项目文档 (内嵌)',
         sort: 1,
@@ -27,9 +28,10 @@ const route: RouteRecordRaw = {
       }
     },
     {
-      path: 'inline/antVue',
+      path: 'inline/antdv/:src',
       name: 'InlineAntVue',
-      component: () => import('~/views/docs/inline/index.vue'),
+      component: () => import('~/views/docs/antdv/index.vue'),
+      props: true,
       meta: {
         title: 'antVue文档 (内嵌)',
         sort: 2,
@@ -39,7 +41,7 @@ const route: RouteRecordRaw = {
       }
     },
     {
-      path: 'https://vvbin.cn/doc-next/',
+      path: 'https://vue-hbs-admin-docs.netlify.app/',
       name: 'antVueExternalLink',
       component: () => import('~/views/about/index.vue'),
       meta: {
