@@ -1,5 +1,5 @@
 <template>
-  <a-breadcrumb>
+  <a-breadcrumb class="!ml-2">
     <a-breadcrumb-item v-for="(item,index) in routes" :key="index">
       {{ item.meta.title }}
     </a-breadcrumb-item>
@@ -7,7 +7,6 @@
 </template>
 
 <script setup lang="ts">
-
 const route = useRoute()
 const router = useRouter()
 const routes = ref(route.matched)
@@ -15,5 +14,4 @@ const routes = ref(route.matched)
 router.afterEach((to) => {
   routes.value = to.matched
 })
-
 </script>

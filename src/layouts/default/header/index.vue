@@ -2,9 +2,7 @@
   <a-layout-header :class="getHeaderClass">
     <div class="h-full flex items-center">
       <sider-trigger class="layout-header-action" />
-      <div class="ml-2">
-        <breadcrumb />
-      </div>
+      <breadcrumb />
     </div>
 
     <div class="flex h-full">
