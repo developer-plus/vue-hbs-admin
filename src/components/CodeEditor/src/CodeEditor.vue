@@ -15,7 +15,6 @@ import 'codemirror/addon/edit/matchbrackets'
 import 'codemirror/addon/selection/active-line'
 import 'codemirror/addon/hint/show-hint'
 import CodeMirror from 'codemirror/lib/codemirror'
-import { onMounted, ref } from 'vue'
 import { merge } from 'lodash-es'
 import { isNumber } from '~/utils/is'
 
