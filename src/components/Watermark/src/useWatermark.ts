@@ -1,6 +1,8 @@
 import type { Ref } from 'vue'
 import { throttle } from 'lodash-es'
 import type { Attr } from './types'
+import { stopProtectWatermark, setupProtectWatermark } from './useProtectWatermark'
+import { initConfig, styleConfig } from './config'
 import { isDef } from '~/utils/is'
 import { addResizeListener, removeResizeListener } from '~/utils/resize'
 
@@ -27,22 +29,23 @@ export function useWatermark(
     if (!el) return
     domId && el.removeChild(domId)
     removeResizeListener(el, func)
+    stopProtectWatermark()
   }
 
   function createBase64(attr: Attr) {
     const can = document.createElement('canvas')
-    const width = 300
-    const height = 240
+    const width = initConfig.width
+    const height = initConfig.height
     Object.assign(can, { width, height })
 
     const cans = can.getContext('2d')
     if (cans) {
       cans.rotate((-20 * Math.PI) / 120)
-      cans.font = attr?.font || '15px Vedana'
-      cans.fillStyle = attr?.fillStyle || 'rgba(0, 0, 0, 0.3)'
-      cans.textAlign = attr?.textAlign || 'center'
-      cans.textBaseline = attr?.textBaseline || 'middle'
-      cans.fillText(attr?.str || '防伪 ☆ 加密', width / 20, height)
+      cans.font = attr?.font || initConfig.font
+      cans.fillStyle = attr?.fillStyle || initConfig.fillStyle
+      cans.textAlign = attr?.textAlign || initConfig.textAlign
+      cans.textBaseline = attr?.textBaseline || initConfig.textBaseline
+      cans.fillText(attr?.str || initConfig.str, width / 20, height)
       attr?.str2 && cans.fillText(attr?.str2, width / 20, height + 20)
     }
     return can.toDataURL('image/png')
@@ -53,12 +56,12 @@ export function useWatermark(
     curAttr = attr
     if (!el) return
     if (isDef(attr.width)) {
-      el.style.width = `${attr.width}px`
+      el.style.width = styleConfig.width = `${attr.width}px`
     }
     if (isDef(attr.height)) {
-      el.style.height = `${attr.height}px`
+      el.style.height = styleConfig.height = `${attr.height}px`
     }
-    el.style.background = `url(${createBase64(attr)}) left top repeat`
+    el.style.background = styleConfig.background = `url(${createBase64(attr)}) left top repeat`
   }
 
   const createWatermark = (attr: Attr) => {
@@ -68,12 +71,7 @@ export function useWatermark(
     }
     const div = document.createElement('div')
     watermarkEl.value = div
-    div.id = id
-    div.style.pointerEvents = 'none'
-    div.style.top = '0px'
-    div.style.left = '0px'
-    div.style.position = 'absolute'
-    div.style.zIndex = '100000'
+    setupStyle(div)
     //
     const el = unref(appendEl)
     if (!el) return id
@@ -85,9 +83,19 @@ export function useWatermark(
     return id
   }
 
+  function setupStyle(div: HTMLElement) {
+    div.id = styleConfig.id
+    div.style.pointerEvents = styleConfig['pointer-events']
+    div.style.top = `${styleConfig.top}px`
+    div.style.left = `${styleConfig.left}px`
+    div.style.position = styleConfig.position
+    div.style.zIndex = styleConfig['z-index']
+  }
+
   function setWatermark(attr: Attr = {}) {
     if (!document.getElementById(id)) watermarkEl.value = undefined
     createWatermark(attr)
+    setupProtectWatermark(watermarkEl.value!)
     addResizeListener(document.documentElement, func)
     const instance = getCurrentInstance()
     if (instance) {
