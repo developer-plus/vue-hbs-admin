@@ -2,81 +2,72 @@
   <a-menu
     v-model:openKeys="openKeys"
     v-model:selectedKeys="selectedKeys"
-    mode="inline"
-    theme="dark"
+    mode="inline" theme="dark"
     :inline-collapsed="getCollapsed"
   >
-    <a-sub-menu key="sub1">
-      <template #icon>
-        <AppstoreOutlined />
-      </template>
-      <template #title>
-        Demo
-      </template>
-      <a-menu-item key="3" @click="handleClick('/demo/excel/import')">
-        Import Excel
-      </a-menu-item>
-      <a-menu-item key="4" @click="handleClick('/demo/excel/export')">
-        Export Excel
-      </a-menu-item>
-      <a-menu-item key="5" @click="handleClick('/demo/watermark')">
-        水印
-      </a-menu-item>
-      <a-menu-item key="6" @click="handleClick('/demo/count-to')">
-        CountTo
-      </a-menu-item>
-      <a-menu-item key="7" @click="handleClick('/demo/rich-text')">
-        富文本编辑器
-      </a-menu-item>
-      <a-menu-item key="9" @click="handleClick('/demo/cropper')">
-        图片裁剪
-      </a-menu-item>
-      <a-menu-item key="10" @click="handleClick('/demo/md-editor')">
-        Markdown 编辑器
-      </a-menu-item>
-      <a-menu-item key="11" @click="handleClick('/demo/fullscreen')">
-        全屏
-      </a-menu-item>
-      <a-menu-item key="12" @click="handleClick('/demo/code-editor')">
-        code editor
-      </a-menu-item>
-    </a-sub-menu>
-    <a-sub-menu key="sub2">
-      <template #icon>
-        <ChromeOutlined />
-      </template>
-      <template #title>
-        页面
-      </template>
-      <a-menu-item key="21" @click="handleClick('/page/404')">
-        404页面
-      </a-menu-item>
-    </a-sub-menu>
-    <a-menu-item key="sub3" @click="handleClick('/about')">
-      <template #icon>
-        <SettingOutlined />
-      </template>
-      关于
-    </a-menu-item>
+    <template v-for="menu in menus" :key="menu.path">
+      <menu-item
+        v-if="menu.meta?.single"
+        :menu="menu"
+      />
+      <menu-with-children
+        v-else
+        :current-depth="1"
+        :parent-path="menu.path"
+        :menu="menu"
+      />
+    </template>
   </a-menu>
 </template>
 <script setup lang="ts">
-import {
-  AppstoreOutlined,
-  ChromeOutlined,
-  SettingOutlined
-} from '@ant-design/icons-vue'
-
+import MenuWithChildren from './MenuWithChildren.vue'
+import MenuItem from './MenuItem.vue'
 import { useCollapsed } from '~/layouts/default/useCollapsed'
+import type { RouteModuleList } from '~/router/routes/typings'
+import { useRouteStore } from '~/stores'
 
 const { getCollapsed } = useCollapsed()
 
-const selectedKeys = ref(['1'])
-const openKeys = ref(['sub1'])
+const selectedKeys = ref<string[]>([])
+const openKeys = ref<string[]>([])
 
 const router = useRouter()
+const routeStore = useRouteStore()
+const menus = ref<RouteModuleList>([])
 
-const handleClick = (path: string) => {
-  router.push(path)
+watch(() => routeStore.getRoutes, (routes) => {
+  menus.value = routes
+}, { immediate: true })
+
+// 当路由发生改变时，这里的 selectedKeys 也要发生改变
+// 用于修复进入到不是菜单的路由时，这里的 selectedKeys 仍然是旧的问题
+watch(() => router.currentRoute.value, (currentRoute) => {
+  selectedKeys.value = [currentRoute.path]
+})
+
+// 当刷新页面时，设置菜单选中状态
+function setupCurrentMenu() {
+  const currentRoute = router.currentRoute.value
+  selectedKeys.value = getCurrentMenuRecursive(menus.value, currentRoute.path)
+  openKeys.value = selectedKeys.value
+}
+
+setupCurrentMenu()
+
+function getCurrentMenuRecursive(menus: RouteModuleList, targetKey: string, parentPath = '', parentMenus: GetArrayItemType<RouteModuleList>[] = []) {
+  let keys: string[] = []
+  for (let i = 0; i < menus.length; i++) {
+    const menu = menus[i]
+    const path = parentPath ? `${parentPath}/${menu.path}` : menu.path
+    if (path === targetKey) {
+      keys = [...parentMenus.map(item => item.path), path]
+      break
+    }
+    if (menu.children) {
+      keys = getCurrentMenuRecursive(menu.children, targetKey, path, [...parentMenus, menu])
+      if (keys && keys.length) return keys
+    }
+  }
+  return keys
 }
 </script>

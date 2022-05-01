@@ -3,6 +3,7 @@ import type { App } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { basicRoutes, asyncRoutes } from './routes'
 import { setupRouterGuard } from './guard'
+import { setupDynamicRoutes } from './routes/plugins/dynamicRoutes'
 
 export const router = createRouter({
   routes: [...basicRoutes, ...asyncRoutes],
@@ -15,4 +16,6 @@ export function setupRouter(app: App) {
 
   // Router guard
   setupRouterGuard(router)
+
+  setupDynamicRoutes(asyncRoutes)
 }
