@@ -37,6 +37,9 @@
       <a-menu-item key="11" @click="handleClick('/demo/fullscreen')">
         全屏
       </a-menu-item>
+      <a-menu-item key="12" @click="handleClick('/demo/code-editor')">
+        code editor
+      </a-menu-item>
     </a-sub-menu>
     <a-sub-menu key="sub2">
       <template #icon>

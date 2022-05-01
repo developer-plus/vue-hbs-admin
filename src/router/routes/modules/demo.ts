@@ -46,6 +46,11 @@ const route: RouteRecordRaw = {
       path: 'fullscreen',
       name: 'fullscreen',
       component: () => import('~/views/demo/fullscreen/index.vue')
+    },
+    {
+      path: 'code-editor',
+      name: 'code-editor',
+      component: () => import('~/views/demo/code-editor/index.vue')
     }
   ]
 }
