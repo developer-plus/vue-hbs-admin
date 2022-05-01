@@ -1,18 +1,16 @@
 import { openWindow } from '..'
 
+interface DownloadInfo {
+  url: string
+  target?: TargetContext
+  fileName?: string
+}
+
 /**
  * Download file according to file address
  * @param {*} sUrl
  */
-export function downloadByUrl({
-  url,
-  target = '_blank',
-  fileName
-}: {
-  url: string
-  target?: TargetContext
-  fileName?: string
-}): boolean {
+export function downloadByUrl({ url, target = '_blank', fileName }: DownloadInfo): boolean {
   const isChrome = window.navigator.userAgent.toLowerCase().indexOf('chrome') > -1
   const isSafari = window.navigator.userAgent.toLowerCase().indexOf('safari') > -1
 

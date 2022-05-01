@@ -1,55 +1,59 @@
 # vue-hbs-admin
 
-[在线预览](https://vue-hbs-admin.netlify.app) · [开发文档](https://vue-hbs-admin-docs.netlify.app)
+English / [简体中文](./README.zh-CN.md)
 
-## 简介
+[Live Demo](https://vue-hbs-admin.netlify.app) · [Develop Guide](https://vue-hbs-admin-docs.netlify.app)
 
-为后台管理系统提供现成的开箱解决方案及丰富的示例，提高开发效率。
+<a href="https://github.com/vitejs/awesome-vite"><img src="https://img.shields.io/badge/awesome-vite-blueviolet?style=for-the-badge&logo=vite" /></a> <a href="https://github.com/developer-plus"><img src="https://img.shields.io/badge/developer-plus-9cf?style=for-the-badge" /></a>
 
-## 特性
+## Introduction
 
-- Vue3，Vite2 - 前端最新技术；
-- Pinia - 状态管理；
-- TypeScript - 应用程序级 JavaScript 的语言；
-- UnoCSS - 即时按需原子 CSS 引擎；
-- Mock - 内置 Mock 数据方案；
-- unplugin - API，components 自动导入。
+Provide ready-made out-of-the-box solutions and rich examples for backend management systems to improve development efficiency.
 
-## 初心
+## Features
 
-- 深入学习 Vue3 + Vite + TS；
-- 提供现成的开箱解决方案及丰富的示例，提高开发效率；
-- 学习并掌握项目开发规范、代码规范等；
-- 学习并掌握维护开源项目流程，为日后参加开源打好基础；
-- 抱团进步，一起学习，共同维护，相互 review，步步高升；
-- 定个小目标：300 star。
+- Vue3，Vite2 - Latest Frontend Technologies;
+- Pinia - State Mangement;
+- TypeScript - Type-safe JavaScript superset;
+- UnoCSS - Atomic CSS Engine;
+- Mock - Built-in Mock data solution;
+- unplugin - API, components auto import.
 
-## 参与贡献
+## Why
 
-我们非常欢迎你的贡献，你可以通过以下方式和我们一起共建 😄 ：
+- Learn Vue3 + Vite + TS in depth
+- Provide ready-to-use out-of-the-box solutions and rich examples to improve development efficiency.
+- Learn and master project development specifications, code specifications, etc.
+- Learn and master the process of maintaining open source projects.
+- Group progress, learning together, common maintenance, mutual review, step by step.
+- Set a small goal: get 300 star
 
-- 通过 [Issue](https://github.com/Hongbusi/vue-hbs-admin/issues) 报告 bug、提新需求或进行咨询；
-- 提交 [Pull Request](https://github.com/Hongbusi/vue-hbs-admin/pulls) 改进代码。
+## Participating Contributions
 
-想一起完善这个项目？你可以添加微信：`Hongbusi16530` 了解更多。
+Your contribution is very welcome, and you can build with us in the following ways 😄 :
 
-## Git 提交规范
+- Report bugs, raise new features or description problems via [Issue](https://github.com/Hongbusi/vue-hbs-admin/issues)
+- Submit [Pull Request](https://github.com/Hongbusi/vue-hbs-admin/pulls) to improve featuress
 
-参考 [Vue](https://github.com/vuejs/vue/blob/dev/.github/COMMIT_CONVENTION.md) 规范（[Angular](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular)）
+Want to perfect this project together? You can add WeChat: `Hongbusi16530` to learn more.
 
-- `feat` 新增特性 (feature)
-- `fix` 修复 Bug(bug fix)
-- `docs` 修改文档 (documentation)
-- `style` 代码格式修改（white-space, formatting, missing semi colons, etc）
-- `refactor` 代码重构（refactor）
-- `perf` 改善性能（A code change that improves performance）
-- `test` 测试（when adding missing tests）
-- `build` 变更项目构建或外部依赖（例如 scopes: webpack、gulp、npm 等）
-- `ci` 更改持续集成软件的配置文件和 package 中的 scripts 命令，例如 scopes: Travis, Circle 等
-- `chore` 变更构建流程或辅助工具（比如更改测试环境）
-- `revert` 代码回退
+## Git Commit Specification
 
-## 更新日志
+Refer to the [Vue]((https://github.com/vuejs/vue/blob/dev/.github/COMMIT_CONVENTION.md) ) specification ([Angular](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular))
+
+- `feat` new feature
+- `fix` bug fix
+- `docs` modify documentation
+- `style` code style fix (white-space, formatting, missing semi colons, etc)
+- `refactor` refactor code
+- `perf` a code change that improves performance
+- `test` when adding missing tests
+- `build` changing project builds or external dependencies (such as webpack、gulp、npm and others)
+- `ci` change scripts commands in configuration files and packages of continuous integration software, e.g. Travis, Circle, etc.
+- `chore` changes to the build process or supporting tools (For example, changing the test environment)
+- `revert` code revert
+
+## Changelog
 
 [CHANGELOG](./CHANGELOG.md)
 
