@@ -48,7 +48,7 @@ export function setupMutationObserver(targetNode: HTMLElement = document.body) {
   if (!window.MutationObserver) return console.warn('sorry, your browser doesn\'t support MutationObserver')
   const config = { attributes: true, childList: true, subtree: true }
   const callback = function(mutationsList: MutationRecord[]) {
-    if (!beTrackedElements.value.length || !window.MutationObserver) return
+    if (!beTrackedElements.value.length) return
     for (const mutation of mutationsList) {
       observeRemovedNode(mutation)
     }
