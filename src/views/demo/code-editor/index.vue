@@ -1,18 +1,31 @@
 <template>
-  <div flex mb-20px>
-    <div>
-      <span>主题: </span>
-      <a-select v-model:value="theme" w-200px :options="themeList" @change="onChangeTheme" />
+  <page-wrapper title="code编辑器">
+    <div flex mb-20px>
+      <div>
+        <span>主题: </span>
+        <a-select v-model:value="theme" w-200px :options="themeList" @change="onChangeTheme" />
+      </div>
+      <div ml-20px>
+        <span>语言: </span>
+        <a-select v-model:value="lang" w-200px :options="langList" @change="onChangeLang" />
+      </div>
     </div>
-    <div ml-20px>
-      <span>语言: </span>
-      <a-select v-model:value="lang" w-200px :options="langList" @change="onChangeLang" />
+    <div w-full>
+      <code-editor
+        v-model:value="code"
+        :theme="theme"
+        :lang="lang"
+        width="100%"
+        height="300px"
+        @change="onCodeChange"
+      />
     </div>
-  </div>
-  <code-editor v-model:value="code" :theme="theme" :lang="lang" @change="onCodeChange" />
+  </page-wrapper>
 </template>
 
 <script setup lang="ts">
+import { message } from 'ant-design-vue'
+import { PageWrapper } from '~/components/Page'
 // sql高亮 提示
 import 'codemirror/mode/sql/sql'
 import 'codemirror/addon/hint/sql-hint'
@@ -24,7 +37,6 @@ import 'codemirror/theme/3024-day.css'
 import 'codemirror/theme/3024-night.css'
 import 'codemirror/theme/abcdef.css'
 import 'codemirror/theme/ayu-dark.css'
-import { message } from 'ant-design-vue'
 import CodeEditor from '~/components/CodeEditor/src/CodeEditor.vue'
 
 const theme = ref('ambiance')
