@@ -6,6 +6,7 @@ specifiers:
   '@commitlint/config-conventional': ^16.2.1
   '@hongbusi/eslint-config': ^0.2.1
   '@hongbusi/release': 0.0.6
+  '@types/codemirror': ^5.60.5
   '@types/lodash-es': ^4.17.6
   '@types/node': ^17.0.23
   '@types/nprogress': ^0.2.0
@@ -18,6 +19,7 @@ specifiers:
   '@zxcvbn-ts/core': ^2.0.1
   ant-design-vue: 3.1.0-rc.5
   axios: ^0.26.1
+  codemirror: 5.65.2
   commitizen: ^4.2.4
   conventional-changelog-cli: ^2.2.2
   cropperjs: ^1.5.12
@@ -54,6 +56,7 @@ dependencies:
   '@zxcvbn-ts/core': 2.0.1
   ant-design-vue: 3.1.0-rc.5_vue@3.2.31
   axios: 0.26.1
+  codemirror: 5.65.2
   cropperjs: 1.5.12
   dayjs: 1.11.0
   lodash-es: 4.17.21
@@ -70,6 +73,7 @@ devDependencies:
   '@commitlint/config-conventional': 16.2.1
   '@hongbusi/eslint-config': 0.2.1_eslint@8.12.0+typescript@4.6.3
   '@hongbusi/release': 0.0.6
+  '@types/codemirror': 5.60.5
   '@types/lodash-es': 4.17.6
   '@types/node': 17.0.23
   '@types/nprogress': 0.2.0
@@ -561,6 +565,12 @@ packages:
     resolution: {integrity: sha512-eZxlbI8GZscaGS7kkc/trHTT5xgrjH3/1n2JDwusC9iahPKWMRvRjJSAN5mCXviuTGQ/lHnhvv8Q1YTpnfz9gA==}
     dev: true
 
+  /@types/codemirror/5.60.5:
+    resolution: {integrity: sha512-TiECZmm8St5YxjFUp64LK0c8WU5bxMDt9YaAek1UqUb9swrSCoJhh92fWu1p3mTEqlHjhB5sY7OFBhWroJXZVg==}
+    dependencies:
+      '@types/tern': 0.23.4
+    dev: true
+
   /@types/estree/0.0.39:
     resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
     dev: true
@@ -621,6 +631,12 @@ packages:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
       '@types/node': 17.0.23
+    dev: true
+
+  /@types/tern/0.23.4:
+    resolution: {integrity: sha512-JAUw1iXGO1qaWwEOzxTKJZ/5JxVeON9kvGZ/osgZaJImBnyjyn0cjovPsf6FNLmyGY8Vw9DoXZCMlfMkMwHRWg==}
+    dependencies:
+      '@types/estree': 0.0.39
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.17.0_689ff565753ecf7c3328c07fad067df5:
@@ -1681,6 +1697,10 @@ packages:
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
     dev: true
+
+  /codemirror/5.65.2:
+    resolution: {integrity: sha512-SZM4Zq7XEC8Fhroqe3LxbEEX1zUPWH1wMr5zxiBuiUF64iYOUH/JI88v4tBag8MiBS8B8gRv8O1pPXGYXQ4ErA==}
+    dev: false
 
   /codepage/1.15.0:
     resolution: {integrity: sha512-3g6NUTPd/YtuuGrhMnOMRjFc+LJw/bnMp3+0r/Wcz3IXUuCosKRJvMphm5+Q+bvTVGcJJuRvVLuYba+WojaFaA==}

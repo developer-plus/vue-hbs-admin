@@ -117,6 +117,15 @@ const route: RouteRecordRaw = {
           ]
         }
       ]
+    },
+    {
+      path: 'code-editor',
+      name: 'code-editor',
+      component: () => import('~/views/demo/code-editor/index.vue'),
+      meta: {
+        title: 'CodeEditor',
+        sort: 10
+      }
     }
   ]
 }
