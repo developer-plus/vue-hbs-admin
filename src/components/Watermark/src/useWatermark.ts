@@ -64,7 +64,6 @@ export function useWatermark(
 
   const createWatermark = (attr: Attr) => {
     if (unref(watermarkEl)) {
-      setupProtectWatermark(watermarkEl.value!)
       updateWatermark(attr)
       return id
     }
@@ -79,7 +78,6 @@ export function useWatermark(
     attr.height = height
     updateWatermark(attr)
     el.appendChild(div)
-    setupProtectWatermark(watermarkEl.value!)
     return id
   }
 
@@ -95,6 +93,7 @@ export function useWatermark(
   function setWatermark(attr: Attr = {}) {
     if (!document.getElementById(id)) watermarkEl.value = undefined
     createWatermark(attr)
+    setupProtectWatermark(watermarkEl.value!)
     addResizeListener(document.documentElement, func)
     const instance = getCurrentInstance()
     if (instance) {
