@@ -82,5 +82,4 @@ function onChangeTheme(theme: string) {
 function onChangeLang(lang: string) {
   message.success(`操作成功!当前主题为:${lang}`)
 }
-
 </script>

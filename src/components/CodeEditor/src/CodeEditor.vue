@@ -1,5 +1,5 @@
 <template>
-  <div class="code-mirror" :style="{width: widthComputed, height: heightComputed}">
+  <div class="code-mirror" :style="getStyle">
     <textarea
       ref="textareaRef"
       class="code-textarea"
@@ -14,6 +14,8 @@ import 'codemirror/addon/hint/show-hint.css'
 import 'codemirror/addon/edit/matchbrackets'
 import 'codemirror/addon/selection/active-line'
 import 'codemirror/addon/hint/show-hint'
+import 'codemirror/addon/hint/javascript-hint'
+import 'codemirror/mode/javascript/javascript'
 import CodeMirror from 'codemirror'
 import { merge } from 'lodash-es'
 import { isNumber } from '~/utils/is'
@@ -31,17 +33,16 @@ const props = withDefaults(defineProps<Props>(), {
   value: '',
   width: 600,
   height: 200,
-  lang: 'sql',
+  lang: 'javascript',
   theme: 'ambiance',
   editorOptions: () => ({})
 })
 
-const widthComputed = computed(() => {
-  return isNumber(props.width) ? `${props.width}px` : props.width
-})
-
-const heightComputed = computed(() => {
-  return isNumber(props.height) ? `${props.height}px` : props.height
+const getStyle = computed(() => {
+  return {
+    width: isNumber(props.width) ? `${props.width}px` : props.width,
+    height: isNumber(props.height) ? `${props.height}px` : props.height
+  }
 })
 
 const emits = defineEmits(['update:value', 'change'])
