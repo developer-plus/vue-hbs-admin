@@ -1,5 +1,5 @@
 <template>
-  <page-wrapper title="code编辑器">
+  <page-wrapper title="code 编辑器">
     <div flex mb-20px>
       <div>
         <span>主题: </span>
@@ -17,7 +17,6 @@
         :lang="lang"
         width="100%"
         height="300px"
-        @change="onCodeChange"
       />
     </div>
   </page-wrapper>
@@ -83,5 +82,5 @@ function onChangeTheme(theme: string) {
 function onChangeLang(lang: string) {
   message.success(`操作成功!当前主题为:${lang}`)
 }
-function onCodeChange(code: string) {}
+
 </script>

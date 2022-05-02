@@ -14,7 +14,7 @@ import 'codemirror/addon/hint/show-hint.css'
 import 'codemirror/addon/edit/matchbrackets'
 import 'codemirror/addon/selection/active-line'
 import 'codemirror/addon/hint/show-hint'
-import CodeMirror from 'codemirror/lib/codemirror'
+import CodeMirror from 'codemirror'
 import { merge } from 'lodash-es'
 import { isNumber } from '~/utils/is'
 
@@ -46,7 +46,7 @@ const heightComputed = computed(() => {
 
 const emits = defineEmits(['update:value', 'change'])
 
-const textareaRef = ref(null)
+const textareaRef = ref<HTMLTextAreaElement | null>(null)
 const defaultOptions = {
   mode: props.lang,
   indentWithTabs: true,
@@ -62,7 +62,7 @@ const defaultOptions = {
 const options = merge(defaultOptions, props.editorOptions)
 
 onMounted(() => {
-  const editor = CodeMirror.fromTextArea(textareaRef.value, options)
+  const editor = CodeMirror.fromTextArea(textareaRef.value as HTMLTextAreaElement, options)
   editor.on('inputRead', () => {
     editor.showHint()
   })
