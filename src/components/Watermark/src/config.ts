@@ -1,5 +1,7 @@
 import type { Attr, StyleConfig } from './types'
 
+export const domSymbol = Symbol('watermark-dom')
+
 export const initConfig: Required<Attr> = {
   width: 300,
   height: 240,
@@ -12,7 +14,7 @@ export const initConfig: Required<Attr> = {
 }
 
 export const styleConfig: StyleConfig = reactive({
-  'id': '',
+  'id': domSymbol.toString(),
   'pointer-events': 'none',
   'width': '0px',
   'height': '0px',

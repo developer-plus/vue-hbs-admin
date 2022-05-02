@@ -2,11 +2,9 @@ import type { Ref } from 'vue'
 import { throttle } from 'lodash-es'
 import type { Attr } from './types'
 import { stopProtectWatermark, setupProtectWatermark } from './useProtectWatermark'
-import { initConfig, styleConfig } from './config'
+import { domSymbol, initConfig, styleConfig } from './config'
 import { isDef } from '~/utils/is'
 import { addResizeListener, removeResizeListener } from '~/utils/resize'
-
-const domSymbol = Symbol('watermark-dom')
 
 export function useWatermark(
   appendEl: Ref<HTMLElement | null> = ref(document.body) as Ref<HTMLElement>
@@ -66,6 +64,7 @@ export function useWatermark(
 
   const createWatermark = (attr: Attr) => {
     if (unref(watermarkEl)) {
+      setupProtectWatermark(watermarkEl.value!)
       updateWatermark(attr)
       return id
     }
@@ -80,6 +79,7 @@ export function useWatermark(
     attr.height = height
     updateWatermark(attr)
     el.appendChild(div)
+    setupProtectWatermark(watermarkEl.value!)
     return id
   }
 
@@ -95,7 +95,6 @@ export function useWatermark(
   function setWatermark(attr: Attr = {}) {
     if (!document.getElementById(id)) watermarkEl.value = undefined
     createWatermark(attr)
-    setupProtectWatermark(watermarkEl.value!)
     addResizeListener(document.documentElement, func)
     const instance = getCurrentInstance()
     if (instance) {
