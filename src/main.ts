@@ -8,6 +8,7 @@ import 'uno.css'
 import { setupStore } from '~/stores'
 import { setupRouter } from '~/router'
 import { setupGlobDirectives } from '~/directives'
+import { setupMutationObserver } from '~/utils/useMutationObserver'
 
 function setupApp() {
   const app = createApp(App)
@@ -21,6 +22,9 @@ function setupApp() {
   // Configure directives
   setupGlobDirectives(app)
   app.mount('#app')
+
+  // setup mutation observer
+  setupMutationObserver()
 }
 
 setupApp()
