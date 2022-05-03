@@ -13,7 +13,7 @@
             <span>锁定屏幕</span>
           </span>
         </a-menu-item>
-        <a-menu-item key="logout" @click="()=>user.logout()">
+        <a-menu-item key="logout" @click="() => user.logout()">
           <span class="flex items-center">
             <poweroff-outlined class="mr-1" />
             <span>退出登录</span>
