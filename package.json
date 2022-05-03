@@ -25,7 +25,7 @@
     "@zxcvbn-ts/core": "^2.0.1",
     "ant-design-vue": "3.1.0-rc.5",
     "axios": "^0.26.1",
-    "codemirror": "5.65.2",
+    "codemirror": "5.65.3",
     "cropperjs": "^1.5.12",
     "dayjs": "^1.11.0",
     "lodash-es": "^4.17.21",
