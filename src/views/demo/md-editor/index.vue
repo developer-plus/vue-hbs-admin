@@ -1,27 +1,30 @@
 <template>
-  <a-card title="Markdown 编辑器" :bordered="false" w-full>
-    <div ref="domRef">
-      <a-spin tip="正在加载编辑器中" />
-    </div>
-    <div w-full mt="20px" align="center">
-      <p w-full>
-        使用 Viditor 作为 Markdown 编辑器
-      </p>
-      <p w-full>
-        Github Repo: <a href="https://github.com/Vanessa219/vditor">https://github.com/Vanessa219/vditor</a>
-      </p>
-    </div>
-  </a-card>
-  <a-card title="Markdown 显示器">
-    <div v-html="valueHTML" />
-  </a-card>
-  <a-card title="Markdown value HTML">
-    <textarea v-model="valueHTML" readonly w-full h="200px" outline="none" />
-  </a-card>
+  <page-wrapper title="markdown 编辑器">
+    <a-card title="Markdown 编辑器" :bordered="false" class="enter-y w-full">
+      <div ref="domRef">
+        <a-spin tip="正在加载编辑器中" />
+      </div>
+      <div w-full mt="20px" align="center">
+        <p w-full>
+          使用 Viditor 作为 Markdown 编辑器
+        </p>
+        <p w-full>
+          Github Repo: <a href="https://github.com/Vanessa219/vditor">https://github.com/Vanessa219/vditor</a>
+        </p>
+      </div>
+    </a-card>
+    <a-card title="Markdown 显示器" class="enter-y !mt-16px">
+      <div v-html="valueHTML" />
+    </a-card>
+    <a-card title="Markdown value HTML" class="enter-y !mt-16px">
+      <textarea v-model="valueHTML" readonly w-full h="200px" outline="none" />
+    </a-card>
+  </page-wrapper>
 </template>
 <script setup lang="ts">
 import { promiseTimeout } from '@vueuse/core'
 import Vditor from 'vditor'
+import { PageWrapper } from '~/components/Page'
 import 'vditor/dist/index.css'
 
 const domRef = ref<HTMLElement>()

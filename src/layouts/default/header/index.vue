@@ -1,8 +1,10 @@
 <template>
   <a-layout-header :class="getHeaderClass">
-    <div class="h-full">
+    <div class="h-full flex items-center">
       <sider-trigger class="layout-header-action" />
+      <breadcrumb />
     </div>
+
     <div class="flex h-full">
       <full-screen class="layout-header-action" />
       <user-dropdown class="layout-header-action" />
@@ -18,6 +20,7 @@ import SiderTrigger from './components/SiderTrigger.vue'
 import FullScreen from './components/FullScreen.vue'
 import UserDropdown from './components/UserDropdown.vue'
 import SettingDrawer from './components/SettingDrawer.vue'
+import Breadcrumb from './components/Breadcrumb.vue'
 
 const { getCollapsed } = useCollapsed()
 
