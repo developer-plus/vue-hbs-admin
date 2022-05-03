@@ -1,17 +1,18 @@
 <template>
   <a-breadcrumb class="!ml-2">
     <a-breadcrumb-item v-for="(item,index) in routes" :key="index">
-      {{ item.meta.title }}
+      {{ item.name && item.meta.title }}
     </a-breadcrumb-item>
   </a-breadcrumb>
 </template>
 
 <script setup lang="ts">
-const route = useRoute()
-const router = useRouter()
-const routes = ref(route.matched)
+import type { RouteLocationMatched } from 'vue-router'
 
-router.afterEach((to) => {
-  routes.value = to.matched
+const route = useRoute()
+const routes = ref<RouteLocationMatched[]>([])
+
+watchEffect(() => {
+  routes.value = route.matched.filter(item => !item.meta?.hideBreadcrumb)
 })
 </script>

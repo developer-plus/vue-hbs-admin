@@ -8,15 +8,19 @@ const route: RouteRecordRaw = {
   component: DefaultLayout,
   redirect: '/about',
   meta: {
-    title: '关于',
     icon: SettingOutlined,
     single: true,
-    sort: 4
+    title: '关于',
+    sort: 4,
+    hideBreadcrumb: true
   },
   children: [
     {
       path: '',
       name: 'about-page',
+      meta: {
+        title: '关于'
+      },
       component: () => import('~/views/about/index.vue')
     }
   ]
