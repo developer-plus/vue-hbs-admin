@@ -1,7 +1,5 @@
 <template>
-  <div class="w-full h-full">
-    <Iframe class="w-full h-full" :src="$route.params.src" />
-  </div>
+  <Iframe class="w-full h-full" :src="$route.params.src" />
 </template>
 
 <script setup lang="ts">
