@@ -6,7 +6,7 @@ declare module 'vue-router' {
     // 标题
     title: string
     // 排序索引
-    sort: number
+    sort?: number
     // 是否隐藏菜单
     isHide?: boolean
     // icon，目前仅支持引入 antdv 中的 icon 组件
