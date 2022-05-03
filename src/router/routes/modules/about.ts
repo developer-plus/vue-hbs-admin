@@ -11,16 +11,12 @@ const route: RouteRecordRaw = {
     icon: SettingOutlined,
     single: true,
     title: '关于',
-    sort: 4,
-    hideBreadcrumb: true
+    sort: 4
   },
   children: [
     {
       path: '',
       name: 'about-page',
-      meta: {
-        title: '关于'
-      },
       component: () => import('~/views/about/index.vue')
     }
   ]

@@ -13,8 +13,6 @@ declare module 'vue-router' {
     icon?: FunctionalComponent
     // 是否是单独的菜单
     single?: boolean
-    // 是否隐藏面包屑
-    hideBreadcrumb?: boolean
     // 路由携带参数
     routeParams?: RouteLocationNormalized['params']
     routeQuery?: RouteLocationNormalized['query']
