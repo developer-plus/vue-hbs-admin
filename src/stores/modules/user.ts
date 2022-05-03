@@ -94,6 +94,13 @@ export const useUserStore = defineStore('user', {
       router.push(EnumPath.HOME)
     },
 
+    logout() {
+      this.setToken(undefined)
+      this.setUserInfo(null)
+
+      router.push(EnumPath.LOGIN)
+    },
+
     async getUserInfoAction(): Promise<UserInfo | null> {
       if (!this.getToken) return null
 
