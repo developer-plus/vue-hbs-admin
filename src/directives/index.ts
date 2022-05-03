@@ -4,6 +4,6 @@
 
 import type { App } from 'vue'
 import { setupLazyImgDirectives } from './lazyImg'
-export function setupGlobDirectives (app: App) {
+export function setupGlobDirectives(app: App) {
   setupLazyImgDirectives(app)
 }
