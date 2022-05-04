@@ -4,7 +4,7 @@ specifiers:
   '@ant-design/icons-vue': ^6.1.0
   '@commitlint/cli': ^16.2.3
   '@commitlint/config-conventional': ^16.2.1
-  '@hongbusi/eslint-config': ^0.2.1
+  '@hongbusi/eslint-config': ^0.2.2
   '@hongbusi/release': 0.0.6
   '@types/codemirror': ^5.60.5
   '@types/lodash-es': ^4.17.6
@@ -72,7 +72,7 @@ dependencies:
 devDependencies:
   '@commitlint/cli': 16.2.3
   '@commitlint/config-conventional': 16.2.1
-  '@hongbusi/eslint-config': 0.2.1_eslint@8.12.0+typescript@4.6.3
+  '@hongbusi/eslint-config': 0.2.2_eslint@8.12.0+typescript@4.6.3
   '@hongbusi/release': 0.0.6
   '@types/codemirror': 5.60.5
   '@types/lodash-es': 4.17.6
@@ -357,10 +357,10 @@ packages:
       - supports-color
     dev: true
 
-  /@hongbusi/eslint-config-basic/0.2.1_eslint@8.12.0:
-    resolution: {integrity: sha512-VewoNT4FYFha5b2Wz6+0SI7tTgA7a/ladbklqB7Gtykr3QSQGisle7iFGvezDSDKnVlxhNOIax/D0Wmsh13nXw==}
+  /@hongbusi/eslint-config-basic/0.2.2_eslint@8.12.0:
+    resolution: {integrity: sha512-WWkIXtBePv01umzfE/eysyCegov8FkL+z+pmmxiCsF8hNTF6NNkgBT1jlxQ0PfLKzJaC2h7/6OV/syaPvKWMog==}
     dependencies:
-      eslint-config-standard: 17.0.0-1_1ccea4e0945858d063c2ffc1ceab9e3d
+      eslint-config-standard: 17.0.0_1ccea4e0945858d063c2ffc1ceab9e3d
       eslint-plugin-import: 2.25.4_eslint@8.12.0
       eslint-plugin-n: 15.1.0_eslint@8.12.0
       eslint-plugin-promise: 6.0.0_eslint@8.12.0
@@ -368,10 +368,10 @@ packages:
       - eslint
     dev: true
 
-  /@hongbusi/eslint-config-react/0.2.1_eslint@8.12.0+typescript@4.6.3:
-    resolution: {integrity: sha512-bCHL8tt5yK9wh6PBhvRU2rc8NkefL9HYvRgBDwdnplyMhxJ+UBVvPZOdL2uPJ06PTaufo6XjflGZ90uRi2N/9w==}
+  /@hongbusi/eslint-config-react/0.2.2_eslint@8.12.0+typescript@4.6.3:
+    resolution: {integrity: sha512-TeL6IgCOK4ftmqYYHnbCmWwYnYqa/OdHjwccpqFaBb+kFVoPpSVQWncSGssYyFu0pOj3DFHitPi7DPX1w7ONvw==}
     dependencies:
-      '@hongbusi/eslint-config-ts': 0.2.1_eslint@8.12.0+typescript@4.6.3
+      '@hongbusi/eslint-config-ts': 0.2.2_eslint@8.12.0+typescript@4.6.3
       eslint-plugin-react: 7.29.4_eslint@8.12.0
     transitivePeerDependencies:
       - eslint
@@ -379,10 +379,10 @@ packages:
       - typescript
     dev: true
 
-  /@hongbusi/eslint-config-ts/0.2.1_eslint@8.12.0+typescript@4.6.3:
-    resolution: {integrity: sha512-2W/Jjv74qQ3caIwTCX3OyqY7+1wkCnWKDlId52zBI7bBQQXGEpnWD/zIjm+6VwLVJRmFwayVrigd+1bFWnQUQg==}
+  /@hongbusi/eslint-config-ts/0.2.2_eslint@8.12.0+typescript@4.6.3:
+    resolution: {integrity: sha512-LNQh8W9i3nQDfdrZWRySAwckBQBxiW9aWtG3Pvd6W/zQGqh3HyICZmnspIPG7BHjorv2t2Yk3BnPQuh2fSyBzA==}
     dependencies:
-      '@hongbusi/eslint-config-basic': 0.2.1_eslint@8.12.0
+      '@hongbusi/eslint-config-basic': 0.2.2_eslint@8.12.0
       '@typescript-eslint/eslint-plugin': 5.17.0_689ff565753ecf7c3328c07fad067df5
       '@typescript-eslint/parser': 5.17.0_eslint@8.12.0+typescript@4.6.3
     transitivePeerDependencies:
@@ -391,10 +391,10 @@ packages:
       - typescript
     dev: true
 
-  /@hongbusi/eslint-config-vue/0.2.1_eslint@8.12.0+typescript@4.6.3:
-    resolution: {integrity: sha512-VoROctI5iIKcxI+hkHlloKB2pGyK/IGgApYcq3KMwGve/XgQUDi6xOPunDbBCik9PhfcM4yCEEzpjO79Im56+g==}
+  /@hongbusi/eslint-config-vue/0.2.2_eslint@8.12.0+typescript@4.6.3:
+    resolution: {integrity: sha512-tamMjOFoScH/IFRo6RagiDhuMMEKbgSh22822EDx1ZjmXOB+NKISpVDmPu+UyehstB/T0ogpVAUWDLUDVcwpgQ==}
     dependencies:
-      '@hongbusi/eslint-config-ts': 0.2.1_eslint@8.12.0+typescript@4.6.3
+      '@hongbusi/eslint-config-ts': 0.2.2_eslint@8.12.0+typescript@4.6.3
       eslint-plugin-vue: 8.5.0_eslint@8.12.0
     transitivePeerDependencies:
       - eslint
@@ -402,14 +402,14 @@ packages:
       - typescript
     dev: true
 
-  /@hongbusi/eslint-config/0.2.1_eslint@8.12.0+typescript@4.6.3:
-    resolution: {integrity: sha512-hVMxnUOqGDgnD0235gyLuLQMOLsufOGF5x7Dp5dYfm76Z/lPrJMzXKFV4BC4V3XWFsjLDi5Ow4YQ7PRS/beZrQ==}
+  /@hongbusi/eslint-config/0.2.2_eslint@8.12.0+typescript@4.6.3:
+    resolution: {integrity: sha512-EXIX9vI6Ny3lYD7KLanh0hV6HkZCYkj20qd7AQm2YQN8v8Vj+Hayc7IisGsLC8T+5UmACeXa4KAYmURqNkiftw==}
     dependencies:
-      '@hongbusi/eslint-config-react': 0.2.1_eslint@8.12.0+typescript@4.6.3
-      '@hongbusi/eslint-config-vue': 0.2.1_eslint@8.12.0+typescript@4.6.3
+      '@hongbusi/eslint-config-react': 0.2.2_eslint@8.12.0+typescript@4.6.3
+      '@hongbusi/eslint-config-vue': 0.2.2_eslint@8.12.0+typescript@4.6.3
       '@typescript-eslint/eslint-plugin': 5.17.0_689ff565753ecf7c3328c07fad067df5
       '@typescript-eslint/parser': 5.17.0_eslint@8.12.0+typescript@4.6.3
-      eslint-config-standard: 17.0.0-1_1ccea4e0945858d063c2ffc1ceab9e3d
+      eslint-config-standard: 17.0.0_1ccea4e0945858d063c2ffc1ceab9e3d
       eslint-plugin-import: 2.25.4_eslint@8.12.0
       eslint-plugin-n: 15.1.0_eslint@8.12.0
       eslint-plugin-promise: 6.0.0_eslint@8.12.0
@@ -2574,12 +2574,12 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /eslint-config-standard/17.0.0-1_1ccea4e0945858d063c2ffc1ceab9e3d:
-    resolution: {integrity: sha512-aqRG58dqoBNfOLN+PsitasxmW+W9Os4oQrx081B16T4E4WogsSbpUL6hnKSnyv35sSRYA2XjBtKMOrUboL6jgw==}
+  /eslint-config-standard/17.0.0_1ccea4e0945858d063c2ffc1ceab9e3d:
+    resolution: {integrity: sha512-/2ks1GKyqSOkH7JFvXJicu0iMpoojkwB+f5Du/1SC0PtBL+s8v30k9njRZ21pm2drKYm2342jFnGWzttxPmZVg==}
     peerDependencies:
       eslint: ^8.0.1
       eslint-plugin-import: ^2.25.2
-      eslint-plugin-n: ^14.0.0
+      eslint-plugin-n: ^15.0.0
       eslint-plugin-promise: ^6.0.0
     dependencies:
       eslint: 8.12.0
