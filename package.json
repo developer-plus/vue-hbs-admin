@@ -23,7 +23,7 @@
     "@wangeditor/editor": "^5.0.0",
     "@wangeditor/editor-for-vue": "^5.1.10",
     "@zxcvbn-ts/core": "^2.0.1",
-    "ant-design-vue": "3.1.0-rc.5",
+    "ant-design-vue": "3.2.2",
     "axios": "^0.26.1",
     "codemirror": "5.65.2",
     "cropperjs": "^1.5.12",
