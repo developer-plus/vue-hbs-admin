@@ -7,11 +7,12 @@
 </template>
 
 <script setup lang="ts">
-const route = useRoute()
-const router = useRouter()
-const routes = ref(route.matched)
+import type { RouteLocationMatched } from 'vue-router'
 
-router.afterEach((to) => {
-  routes.value = to.matched
+const route = useRoute()
+const routes = ref<RouteLocationMatched[]>([])
+
+watchEffect(() => {
+  routes.value = route.matched.filter(item => !!item.meta?.title)
 })
 </script>
