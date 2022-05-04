@@ -50,7 +50,8 @@
 
 <script setup lang="ts">
 import { PageWrapper } from '~/components/Page'
-import type { CountTo } from '~/components/CountTo'
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
+import { CountTo } from '~/components/CountTo'
 
 const startVal = ref(0)
 const endVal = ref(6666)
