@@ -25,10 +25,10 @@
     </a-card>
     <a-card title="数字动画（手动）" class="enter-y !mt-16px">
       <a-space>
-        <a-button @click="countToRef.start()">
+        <a-button @click="countToRef?.start()">
           开始
         </a-button>
-        <a-button @click="countToRef.reset()">
+        <a-button @click="countToRef?.reset()">
           重置
         </a-button>
       </a-space>
@@ -49,14 +49,11 @@
 </template>
 
 <script setup lang="ts">
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { PageWrapper } from '~/components/Page'
-import type { Props } from '~/components/CountTo'
-import { CountTo } from '~/components/CountTo'
+import type { CountTo } from '~/components/CountTo'
 
 const startVal = ref(0)
 const endVal = ref(6666)
 
-const countToRef = ref<InstanceType<typeof Props> | null>(null)
-
+const countToRef = ref<InstanceType<typeof CountTo>>()
 </script>
