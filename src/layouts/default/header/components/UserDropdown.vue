@@ -13,7 +13,7 @@
             <span>锁定屏幕</span>
           </span>
         </a-menu-item>
-        <a-menu-item key="logout" @click="() => user.logout()">
+        <a-menu-item key="logout" @click="handleLogout">
           <span class="flex items-center">
             <poweroff-outlined class="mr-1" />
             <span>退出登录</span>
@@ -25,8 +25,14 @@
 </template>
 
 <script setup lang="ts">
+import { message } from 'ant-design-vue'
 import { LockOutlined, PoweroffOutlined } from '@ant-design/icons-vue'
 import { useUserStore } from '~/stores'
 
 const user = useUserStore()
+
+const handleLogout = () => {
+  user.logout()
+  message.success('用户退出成功')
+}
 </script>
