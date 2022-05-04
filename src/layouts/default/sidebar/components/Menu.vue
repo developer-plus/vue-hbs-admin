@@ -86,4 +86,20 @@ const getMenuClass = computed(() => {
       overflow-y: auto;
     }
   }
+
+  /*定义整个滚动条高宽及背景：高宽分别对应横竖滚动条的尺寸*/
+  :deep(::-webkit-scrollbar) {
+    width: 2px;
+    height: 2px;
+    background-color: #F5F5F5;
+  }
+  /*定义滚动条轨道：内阴影+圆角*/
+  :deep(::-webkit-scrollbar-track) {
+    background-color: #F5F5F5;
+  }
+  /*定义滑块：内阴影+圆角*/
+  :deep(::-webkit-scrollbar-thumb) {
+    border-radius: 2px;
+    background-color: rgb(119, 119, 119);
+  }
 </style>
