@@ -45,7 +45,7 @@ export const useUserStore = defineStore('user', {
   actions: {
     setToken(token: string | undefined): void {
       this.token = token || ''
-      localCache.setCache(EnumCache.TOKEN_KEY, token)
+      localCache.setCache(EnumCache.TOKEN_KEY, this.token)
     },
 
     setUserInfo(userInfo: UserInfo | null) {
