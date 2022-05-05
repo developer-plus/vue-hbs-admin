@@ -133,7 +133,16 @@ const route: RouteRecordRaw = {
       component: () => import('~/views/demo/protect-element/index.vue'),
       meta: {
         title: '保护元素',
-        sort: 10
+        sort: 11
+      }
+    },
+    {
+      path: 'file-download',
+      name: 'file-download',
+      component: () => import('~/views/demo/file-download/index.vue'),
+      meta: {
+        title: '文件下载',
+        sort: 12
       }
     }
   ]

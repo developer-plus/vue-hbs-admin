@@ -1,43 +1,32 @@
-import { openWindow } from '..'
-
-interface DownloadInfo {
-  url: string
-  target?: TargetContext
-  fileName?: string
+import { download, dataURLtoBlob, urlToBase64 } from './tool'
+import { IsIE } from '~/utils/userAgent'
+export function downloadDatafile(data: BlobPart, filename: string, mine?: string) {
+  const blob = new Blob([data], { type: mine || ' image/jpeg' })
+  const url = window.URL.createObjectURL(blob)
+  download(url, filename, () => {
+    window.URL.revokeObjectURL(url)
+  })
 }
 
-/**
- * Download file according to file address
- * @param {*} sUrl
- */
-export function downloadByUrl({ url, target = '_blank', fileName }: DownloadInfo): boolean {
-  const isChrome = window.navigator.userAgent.toLowerCase().indexOf('chrome') > -1
-  const isSafari = window.navigator.userAgent.toLowerCase().indexOf('safari') > -1
+export function downloadBase64(data: string, filename: string) {
+  const blob = dataURLtoBlob(data)
+  const url = window.URL.createObjectURL(blob)
+  download(url, filename, () => {
+    window.URL.revokeObjectURL(url)
+  })
+}
 
-  if (/(iP)/g.test(window.navigator.userAgent)) {
-    console.error('Your browser does not support download!')
-    return false
+export function downloadUrlimg(url: string, filename: string, mine?: string) {
+  urlToBase64(url, mine).then((base64) => {
+    downloadBase64(base64, filename)
+  })
+}
+
+export function downloadAdress({ url, target = '_blank', filename = '文件地址下载' }: { url: string; target?: TargetContext; filename?: string }) {
+  if (IsIE() && IsIE() < '9.0') {
+    window.open(url, target)
   }
-  if (isChrome || isSafari) {
-    const link = document.createElement('a')
-    link.href = url
-    link.target = target
-
-    if (link.download !== undefined) {
-      link.download = fileName || url.substring(url.lastIndexOf('/') + 1, url.length)
-    }
-
-    if (document.createEvent) {
-      const e = document.createEvent('MouseEvents')
-      e.initEvent('click', true, true)
-      link.dispatchEvent(e)
-      return true
-    }
+  else {
+    download(url, filename)
   }
-  if (url.indexOf('?') === -1) {
-    url += '?download'
-  }
-
-  openWindow(url, { target })
-  return true
 }
