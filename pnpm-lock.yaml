@@ -32,7 +32,7 @@ specifiers:
   lodash-es: 4.17.21
   mockjs: 1.1.0
   nprogress: 0.2.0
-  pinia: 2.0.13
+  pinia: 2.0.14
   qrcode: 1.5.0
   rollup: 2.72.0
   typescript: 4.6.4
@@ -62,7 +62,7 @@ dependencies:
   dayjs: 1.11.1
   lodash-es: 4.17.21
   nprogress: 0.2.0
-  pinia: 2.0.13_ytvqwwdyss532bvoq2clv4ed5m
+  pinia: 2.0.14_ytvqwwdyss532bvoq2clv4ed5m
   qrcode: 1.5.0
   vditor: 3.8.13
   vue: 3.2.33
@@ -4428,8 +4428,8 @@ packages:
     dev: true
     optional: true
 
-  /pinia/2.0.13_ytvqwwdyss532bvoq2clv4ed5m:
-    resolution: {integrity: sha512-B7rSqm1xNpwcPMnqns8/gVBfbbi7lWTByzS6aPZ4JOXSJD4Y531rZHDCoYWBwLyHY/8hWnXljgiXp6rRyrofcw==}
+  /pinia/2.0.14_ytvqwwdyss532bvoq2clv4ed5m:
+    resolution: {integrity: sha512-0nPuZR4TetT/WcLN+feMSjWJku3SQU7dBbXC6uw+R6FLQJCsg+/0pzXyD82T1FmAYe0lsx+jnEDQ1BLgkRKlxA==}
     peerDependencies:
       '@vue/composition-api': ^1.4.0
       typescript: '>=4.4.4'
