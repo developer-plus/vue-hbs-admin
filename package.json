@@ -62,7 +62,7 @@
     "unplugin-auto-import": "0.6.9",
     "unplugin-icons": "0.14.3",
     "unplugin-vue-components": "0.18.5",
-    "vite": "2.9.1",
+    "vite": "2.9.8",
     "vite-plugin-mock": "2.9.6",
     "vue-tsc": "0.33.9"
   },
