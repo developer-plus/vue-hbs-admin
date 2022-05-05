@@ -17,7 +17,7 @@ specifiers:
   '@wangeditor/editor': 5.0.1
   '@wangeditor/editor-for-vue': 5.1.11
   '@zxcvbn-ts/core': 2.0.1
-  ant-design-vue: 3.1.0-rc.5
+  ant-design-vue: 3.2.3
   axios: 0.26.1
   codemirror: 5.65.2
   commitizen: 4.2.4
@@ -55,7 +55,7 @@ dependencies:
   '@wangeditor/editor': 5.0.1
   '@wangeditor/editor-for-vue': 5.1.11_salllemaetucd3rk6qfwfltuoy
   '@zxcvbn-ts/core': 2.0.1
-  ant-design-vue: 3.1.0-rc.5_vue@3.2.33
+  ant-design-vue: 3.2.3_vue@3.2.33
   axios: 0.26.1
   codemirror: 5.65.2
   cropperjs: 1.5.12
@@ -1471,8 +1471,8 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /ant-design-vue/3.1.0-rc.5_vue@3.2.33:
-    resolution: {integrity: sha512-ntHI5KqHLd4L2oT+Ab+K3vehnDoo26QVWeq1ml7d13uoYS6fLXlnCnrYcHyPGh5fstoaAqFcYm3eh6khcetF/w==}
+  /ant-design-vue/3.2.3_vue@3.2.33:
+    resolution: {integrity: sha512-yjb+YKfh+61zrdY2DSLzrcGkU9ICn9NKWZJa4PzeA+xaZu/f+tjmaUFbI0K0FZgLQANoVM3FZKP/r/IaFlhlmg==}
     peerDependencies:
       vue: '>=3.2.0'
     dependencies:
