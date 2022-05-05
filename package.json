@@ -19,7 +19,7 @@
   "dependencies": {
     "@ant-design/icons-vue": "6.1.0",
     "@unocss/reset": "0.30.13",
-    "@vueuse/core": "8.4.1",
+    "@vueuse/core": "8.4.2",
     "@wangeditor/editor": "5.0.1",
     "@wangeditor/editor-for-vue": "5.1.11",
     "@zxcvbn-ts/core": "2.0.1",
