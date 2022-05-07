@@ -3,11 +3,21 @@
     <div flex mb-20px>
       <div>
         <span>主题: </span>
-        <a-select v-model:value="theme" w-200px :options="themeList" @change="onChangeTheme" />
+        <a-select
+          v-model:value="theme"
+          w-200px
+          :options="themeList"
+          @change="onChangeTheme"
+        />
       </div>
       <div ml-20px>
         <span>语言: </span>
-        <a-select v-model:value="lang" w-200px :options="langList" @change="onChangeLang" />
+        <a-select
+          v-model:value="lang"
+          w-200px
+          :options="langList"
+          @change="onChangeLang"
+        />
       </div>
     </div>
     <div w-full>
@@ -39,42 +49,17 @@ import 'codemirror/theme/ayu-dark.css'
 import CodeEditor from '~/components/CodeEditor/src/CodeEditor.vue'
 
 const theme = ref('ambiance')
-const lang = ref('sql')
+const lang = ref('javascript')
 const code = ref('')
 
-const themeList = [
-  {
-    value: 'ambiance',
-    label: 'ambiance'
-  },
-  {
-    value: '3024-day',
-    label: '3024-day'
-  },
-  {
-    value: '3024-night',
-    label: '3024-night'
-  },
-  {
-    value: 'abcdef',
-    label: 'abcdef'
-  },
-  {
-    value: 'ayu-dark',
-    label: 'ayu-dark'
-  }
-]
+function handleList(list: string[]) {
+  return list.map(item => ({ value: item, label: item }))
+}
+const rawThemeList = ['ambiance', '3024-day', '3024-night', 'ayu-dark']
+const themeList = handleList(rawThemeList)
 
-const langList = [
-  {
-    value: 'javascript',
-    label: 'javascript'
-  },
-  {
-    value: 'sql',
-    label: 'sql'
-  }
-]
+const rawLangList = ['javascript', 'sql']
+const langList = handleList(rawLangList)
 
 function onChangeTheme(theme: string) {
   message.success(`操作成功!当前主题为:${theme}`)
