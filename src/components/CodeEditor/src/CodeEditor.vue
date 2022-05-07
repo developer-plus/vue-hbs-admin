@@ -1,9 +1,6 @@
 <template>
   <div class="code-mirror" :style="getStyle">
-    <textarea
-      ref="textareaRef"
-      class="code-textarea"
-    />
+    <textarea ref="textareaRef" class="code-textarea" />
   </div>
 </template>
 
@@ -16,8 +13,9 @@ import 'codemirror/addon/selection/active-line'
 import 'codemirror/addon/hint/show-hint'
 import 'codemirror/addon/hint/javascript-hint'
 import 'codemirror/mode/javascript/javascript'
+
 import CodeMirror from 'codemirror'
-import { merge } from 'lodash-es'
+import { merge, debounce } from 'lodash-es'
 import { isNumber } from '~/utils/is'
 
 interface Props {
@@ -55,22 +53,40 @@ const defaultOptions = {
   lineNumbers: true,
   matchBrackets: true,
   theme: props.theme,
-  extraKeys: { Ctrl: 'autocomplete' },
-  hintOptions: { // 自定义提示选项
+  hintOptions: {
+    // 自定义提示选项
     completeSingle: false
   }
 }
 const options = merge(defaultOptions, props.editorOptions)
 
 onMounted(() => {
-  const editor = CodeMirror.fromTextArea(textareaRef.value as HTMLTextAreaElement, options)
-  editor.on('inputRead', () => {
-    editor.showHint()
-  })
-  editor.on('change', () => {
-    emits('update:value', editor.getValue())
-    emits('change', editor.getValue())
-  })
+  const editor = CodeMirror.fromTextArea(
+    textareaRef.value as HTMLTextAreaElement,
+    options
+  )
+
+  // 每当从隐藏的文本区域（由用户键入或粘贴）读取新输入时触发
+  editor.on(
+    'inputRead',
+    debounce((instance, changeObj) => {
+      const changeText = changeObj.text[0]
+      // 处理没有代码时，显示代码提示
+      if (changeText === '') return
+      const excludeReg = /[\s()\[\]{};:>]/
+      if (!excludeReg.test(changeText)) {
+        editor.showHint()
+      }
+    })
+  )
+
+  editor.on(
+    'change',
+    debounce(() => {
+      emits('update:value', editor.getValue())
+      emits('change', editor.getValue())
+    })
+  )
   watch(
     () => props.value,
     (newValue) => {
