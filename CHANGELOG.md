@@ -1,3 +1,19 @@
+## [1.2.1](https://github.com/developer-plus/vue-hbs-admin/compare/v1.2.0...v1.2.1) (2022-05-05)
+
+
+### Bug Fixes
+
+* **deps:** add rollup ([#106](https://github.com/developer-plus/vue-hbs-admin/issues/106)) ([8dfab12](https://github.com/developer-plus/vue-hbs-admin/commit/8dfab1297e036cc03e9ba069f878e442454da12d))
+* **deps:** pin dependencies ([#93](https://github.com/developer-plus/vue-hbs-admin/issues/93)) ([8a5609e](https://github.com/developer-plus/vue-hbs-admin/commit/8a5609e667bcf8a2b1520f43afc38c98bd9391d3))
+* **deps:** update dependency @vueuse/core to v8.4.1 ([#114](https://github.com/developer-plus/vue-hbs-admin/issues/114)) ([1dcdace](https://github.com/developer-plus/vue-hbs-admin/commit/1dcdace088890b137120d572f63a68a6ea4f2183))
+* **deps:** update dependency vue-router to v4.0.15 ([#113](https://github.com/developer-plus/vue-hbs-admin/issues/113)) ([2a69f62](https://github.com/developer-plus/vue-hbs-admin/commit/2a69f62e1dd3fbfe1941021532c09da3d5bad74d))
+* element level optimization ([#87](https://github.com/developer-plus/vue-hbs-admin/issues/87)) ([0095cf0](https://github.com/developer-plus/vue-hbs-admin/commit/0095cf017e265e06c9b9a8f2a0bb2ba23fe16976))
+* fix CountTo not working ([#96](https://github.com/developer-plus/vue-hbs-admin/issues/96)) ([0a65d71](https://github.com/developer-plus/vue-hbs-admin/commit/0a65d71c59587bd32d7aa51f58a9d5664c7c52ad))
+* fix low dpi display horizontal page scrollbar ([#112](https://github.com/developer-plus/vue-hbs-admin/issues/112)) ([42e32d3](https://github.com/developer-plus/vue-hbs-admin/commit/42e32d3ee32e6b44d144beb1c9a7e20b2316803d))
+* single breadcrumb item display separator ([#88](https://github.com/developer-plus/vue-hbs-admin/issues/88)) ([8faeedb](https://github.com/developer-plus/vue-hbs-admin/commit/8faeedb27f1b7a93f099a82d0cef177a1f2ff073))
+
+
+
 # [1.2.0](https://github.com/developer-plus/vue-hbs-admin/compare/v1.0.0...v1.2.0) (2022-05-02)
 
 

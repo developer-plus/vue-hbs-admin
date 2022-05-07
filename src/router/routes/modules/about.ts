@@ -8,9 +8,9 @@ const route: RouteRecordRaw = {
   component: DefaultLayout,
   redirect: '/about',
   meta: {
-    title: '关于',
     icon: SettingOutlined,
     single: true,
+    title: '关于',
     sort: 4
   },
   children: [
