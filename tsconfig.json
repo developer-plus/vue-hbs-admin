@@ -30,6 +30,6 @@
     "build/**/*.ts",
     "vite.config.ts",
     "package.json"
-  ],
+, "src/views/demo/file-download/base64.js"  ],
   "exclude": ["dist", "node_modules"]
 }

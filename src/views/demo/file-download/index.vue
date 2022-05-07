@@ -27,8 +27,8 @@
 </template>
 
 <script lang="ts" setup>
+import base64Url from './base64.js'
 import { downloadDatafile, downloadBase64, downloadUrlimg, downloadAdress } from '~/utils/file/download'
-import base64Url from '~/utils/file/base64.js'
 
 const handleDownloadData = () => {
   downloadDatafile('text content', 'testFile.txt')
@@ -48,7 +48,3 @@ const hanldeDownLoadUrlImg = () => {
   downloadUrlimg('https://cdn.jsdelivr.net/gh/architectMymine/architectMymine.github.io@latest/static/cover/2022-02-22.jpg', 'url下载')
 }
 </script>
-
-<style>
-
-</style>
