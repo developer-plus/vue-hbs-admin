@@ -1,3 +1,22 @@
+## [1.2.2](https://github.com/developer-plus/vue-hbs-admin/compare/v1.2.1...v1.2.2) (2022-05-08)
+
+
+### Bug Fixes
+
+* countTo import error ([#109](https://github.com/developer-plus/vue-hbs-admin/issues/109)) ([1ece073](https://github.com/developer-plus/vue-hbs-admin/commit/1ece07303b2e9bfe804c753660cb81175bc97634))
+* **deps:** update dependency @unocss/reset to v0.33.1 ([#124](https://github.com/developer-plus/vue-hbs-admin/issues/124)) ([ebb5313](https://github.com/developer-plus/vue-hbs-admin/commit/ebb5313346115a5f5f4292b7f9e84d993ab29cb9))
+* **deps:** update dependency @vueuse/core to v8.4.2 ([#122](https://github.com/developer-plus/vue-hbs-admin/issues/122)) ([070a4ff](https://github.com/developer-plus/vue-hbs-admin/commit/070a4ff21d531440850d62375e947d6242b9cd6d))
+* **deps:** update dependency ant-design-vue to v3.2.3 ([#118](https://github.com/developer-plus/vue-hbs-admin/issues/118)) ([0dcf8b9](https://github.com/developer-plus/vue-hbs-admin/commit/0dcf8b9b3eea95fe57f79eef9c0d2b142ce026d0))
+* **deps:** update dependency dayjs to v1.11.2 ([#125](https://github.com/developer-plus/vue-hbs-admin/issues/125)) ([9400d19](https://github.com/developer-plus/vue-hbs-admin/commit/9400d19988d88de37a04fa89fab56ef7cdac8b9c))
+* **deps:** update dependency pinia to v2.0.14 ([#121](https://github.com/developer-plus/vue-hbs-admin/issues/121)) ([8a2b7d8](https://github.com/developer-plus/vue-hbs-admin/commit/8a2b7d8676eb533d0d17333da5a3b3061646d74d))
+
+
+### Features
+
+* user logout ([#91](https://github.com/developer-plus/vue-hbs-admin/issues/91)) ([884668b](https://github.com/developer-plus/vue-hbs-admin/commit/884668b7429bd8c470b33a88e58dde92d6ad96f4))
+
+
+
 ## [1.2.1](https://github.com/developer-plus/vue-hbs-admin/compare/v1.2.0...v1.2.1) (2022-05-05)
 
 
