@@ -1,7 +1,4 @@
 import type { AxiosResponse } from 'axios'
-import { tryOnScopeDispose } from '@vueuse/core'
-import type { Ref } from 'vue'
-import { computed, shallowReactive, toRefs, watch } from 'vue'
 import { isArray } from '~/utils/is'
 import { noop } from '~/utils'
 
@@ -24,7 +21,7 @@ const useIsNullRequest = async <T>({
     isArray(res.data.data) ? res.data.data : Object.keys(res.data.data)
   ) as string[] | any[]
   if (response.length === 0) {
-    // 信息提示
+    // todo 信息提示
   }
   if (state && res.data) {
     state.value = res.data.data
