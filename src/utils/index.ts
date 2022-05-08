@@ -10,3 +10,5 @@ export function openWindow(
 
   window.open(url, target, feature.join(','))
 }
+
+export const noop = () => { }
