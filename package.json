@@ -27,7 +27,7 @@
     "axios": "0.26.1",
     "codemirror": "5.65.2",
     "cropperjs": "1.5.12",
-    "dayjs": "1.11.1",
+    "dayjs": "1.11.2",
     "lodash-es": "4.17.21",
     "nprogress": "0.2.0",
     "pinia": "2.0.14",
