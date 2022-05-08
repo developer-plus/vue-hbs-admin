@@ -1,4 +1,5 @@
 import type { AxiosResponse } from 'axios'
+import type { Ref } from 'vue'
 import { isArray } from '~/utils/is'
 import { noop } from '~/utils'
 
