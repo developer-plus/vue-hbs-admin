@@ -45,7 +45,7 @@ export const useUserStore = defineStore('user', {
   actions: {
     setToken(token: string | undefined): void {
       this.token = token || ''
-      localCache.setCache(EnumCache.TOKEN_KEY, token)
+      localCache.setCache(EnumCache.TOKEN_KEY, this.token)
     },
 
     setUserInfo(userInfo: UserInfo | null) {
@@ -92,6 +92,13 @@ export const useUserStore = defineStore('user', {
       await this.getMenuListAction()
 
       router.push(EnumPath.HOME)
+    },
+
+    logout() {
+      this.setToken(undefined)
+      this.setUserInfo(null)
+
+      router.push(EnumPath.LOGIN)
     },
 
     async getUserInfoAction(): Promise<UserInfo | null> {
