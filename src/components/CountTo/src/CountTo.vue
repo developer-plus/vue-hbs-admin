@@ -6,7 +6,7 @@
 import { TransitionPresets } from '@vueuse/core'
 import { isNumber } from '~/utils/is'
 
-export interface Props {
+interface Props {
   startVal?: number
   endVal?: number
   duration?: number
