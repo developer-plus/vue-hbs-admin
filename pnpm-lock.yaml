@@ -11,7 +11,7 @@ specifiers:
   '@types/node': 17.0.31
   '@types/nprogress': 0.2.0
   '@types/qrcode': 1.4.2
-  '@unocss/reset': 0.30.13
+  '@unocss/reset': 0.33.1
   '@vitejs/plugin-vue': 2.3.2
   '@vueuse/core': 8.4.2
   '@wangeditor/editor': 5.0.1
@@ -50,7 +50,7 @@ specifiers:
 
 dependencies:
   '@ant-design/icons-vue': 6.1.0_vue@3.2.33
-  '@unocss/reset': 0.30.13
+  '@unocss/reset': 0.33.1
   '@vueuse/core': 8.4.2_vue@3.2.33
   '@wangeditor/editor': 5.0.1
   '@wangeditor/editor-for-vue': 5.1.11_salllemaetucd3rk6qfwfltuoy
@@ -874,13 +874,8 @@ packages:
       '@unocss/preset-mini': 0.33.1
     dev: true
 
-  /@unocss/reset/0.30.13:
-    resolution: {integrity: sha512-zPchuJUdcE3XJXrLdInt1jk0FCTPY4q+B/MLBB5Io+a4g5Qg2oafXbh9ly4Jd7nggz8Dqrww7DP4INAUgl/egA==}
-    dev: false
-
   /@unocss/reset/0.33.1:
     resolution: {integrity: sha512-tcl6jsNmrWwCyyBo1rZ0rmL7RtFCpU7jv4/+FzPONHBk4EcyQCYnXlT9j5RaLEM0x4AzylgOFBdXLCkuu+u2cQ==}
-    dev: true
 
   /@unocss/scope/0.33.1:
     resolution: {integrity: sha512-02dAzZB5KUCmzqslw7MuH2tXwPcdidhoLcEXoL++5Y66JSFa281Ld732o3LlwM/kk1KJe5nK7N8E/mnSJa9cEw==}
