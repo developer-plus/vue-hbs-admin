@@ -41,13 +41,17 @@ onMounted(() => {
         const res = await proxy.axiosOptions()
         setProxyOptions(proxy, res)
       }
-      if (proxy.defaultValue) {
-        setProxyDefaultValue(proxy)
-      }
       closeComponentLoading(proxy)
       axiosOptionsMap.delete(proxy.key)
     })
   }
+})
+onMounted(() => {
+  data.value.forEach((proxy) => {
+    if (proxy.defaultValue) {
+      setProxyDefaultValue(proxy)
+    }
+  })
 })
 
 function setProxyOptions(proxy: TickFormData, value: any[]) {

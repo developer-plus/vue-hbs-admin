@@ -29,7 +29,7 @@ const options: TickFormItem[] = [
     ant: true
   }
 ]
-function generatorParams() {
+function antValidator() {
   TickFromRef.value?.antValidator(() => {
     // console.log('%c [isValidator]-34-ant.vue」', 'font-size:13px; background:pink; color:#bf2c9f;', '验证通过')
   })
@@ -37,9 +37,9 @@ function generatorParams() {
 </script>
 
 <template>
-  <a-card title="表单验证方式1">
+  <a-card title="表单验证方式2">
     <tick-form ref="TickFromRef" :options="options" />
-    <a-button @click="generatorParams">
+    <a-button @click="antValidator">
       获取参数
     </a-button>
   </a-card>

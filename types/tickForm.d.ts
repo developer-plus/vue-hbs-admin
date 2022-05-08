@@ -17,12 +17,12 @@ declare interface TickFormItem {
   axiosOptions?: () => Promise<any[]>
   reconfiguration?: (value: any) => { key: string; value: any }[]
   update?: (row: any) => any
-  reset?: (formItem: TickFormData) => any
+  reset?: (formItem: TickFormData) => string | boolean | number | object
   // naiveValidator?: (rule: FormItemRule, value: any) => boolean | Error
   antValidator?: () => boolean | Error
   // validator?: (value: FormPlusData, message: MessageApi) => boolean
   validator?: () => boolean
-  watchCallBack?: (params: TickFormData[], value: string[], self: TickFormData) => Promise<any[]>
+  watchCallBack?: (params: TickFormData[], value: string[], self: TickFormData) => void
 }
 declare interface TickFormData extends TickFormItem {
   value: any | null
@@ -36,5 +36,6 @@ declare interface TickFormType {
   antValidator: (callBack: Function) => void
   generatorParams: () => object
   validator: () => boolean
-  reset: () => boolean
+  reset: () => void
+  update: (value: object) => void
 }

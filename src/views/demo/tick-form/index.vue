@@ -1,7 +1,10 @@
 <script lang='ts' setup>
 import Params from './demo/params.vue'
 import Ant from './demo/ant.vue'
+import Reset from './demo/reset.vue'
+import Watch from './demo/watch.vue'
 import Validator from './demo/validator.vue'
+import Update from './demo/update.vue'
 import { PageWrapper } from '~/components/Page/index'
 
 </script>
@@ -9,8 +12,11 @@ import { PageWrapper } from '~/components/Page/index'
 <template>
   <page-wrapper title="tick动态表单">
     <params />
-    <validator />x
+    <validator />
     <ant />
+    <reset />
+    <watch />
+    <update />
   </page-wrapper>
 </template>
 

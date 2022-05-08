@@ -9,8 +9,7 @@ const options: TickFormItem[] = [
   {
     label: '账号',
     key: 'username',
-    type: 'Input',
-    defaultValue: '默认值'
+    type: 'Input'
   },
   {
     label: '爱好',
@@ -28,17 +27,19 @@ const options: TickFormItem[] = [
     }
   }
 ]
-function generatorParams() {
-  const params = TickFromRef.value?.generatorParams()
-  // console.log('%c [params]-33-「params.vue」', 'font-size:13px; background:pink; color:#bf2c9f;', params)
+function update() {
+  TickFromRef.value?.update({
+    username: '更新的值',
+    like: '121'
+  })
 }
 </script>
 
 <template>
   <a-card title="参数获取">
     <tick-form ref="TickFromRef" :options="options" />
-    <a-button @click="generatorParams">
-      获取参数
+    <a-button @click="update">
+      更新
     </a-button>
   </a-card>
 </template>

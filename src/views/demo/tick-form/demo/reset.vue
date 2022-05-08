@@ -10,7 +10,9 @@ const options: TickFormItem[] = [
     label: '账号',
     key: 'username',
     type: 'Input',
-    defaultValue: '默认值'
+    reset() {
+      return '自定义单独项目'
+    }
   },
   {
     label: '爱好',
@@ -28,17 +30,16 @@ const options: TickFormItem[] = [
     }
   }
 ]
-function generatorParams() {
-  const params = TickFromRef.value?.generatorParams()
-  // console.log('%c [params]-33-「params.vue」', 'font-size:13px; background:pink; color:#bf2c9f;', params)
+function reset() {
+  TickFromRef.value?.reset()
 }
 </script>
 
 <template>
-  <a-card title="参数获取">
+  <a-card title="表单重置">
     <tick-form ref="TickFromRef" :options="options" />
-    <a-button @click="generatorParams">
-      获取参数
+    <a-button @click="reset">
+      表单重制
     </a-button>
   </a-card>
 </template>

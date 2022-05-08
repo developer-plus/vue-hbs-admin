@@ -7,8 +7,7 @@ const options: TickFormItem[] = [
   {
     label: '账号',
     key: 'username',
-    type: 'Input',
-    required: true
+    type: 'Input'
   },
   {
     label: '爱好',
@@ -23,6 +22,12 @@ const options: TickFormItem[] = [
           }
         ])
       })
+    },
+    watchKey: ['username'],
+    watchCallBack(params: TickFormData[], value: string[], self: TickFormData) {
+      // console.log('%c [params]-28-「watch.vue」', 'font-size:13px; background:pink; color:#bf2c9f;', params)
+      // console.log('%c [value]-29-「watch.vue」', 'font-size:13px; background:pink; color:#bf2c9f;', value)
+      // console.log('%c [self]-30-「watch.vue」', 'font-size:13px; background:pink; color:#bf2c9f;', self)
     }
   }
 ]
@@ -33,11 +38,9 @@ function validator() {
 </script>
 
 <template>
-  <a-card title="表单验证方式1">
+  <a-card title="表单项目之间互相监听">
     <tick-form ref="TickFromRef" :options="options" />
-    <a-button @click="validator">
-      获取参数
-    </a-button>
+    <p>在账号内输入可获取log</p>
   </a-card>
 </template>
 
