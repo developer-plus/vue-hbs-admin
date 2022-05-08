@@ -4,21 +4,22 @@ declare interface TickFormItem {
   key: string
   type: string
   cops?: object
-  path?: string
+  name?: string
   message?: string
   trigger?: string
   required?: boolean
   rules?: object[]
-  naive?: boolean
+  ant?: boolean
   proxyKey?: string | string[]
   watchKey?: string[] | string
   defaultValue?: any
+  valueType?: string
   axiosOptions?: () => Promise<any[]>
   reconfiguration?: (value: any) => { key: string; value: any }[]
   update?: (row: any) => any
   reset?: (formItem: TickFormData) => any
   // naiveValidator?: (rule: FormItemRule, value: any) => boolean | Error
-  naiveValidator?: () => boolean | Error
+  antValidator?: () => boolean | Error
   // validator?: (value: FormPlusData, message: MessageApi) => boolean
   validator?: () => boolean
   watchCallBack?: (params: TickFormData[], value: string[], self: TickFormData) => Promise<any[]>
@@ -31,4 +32,9 @@ declare interface TickFormData extends TickFormItem {
   _isWatchUpdate: boolean
 }
 
-declare type TickFormType = InstanceType<typeof TickFrom>
+declare interface TickFormType {
+  antValidator: (callBack: Function) => void
+  generatorParams: () => object
+  validator: () => boolean
+  reset: () => boolean
+}

@@ -1,9 +1,11 @@
 <script lang="ts" setup>
 import type { WatchStopHandle } from 'vue'
+import { message } from 'ant-design-vue'
 import TickFormProps from './props'
 import { noop } from '~/utils/index'
 import { logError, logWarning } from '~/utils/log'
 import { isArray } from '~/utils/is'
+import IframeVue from '~/components/Iframe/src/Iframe.vue'
 // todo 信息提示
 // <->
 
@@ -20,6 +22,7 @@ const _value = computed(() => {
   return generatorParams('role')
 })
 
+const formRules = ref<any>({})
 // RefDom | RefComponent
 const dataForm = ref<any>(null)
 
@@ -54,11 +57,28 @@ function setProxyDefaultValue(proxy: TickFormData) {
   proxy.value = proxy.defaultValue || null
 }
 
-function mixinRules(preDataItem: TickFormData) {
-  const { rules, required, message, label } = preDataItem
-  if (rules) return
-  if (required) {
-    preDataItem.rules = [{ required, message: message || `${label}不可为空请输入` }]
+function initRules() {
+  for (let i = 0; i < data.value.length; i++) {
+    const it = data.value[i]
+    let rule: any
+    const { rules, ant, message, label, required, trigger, valueType, antValidator, name, key } = it
+    if (!rules) {
+      rule = {
+        required: !!(ant || required),
+        trigger: trigger || ['blur'],
+        type: valueType || 'string',
+        validator: antValidator,
+        message: message || `${label}不可为空`
+      }
+    }
+    else {
+      rule = rules
+    }
+    if (rule.validator) {
+      delete rule.validator
+    }
+    const ruleKey = (key || name) as string
+    formRules.value[ruleKey] = rule
   }
 }
 function initializeTheCenter() {
@@ -68,6 +88,7 @@ function initializeTheCenter() {
   for (const iterator of options.value) {
     mixinData(iterator)
   }
+  initRules()
   initWatch()
 }
 initializeTheCenter()
@@ -135,13 +156,13 @@ function mixinData(iterator: TickFormItem) {
     _isWatchUpdate = false
   }
   const dataItem = {
-    ...iterator,
+    ant: false,
     value: null,
     options: [],
     _loading: true,
-    _isWatchUpdate
+    _isWatchUpdate,
+    ...iterator
   }
-  mixinRules(dataItem)
   const ProxyLength = data.value.push(dataItem)
 
   const proxy = data.value[ProxyLength - 1]
@@ -260,6 +281,7 @@ function validator() {
         return true
       }
       // todo  信息提示
+      message.warning(it.message || `请按照要求填写${it.label}`)
       return false
     }
     return true
@@ -286,15 +308,24 @@ defineExpose({
 </script>
 
 <template>
-  <a-form v-bind="props.formConfig" ref="dataForm" :model="_value">
-    <a-form-item v-for="item in data.value" :key="item.key" :label="item.label" :rules="item.rules">
-      <template v-if="item.type === 'Input'">
-        <a-input v-model:value="item.value" v-bind="item.cops" />
-      </template>
-      <template v-if="item.type === 'InputNumber'">
-        <a-input-number v-model:value="item.value" v-bind="item.cops" />
-      </template>
-    </a-form-item>
+  <a-form v-bind="props.formConfig" ref="dataForm" :model="_value" :rules="formRules">
+    <template v-for="item in data.value" :key="item.key">
+      <a-form-item :label="item.label" :rules="item.rules" :name="item.name || item.key">
+        <template v-if="item.type === 'Input'">
+          <a-input v-model:value="item.value" v-bind="item.cops" />
+        </template>
+        <template v-if="item.type === 'InputNumber'">
+          <a-input-number v-model:value="item.value" v-bind="item.cops" />
+        </template>
+        <template v-if="item.type === 'Select'">
+          <a-select v-model:value="item.value" v-bind="item.cops" :loading="item._loading">
+            <a-select-option v-for="childItem in item.options" :key="childItem.value">
+              {{ childItem.label }}
+            </a-select-option>
+          </a-select>
+        </template>
+      </a-form-item>
+    </template>
   </a-form>
 </template>
 
