@@ -24,7 +24,7 @@ specifiers:
   conventional-changelog-cli: 2.2.2
   cropperjs: 1.5.12
   cz-conventional-changelog: 3.3.0
-  dayjs: 1.11.1
+  dayjs: 1.11.2
   eslint: 8.15.0
   husky: 7.0.4
   less: 4.1.2
@@ -59,7 +59,7 @@ dependencies:
   axios: 0.26.1
   codemirror: 5.65.2
   cropperjs: 1.5.12
-  dayjs: 1.11.1
+  dayjs: 1.11.2
   lodash-es: 4.17.21
   nprogress: 0.2.0
   pinia: 2.0.14_ytvqwwdyss532bvoq2clv4ed5m
@@ -1524,7 +1524,7 @@ packages:
       '@simonwep/pickr': 1.8.2
       array-tree-filter: 2.1.0
       async-validator: 4.0.7
-      dayjs: 1.11.1
+      dayjs: 1.11.2
       dom-align: 1.12.2
       dom-scroll-into-view: 2.0.1
       lodash: 4.17.21
@@ -2192,8 +2192,8 @@ packages:
     resolution: {integrity: sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==}
     dev: true
 
-  /dayjs/1.11.1:
-    resolution: {integrity: sha512-ER7EjqVAMkRRsxNCC5YqJ9d9VQYuWdGt7aiH2qA5R5wt8ZmWaP2dLUSIK6y/kVzLMlmh1Tvu5xUf4M/wdGJ5KA==}
+  /dayjs/1.11.2:
+    resolution: {integrity: sha512-F4LXf1OeU9hrSYRPTTj/6FbO4HTjPKXvEIC1P2kcnFurViINCVk3ZV0xAS3XVx9MkMsXbbqlK6hjseaYbgKEHw==}
     dev: false
 
   /debug/2.6.9:
