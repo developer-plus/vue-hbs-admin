@@ -13,6 +13,24 @@ const options: TickFormItem[] = [
     defaultValue: '默认值'
   },
   {
+    label: '分割',
+    key: 'tick',
+    type: 'Input',
+    defaultValue: '默认分割',
+    reconfiguration(value) {
+      return [
+        {
+          key: 's1',
+          value: value[0]
+        },
+        {
+          key: 's2',
+          value: value[1]
+        }
+      ]
+    }
+  },
+  {
     label: '爱好',
     key: 'like',
     type: 'Select',
@@ -40,6 +58,9 @@ function generatorParams() {
     <a-button @click="generatorParams">
       获取参数
     </a-button>
+    <p>
+      分割字段默认的key其实是tick，按照逻辑参数应该输出key字段，可是我在此配置项种加入了重构参数，所以tick被分割成了多个字段
+    </p>
   </a-card>
 </template>
 

@@ -5,7 +5,7 @@ import TickFormProps from './props'
 import { noop } from '~/utils/index'
 import { logError, logWarning } from '~/utils/log'
 import { isArray } from '~/utils/is'
-import IframeVue from '~/components/Iframe/src/Iframe.vue'
+
 // todo 信息提示
 // <->
 
@@ -134,15 +134,8 @@ function initWatch() {
 
     const stopWatch = watch(collectTheKeyFunction, async(newValue) => {
       openComponentLoading(item)
-      const res = item.watchCallBack && (await item.watchCallBack(params, newValue, item))
-      if (item._isWatchUpdate) {
-        item.value = null
-      }
-      else {
-        item._isWatchUpdate = true
-      }
-      item.options = res as any[]
-      // todo initRules()
+      item.watchCallBack && (await item.watchCallBack(params, newValue, item))
+      initRules()
       closeComponentLoading(item)
     })
     stopWatchr.push(stopWatch)
@@ -207,7 +200,7 @@ async function update(it: any) {
       targetProxy._watch()
     }
 
-    const value = targetProxy.update ? targetProxy.update(it) : it[key] ? it[key] : null
+    const value = targetProxy.update ? targetProxy.update(it) : it[key] || null
     const isTargetProxyHas = noOptionsType.indexOf(targetProxy.type) === -1
 
     let stopWatch: WatchStopHandle = noop

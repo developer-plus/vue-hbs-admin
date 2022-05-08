@@ -31,10 +31,6 @@ const options: TickFormItem[] = [
     }
   }
 ]
-function validator() {
-  const isValidator = TickFromRef.value?.validator()
-  // console.log('%c [isValidator]-32-「validator.vue」', 'font-size:13px; background:pink; color:#bf2c9f;', isValidator ? '验证通过' : '验证失败')
-}
 </script>
 
 <template>

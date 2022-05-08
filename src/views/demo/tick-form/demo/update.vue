@@ -12,6 +12,12 @@ const options: TickFormItem[] = [
     type: 'Input'
   },
   {
+    label: '密码',
+    key: 'password',
+    type: 'Input',
+    proxyKey: ['tick']
+  },
+  {
     label: '爱好',
     key: 'like',
     type: 'Select',
@@ -30,17 +36,21 @@ const options: TickFormItem[] = [
 function update() {
   TickFromRef.value?.update({
     username: '更新的值',
-    like: '121'
+    like: '121',
+    tick: 'tick'
   })
 }
 </script>
 
 <template>
-  <a-card title="参数获取">
+  <a-card title="参数更新">
     <tick-form ref="TickFromRef" :options="options" />
     <a-button @click="update">
       更新
     </a-button>
+    <p>
+      密码的key其实是password，但是我让他代理了tick当数据中存在tick字段时也会更新
+    </p>
   </a-card>
 </template>
 
