@@ -11,4 +11,12 @@ export function openWindow(
   window.open(url, target, feature.join(','))
 }
 
-export const noop = () => { }
+export const noop = () => {}
+
+export function tryOnScopeDispose(fn: () => void) {
+  if (getCurrentScope()) {
+    onScopeDispose(fn)
+    return true
+  }
+  return false
+}
