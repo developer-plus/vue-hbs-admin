@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import TickForm from '~/components/TickFrom/src/TickForm.vue'
+import TickForm from '~/components/TickForm/src/TickForm.vue'
 
 const TickFromRef = ref<TickFormType | null>(null)
 
