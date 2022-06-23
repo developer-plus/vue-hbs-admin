@@ -1,5 +1,5 @@
-<script lang='ts' setup>
-import TickForm from '~/components/tickForm/src/TickForm.vue'
+<script lang="ts" setup>
+import TickForm from '~/components/TickFrom/src/TickForm.vue'
 
 const TickFromRef = ref<TickFormType | null>(null)
 
@@ -41,5 +41,4 @@ function validator() {
   </a-card>
 </template>
 
-<style lang='scss' scoped>
-</style>
+<style lang="scss" scoped></style>

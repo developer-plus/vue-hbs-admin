@@ -1,7 +1,7 @@
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { message } from 'ant-design-vue'
 import { PageWrapper } from '~/components/Page'
-import TickForm from '~/components/tickForm/src/TickForm.vue'
+import TickForm from '~/components/TickFrom/src/TickForm.vue'
 
 const TickFromRef = ref<TickFormType | null>(null)
 
@@ -44,5 +44,4 @@ function reset() {
   </a-card>
 </template>
 
-<style lang='scss' scoped>
-</style>
+<style lang="scss" scoped></style>
