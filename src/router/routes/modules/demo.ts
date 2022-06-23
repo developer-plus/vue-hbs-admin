@@ -135,6 +135,15 @@ const route: RouteRecordRaw = {
         title: '保护元素',
         sort: 10
       }
+    },
+    {
+      path: 'tick-form',
+      name: 'tick-form',
+      component: () => import('~/views/demo/tick-form/index.vue'),
+      meta: {
+        title: 'tick表单',
+        sort: 11
+      }
     }
   ]
 }
