@@ -12,7 +12,7 @@
 
 ## 特性
 
-- Vue3，Vite2 - 前端最新技术；
+- Vue3，Vite3 - 前端最新技术；
 - Pinia - 状态管理；
 - TypeScript - 应用程序级 JavaScript 的语言；
 - UnoCSS - 即时按需原子 CSS 引擎；
@@ -58,6 +58,7 @@
 [CHANGELOG](./CHANGELOG.md)
 
 ## Contributors
+
 ![GitHub Contributors Image](https://contrib.rocks/image?repo=developer-plus/vue-hbs-admin)
 
 ## LICENSE

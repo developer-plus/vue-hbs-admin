@@ -12,7 +12,7 @@ Provide ready-made out-of-the-box solutions and rich examples for backend manage
 
 ## Features
 
-- Vue3，Vite2 - Latest Frontend Technologies;
+- Vue3，Vite3 - Latest Frontend Technologies;
 - Pinia - State Mangement;
 - TypeScript - Type-safe JavaScript superset;
 - UnoCSS - Atomic CSS Engine;
@@ -58,6 +58,7 @@ Refer to the [Vue]((https://github.com/vuejs/vue/blob/dev/.github/COMMIT_CONVENT
 [CHANGELOG](./CHANGELOG.md)
 
 ## Contributors
+
 ![GitHub Contributors Image](https://contrib.rocks/image?repo=developer-plus/vue-hbs-admin)
 
 ## LICENSE
