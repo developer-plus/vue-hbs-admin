@@ -1,23 +1,26 @@
 <template>
-  <a-menu
-    v-model:openKeys="openKeys"
-    v-model:selectedKeys="selectedKeys"
-    mode="inline" theme="dark"
-    :inline-collapsed="getCollapsed"
-  >
-    <template v-for="menu in menus" :key="menu.path">
-      <menu-item
-        v-if="menu.meta?.single"
-        :menu="menu"
-      />
-      <menu-with-children
-        v-else
-        :current-depth="1"
-        :parent-path="menu.path"
-        :menu="menu"
-      />
-    </template>
-  </a-menu>
+  <div>
+    <a-menu
+      v-model:openKeys="openKeys"
+      v-model:selectedKeys="selectedKeys"
+      :class="getMenuClass"
+      mode="inline" theme="dark"
+      :inline-collapsed="getCollapsed"
+    >
+      <template v-for="menu in menus" :key="menu.path">
+        <menu-item
+          v-if="menu.meta?.single"
+          :menu="menu"
+        />
+        <menu-with-children
+          v-else
+          :current-depth="1"
+          :parent-path="menu.path"
+          :menu="menu"
+        />
+      </template>
+    </a-menu>
+  </div>
 </template>
 <script setup lang="ts">
 import MenuWithChildren from './MenuWithChildren.vue'
@@ -70,4 +73,33 @@ function getCurrentMenuRecursive(menus: RouteModuleList, targetKey: string, pare
   }
   return keys
 }
+
+const getMenuClass = computed(() => {
+  return ['menu-class', 'menu-class--fixed']
+})
 </script>
+
+<style scoped lang="less">
+  :deep(.menu-class) {
+    &--fixed {
+      height: calc(100vh - 56px);
+      overflow-y: auto;
+    }
+  }
+
+  /*定义整个滚动条高宽及背景：高宽分别对应横竖滚动条的尺寸*/
+  :deep(::-webkit-scrollbar) {
+    width: 2px;
+    height: 2px;
+    background-color: #F5F5F5;
+  }
+  /*定义滚动条轨道：内阴影+圆角*/
+  :deep(::-webkit-scrollbar-track) {
+    background-color: #F5F5F5;
+  }
+  /*定义滑块：内阴影+圆角*/
+  :deep(::-webkit-scrollbar-thumb) {
+    border-radius: 2px;
+    background-color: rgb(119, 119, 119);
+  }
+</style>
